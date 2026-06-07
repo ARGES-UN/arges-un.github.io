@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css');
+
+/* ============================================================
+   ARCANUM · Sistema de diseño global
+   Semillero de Soldadura & END · UNAL Bogotá
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --arc:         #E05C1A;
+  --arc-dark:    #B8440E;
+  --arc-light:   rgba(224, 92, 26, 0.10);
+  --metal:       #1E1E1E;
+  --metal-mid:   #2A2A2A;
+  --metal-light: #3D3D3D;
+  --steel:       #8C8C8C;
+  --bg:          #F5F3EF;
+  --bg-alt:      #ECEAE5;
+  --surface:     #FFFFFF;
+  --text:        #1A1A1A;
+  --text-muted:  #6B6B6B;
+  --text-faint:  #9A9A9A;
+  --border:      rgba(0, 0, 0, 0.09);
+  --border-mid:  rgba(0, 0, 0, 0.16);
+  --mono: 'Space Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --transition: 0.18s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- TIPOGRAFÍA BASE ---- */
+h1, h2, h3, h4 { font-family: var(--mono); font-weight: 700; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
+h2 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
+h3 { font-size: 1rem; letter-spacing: 0.06em; }
+h4 { font-size: 0.9rem; font-weight: 700; }
+p  { color: var(--text-muted); }
+a  { color: var(--arc); text-decoration: none; transition: opacity var(--transition); }
+a:hover { opacity: 0.75; }
+
+/* ---- LAYOUT ---- */
+.container { max-width: 1020px; margin: 0 auto; padding: 0 2rem; }
+.section    { padding: 4rem 0; }
+
+/* ---- SECTION HEADER ---- */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.section-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--arc);
+  text-transform: uppercase;
+  background: var(--arc-light);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+.section-line { flex: 1; height: 1px; background: var(--border-mid); }
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* ---- BOTONES ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  border: none;
+}
+.btn-primary {
+  background: var(--arc);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--arc-dark); opacity: 1; }
+
+.btn-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.22);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: #fff; opacity: 1; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--arc);
+  border: 1px solid var(--arc);
+}
+.btn-outline:hover { background: var(--arc); color: #fff; opacity: 1; }
+
+/* ---- NAVEGACIÓN ---- */
+.nav {
+  background: var(--metal);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+.nav-logo .dot { color: var(--arc); }
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.55);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+  text-decoration: none;
+}
+.nav-links a:hover,
+.nav-links a.active { color: #fff; opacity: 1; }
+.nav-links a.active { border-bottom: 1px solid var(--arc); padding-bottom: 2px; }
+
+/* hamburger (mobile) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: rgba(255,255,255,0.7);
+  transition: all var(--transition);
+}
+
+/* ---- FOOTER ---- */
+.footer {
+  background: var(--metal);
+  padding: 1.4rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+}
+.footer-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--arc);
+  opacity: 0.8;
+}
+.footer-link:hover { opacity: 1; }
+
+/* ---- CARDS GENÉRICAS ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.card:hover { transform: translateY(-3px); border-color: var(--border-mid); }
+.card-accent { border-left: 3px solid var(--arc); }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 720px) {
+  .container { padding: 0 1.2rem; }
+  .section { padding: 2.5rem 0; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 56px; left: 0; right: 0; background: var(--metal-mid); padding: 1rem 1.5rem; gap: 1rem; }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 4px; }
+}

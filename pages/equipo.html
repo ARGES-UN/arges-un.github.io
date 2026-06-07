@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Equipo de investigación ARCANUM · Semillero de Soldadura y END · UNAL Bogotá" />
+  <title>Equipo · ARCANUM</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal-delay="3"] { transition-delay: 0.3s; }
+    [data-reveal-delay="4"] { transition-delay: 0.4s; }
+
+    /* PAGE HEADER */
+    .page-header { background: var(--metal); padding: 4rem 0 3rem; position: relative; overflow: hidden; }
+    .page-header-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 44px 44px; pointer-events: none;
+    }
+    .page-header-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--arc); text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px; }
+    .page-header-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--arc); display: inline-block; }
+    .page-header h1 { color: #fff; }
+    .page-header p { color: rgba(255,255,255,0.5); max-width: 520px; font-size: 15px; margin-top: 0.75rem; }
+
+    /* DIRECTOR */
+    .director-card {
+      background: var(--metal);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+    .avatar-lg {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--arc);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .director-info h3 { color: #fff; font-size: 1.1rem; margin-bottom: 3px; font-family: var(--sans); font-weight: 600; }
+    .director-role { font-family: var(--mono); font-size: 11px; color: var(--arc); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .director-bio { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.65; margin-bottom: 1rem; }
+    .director-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .interest-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 3px 9px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ROLE SECTION */
+    .role-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* MEMBER GRID */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+    .member-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.3rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .member-card:hover { border-color: var(--arc); transform: translateY(-2px); }
+    .avatar-sm {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--metal);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.85rem;
+    }
+    .member-card h4 { font-size: 14px; color: var(--text); margin-bottom: 2px; font-family: var(--sans); font-weight: 500; }
+    .member-card .role { font-family: var(--mono); font-size: 10px; color: var(--arc); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .member-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+    .member-focus {
+      margin-top: 0.6rem;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-faint);
+      letter-spacing: 0.05em;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .member-focus::before { content: '—'; color: var(--arc); }
+
+    /* JOIN CARD */
+    .join-card {
+      background: var(--bg-alt);
+      border: 1.5px dashed var(--border-mid);
+      border-radius: var(--radius-md);
+      padding: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      transition: border-color var(--transition);
+    }
+    .join-card:hover { border-color: var(--arc); }
+    .join-card .plus {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--arc-light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--arc);
+      font-size: 22px;
+    }
+    .join-card h4 { font-size: 14px; color: var(--text); font-family: var(--sans); font-weight: 500; }
+    .join-card p { font-size: 12.5px; }
+
+    /* VALORES */
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .valor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.3rem;
+    }
+    .valor-icon { font-size: 22px; color: var(--arc); margin-bottom: 0.7rem; }
+    .valor-card h4 { font-size: 13px; color: var(--text); margin-bottom: 0.35rem; font-family: var(--mono); font-weight: 700; }
+    .valor-card p { font-size: 13px; }
+
+    @media (max-width: 600px) {
+      .director-card { grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo">ARC<span class="dot">.</span>ANUM</a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="investigacion.html">Investigación</a></li>
+        <li><a href="equipo.html">Equipo</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-grid"></div>
+    <div class="container">
+      <div class="page-header-eyebrow">ARCANUM · UNAL</div>
+      <h1>Equipo</h1>
+      <p>Las personas detrás de cada cordón depositado, cada señal analizada y cada resultado publicado.</p>
+    </div>
+  </div>
+
+  <!-- DIRECTOR -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-tag">Dirección</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="director-card" data-reveal>
+        <div class="avatar-lg">DR</div>
+        <div class="director-info">
+          <h3>Dr. [Nombre del Director]</h3>
+          <div class="director-role">Director del semillero</div>
+          <p class="director-bio">
+            Profesor asociado del Departamento de Ingeniería Mecánica y Mecatrónica de la Universidad Nacional de Colombia. Doctor en Ingeniería con énfasis en materiales y procesos de manufactura. Más de 10 años de experiencia en investigación en soldadura y caracterización de materiales.
+          </p>
+          <div class="director-tags">
+            <span class="interest-tag">Soldadura</span>
+            <span class="interest-tag">WAAM</span>
+            <span class="interest-tag">Metalurgia</span>
+            <span class="interest-tag">END</span>
+            <span class="interest-tag">Fabricación aditiva</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INVESTIGADORES -->
+      <div class="role-label" data-reveal>Investigadores</div>
+      <div class="members-grid">
+        <div class="member-card" data-reveal data-reveal-delay="1">
+          <div class="avatar-sm" style="background: #185FA5;">LC</div>
+          <h4>Laura Castillo</h4>
+          <div class="role">MSc · Investigadora</div>
+          <p>Posgrado en Ingeniería Mecánica. Tesis en metalurgia de soldadura WAAM.</p>
+          <div class="member-focus">Microestructura · HAZ</div>
+        </div>
+        <div class="member-card" data-reveal data-reveal-delay="2">
+          <div class="avatar-sm" style="background: #0F6E56;">SM</div>
+          <h4>Santiago Molina</h4>
+          <div class="role">MSc · Investigador</div>
+          <p>Énfasis en ensayos no destructivos y señal ultrasónica.</p>
+          <div class="member-focus">Ultrasonido · Phased Array</div>
+        </div>
+        <div class="member-card" data-reveal data-reveal-delay="3">
+          <div class="avatar-sm" style="background: #3B6D11;">AP</div>
+          <h4>Ana Pinzón</h4>
+          <div class="role">MSc · Investigadora</div>
+          <p>Especialización en radiografía industrial y criterios de aceptación ASME.</p>
+          <div class="member-focus">RT digital · ASME IX</div>
+        </div>
+      </div>
+
+      <!-- ESTUDIANTES -->
+      <div class="role-label" data-reveal>Estudiantes de pregrado</div>
+      <div class="members-grid">
+        <div class="member-card" data-reveal data-reveal-delay="1">
+          <div class="avatar-sm">JM</div>
+          <h4>Julián Moreno</h4>
+          <div class="role">Estudiante · Ing. Mecánica</div>
+          <p>Trabajo de grado en optimización de parámetros WAAM.</p>
+          <div class="member-focus">WAAM · Parámetros</div>
+        </div>
+        <div class="member-card" data-reveal data-reveal-delay="2">
+          <div class="avatar-sm">VR</div>
+          <h4>Valentina Ríos</h4>
+          <div class="role">Estudiante · Ing. Mecánica</div>
+          <p>Proyecto en caracterización metalográfica de cordones multicapa.</p>
+          <div class="member-focus">Metalografía · SEM</div>
+        </div>
+        <div class="member-card" data-reveal data-reveal-delay="3">
+          <div class="avatar-sm">CF</div>
+          <h4>Carlos Fuentes</h4>
+          <div class="role">Estudiante · Ing. Mecatrónica</div>
+          <p>Automatización del sistema de adquisición de datos térmicos.</p>
+          <div class="member-focus">DAQ · Arduino</div>
+        </div>
+        <div class="join-card" data-reveal data-reveal-delay="4">
+          <div class="plus"><i class="ti ti-plus" aria-hidden="true"></i></div>
+          <h4>¡Tu nombre aquí!</h4>
+          <p>Convocatoria abierta para estudiantes de pregrado. Cupos limitados.</p>
+          <a href="contacto.html" class="btn btn-outline" style="font-size:11px; padding: 0.5rem 1rem; margin-top: 4px;">Postúlate →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="section" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-tag">Cultura</span>
+        <div class="section-line"></div>
+        <span class="section-label">Cómo trabajamos</span>
+      </div>
+      <div class="valores-grid">
+        <div class="valor-card" data-reveal data-reveal-delay="1">
+          <div class="valor-icon"><i class="ti ti-flask" aria-hidden="true"></i></div>
+          <h4>Rigor experimental</h4>
+          <p>Cada resultado parte de datos reproducibles. Documentamos todos los parámetros y condiciones de cada ensayo.</p>
+        </div>
+        <div class="valor-card" data-reveal data-reveal-delay="2">
+          <div class="valor-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <h4>Trabajo en equipo</h4>
+          <p>Reuniones semanales, revisión cruzada de resultados y responsabilidades compartidas en el laboratorio.</p>
+        </div>
+        <div class="valor-card" data-reveal data-reveal-delay="3">
+          <div class="valor-icon"><i class="ti ti-book" aria-hidden="true"></i></div>
+          <h4>Formación continua</h4>
+          <p>Cada miembro desarrolla habilidades técnicas y de escritura científica a lo largo de su participación en el grupo.</p>
+        </div>
+        <div class="valor-card" data-reveal data-reveal-delay="4">
+          <div class="valor-icon"><i class="ti ti-share" aria-hidden="true"></i></div>
+          <h4>Difusión abierta</h4>
+          <p>Publicamos en acceso abierto, presentamos en congresos y compartimos nuestros datos con la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 ARCANUM · Semillero de Soldadura & END · UNAL Bogotá</span>
+      <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

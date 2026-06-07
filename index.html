@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Semillero de investigación en soldadura WAAM y ensayos no destructivos · Universidad Nacional de Colombia · Bogotá" />
+  <title>ARCANUM · Soldadura & END · UNAL</title>
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Animaciones de reveal -->
+  <style>
+    [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal-delay="3"] { transition-delay: 0.3s; }
+    [data-reveal-delay="4"] { transition-delay: 0.4s; }
+ 
+    /* ---- HERO ---- */
+    .hero {
+      background: var(--metal);
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .hero-glow {
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(224,92,26,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--arc);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 1px;
+      background: var(--arc);
+    }
+    .hero h1 { color: #fff; margin-bottom: 1.4rem; }
+    .hero h1 .hl { color: var(--arc); }
+    .hero-desc {
+      color: rgba(255,255,255,0.55);
+      font-size: 17px;
+      font-weight: 300;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+ 
+    /* ---- STATS BAR ---- */
+    .stats-bar {
+      background: var(--arc);
+      padding: 0;
+      overflow-x: auto;
+    }
+    .stats-inner {
+      display: flex;
+      gap: 0;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      padding: 1.1rem 2.2rem;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      min-width: 140px;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.05em;
+    }
+ 
+    /* ---- ÁREAS ---- */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+    .area-card { position: relative; }
+    .area-icon {
+      width: 40px; height: 40px;
+      background: var(--arc-light);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--arc);
+      font-size: 20px;
+    }
+    .area-card h3 { color: var(--text); margin-bottom: 0.5rem; }
+    .area-card p { font-size: 14px; line-height: 1.6; }
+    .area-card .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--arc);
+      margin-top: 0.75rem;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+ 
+    /* ---- ÚLTIMAS NOTICIAS (home) ---- */
+    .news-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .news-card { display: flex; flex-direction: column; }
+    .news-card-date {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--arc);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .news-card h4 { font-size: 15px; color: var(--text); margin-bottom: 0.4rem; font-family: var(--sans); font-weight: 600; }
+    .news-card p { font-size: 13.5px; }
+    .news-card .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      margin-top: auto;
+      padding-top: 0.75rem;
+      color: var(--arc);
+    }
+ 
+    /* ---- CTA BANNER ---- */
+    .cta-banner {
+      background: var(--metal);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cta-banner h2 { color: #fff; font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .cta-banner p { color: rgba(255,255,255,0.5); font-size: 14px; max-width: 460px; }
+ 
+    @media (max-width: 600px) {
+      .stats-inner { flex-wrap: wrap; }
+      .cta-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">ARC<span class="dot">.</span>ANUM</a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pages/investigacion.html">Investigación</a></li>
+        <li><a href="pages/equipo.html">Equipo</a></li>
+        <li><a href="pages/noticias.html">Noticias</a></li>
+        <li><a href="pages/contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="hero-eyebrow">Lab. Soldadura & END · UNAL Bogotá</div>
+      <h1>Donde el arco<br>revela lo <span class="hl">invisible</span></h1>
+      <p class="hero-desc">
+        Semillero de investigación en soldadura WAAM y ensayos no destructivos.
+        Fabricamos, inspeccionamos y comprendemos los materiales desde adentro.
+      </p>
+      <div class="hero-ctas">
+        <a href="pages/investigacion.html" class="btn btn-primary">Ver proyectos &rarr;</a>
+        <a href="pages/contacto.html" class="btn btn-ghost">Únete al grupo</a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ===================== STATS BAR ===================== -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat">
+          <span class="stat-num" data-count="2">0</span>
+          <span class="stat-label">Años de horizonte</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="3">0</span>
+          <span class="stat-label">Líneas de investigación</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">WAAM</span>
+          <span class="stat-label">Wire Arc Additive Mfg.</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">END</span>
+          <span class="stat-label">Ensayos No Destructivos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">UNAL</span>
+          <span class="stat-label">Bogotá · Ing. Mecánica</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ===================== ÁREAS ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-tag">Áreas</span>
+        <div class="section-line"></div>
+        <span class="section-label">Líneas de trabajo</span>
+      </div>
+      <div class="areas-grid">
+        <div class="card card-accent" data-reveal data-reveal-delay="1">
+          <div class="area-icon"><i class="ti ti-layers-intersect" aria-hidden="true"></i></div>
+          <h3>Fabricación WAAM</h3>
+          <p>Depósito capa a capa mediante arco eléctrico. Control de parámetros térmicos, geometría y microestructura del depósito.</p>
+          <a href="pages/investigacion.html#waam" class="arrow-link">Más detalle →</a>
+        </div>
+        <div class="card card-accent" data-reveal data-reveal-delay="2">
+          <div class="area-icon"><i class="ti ti-ripple" aria-hidden="true"></i></div>
+          <h3>Ultrasonido (UT)</h3>
+          <p>Detección de discontinuidades internas. Phased array y técnicas avanzadas de inspección volumétrica en cordones soldados.</p>
+          <a href="pages/investigacion.html#ut" class="arrow-link">Más detalle →</a>
+        </div>
+        <div class="card card-accent" data-reveal data-reveal-delay="3">
+          <div class="area-icon"><i class="ti ti-radiation" aria-hidden="true"></i></div>
+          <h3>Radiografía (RT)</h3>
+          <p>Inspección radiográfica digital de uniones soldadas. Análisis de porosidad, fisuras y falta de fusión con criterios ASME/AWS.</p>
+          <a href="pages/investigacion.html#rt" class="arrow-link">Más detalle →</a>
+        </div>
+        <div class="card card-accent" data-reveal data-reveal-delay="4">
+          <div class="area-icon"><i class="ti ti-microscope" aria-hidden="true"></i></div>
+          <h3>Metalurgia</h3>
+          <p>Caracterización microestructural de zonas de fusión y HAZ. Correlación proceso–microestructura–propiedades mecánicas.</p>
+          <a href="pages/investigacion.html#metal" class="arrow-link">Más detalle →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ===================== ÚLTIMAS NOTICIAS ===================== -->
+  <section class="section" style="background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-tag">Noticias</span>
+        <div class="section-line"></div>
+        <a href="pages/noticias.html" class="section-label" style="color: var(--arc);">Ver todas →</a>
+      </div>
+      <div class="news-preview">
+        <div class="card" data-reveal data-reveal-delay="1">
+          <div class="news-card-date">May 2026</div>
+          <h4>Apertura de convocatoria 2026-I</h4>
+          <p>Inscripciones para nuevos miembros del semillero abiertas. Estudiantes de Ing. Mecánica y Mecatrónica pueden postularse.</p>
+          <span class="tag">Convocatoria</span>
+        </div>
+        <div class="card" data-reveal data-reveal-delay="2">
+          <div class="news-card-date">Mar 2026</div>
+          <h4>Primer depósito WAAM exitoso en ER70S-6</h4>
+          <p>Muro multicapa de 12 cordones con análisis metalográfico completo. Resultados presentados en reunión de grupo.</p>
+          <span class="tag">Investigación</span>
+        </div>
+        <div class="card" data-reveal data-reveal-delay="3">
+          <div class="news-card-date">Ene 2026</div>
+          <h4>Constitución oficial en Hermes · UNAL</h4>
+          <p>El semillero queda registrado en el sistema de investigación de la Universidad Nacional de Colombia.</p>
+          <span class="tag">Institucional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ===================== CTA BANNER ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner" data-reveal>
+        <div>
+          <h2>¿Quieres investigar con nosotros?</h2>
+          <p>Buscamos estudiantes de pregrado y posgrado apasionados por la fabricación avanzada y el análisis de materiales. Cupos limitados cada semestre.</p>
+        </div>
+        <a href="pages/contacto.html" class="btn btn-primary">Postúlate &rarr;</a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 ARCANUM · Semillero de Soldadura & END · UNAL Bogotá</span>
+      <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
+    </div>
+  </footer>
+ 
+  <script src="js/main.js"></script>
+</body>
+</html>

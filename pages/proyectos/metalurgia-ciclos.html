@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evolución microestructural · ARGES</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/proyectos.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="nav-logo-img-wrap">
+          <img src="../../assets/img/logo.svg" alt="Arges logo" class="nav-logo-img" onerror="this.style.display='none'"/>
+        </span>
+        ARGES
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../investigacion.html">Investigación</a></li>
+        <li><a href="../equipo.html">Equipo</a></li>
+        <li><a href="../noticias.html">Noticias</a></li>
+        <li><a href="../contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="proyecto-hero">
+    <div class="proyecto-hero-grid"></div>
+    <div class="proyecto-hero-glow"></div>
+    <div class="container">
+      <div class="proyecto-hero-inner">
+        <div class="proyecto-breadcrumb">
+          <a href="../investigacion.html">Investigación</a>
+          <span class="sep">/</span>
+          <a href="../investigacion.html#materiales">Materiales</a>
+          <span class="sep">/</span>
+          <span class="current">Evolución microestructural</span>
+        </div>
+        <div class="proyecto-meta-top">
+          <span class="badge badge-active">En curso</span>
+        </div>
+        <h1>Evolución microestructural por ciclos térmicos en WAAM multicapa</h1>
+        <p class="proyecto-hero-desc">Estudio de la evolución microestructural capa a capa en muros WAAM de acero ER70S-6 mediante microscopía óptica y SEM. Correlación con mapas de microdureza Vickers y señales END.</p>
+        <div class="proyecto-hero-integrantes">
+          <span class="proyecto-hero-integrantes-label">Equipo &nbsp;</span>
+          <a href="../equipo.html#laura-castillo" class="integrante-chip">L. Castillo</a>
+          <a href="../equipo.html#valentina-rios" class="integrante-chip">V. Ríos</a>
+        </div>
+      </div>
+    </div>
+    <img src="../../assets/img/proyectos/metalurgia-ciclos.svg" alt="Ciclos térmicos WAAM" class="proyecto-cover" />
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="proyecto-layout">
+
+        <div class="proyecto-main">
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Contexto y motivación</div>
+            <p>En la fabricación WAAM de muros multicapa, cada nueva capa depositada actúa como un ciclo de tratamiento térmico sobre las capas inferiores: las recalienta por encima de la temperatura de transformación de fase y las enfría a distintas velocidades según la distancia a la fuente de calor. Esto genera una microestructura heterogénea a lo largo de la altura del muro.</p>
+            <p>Comprender esta heterogeneidad es fundamental por dos razones: primero, las propiedades mecánicas del material varían posición a posición dentro de la pieza, lo que afecta su desempeño en servicio. Segundo, la variación microestructural influye en la velocidad de propagación del ultrasonido y la atenuación, lo que tiene implicaciones directas para la interpretación de señales END.</p>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Objetivos</div>
+            <ul class="objetivos-list">
+              <li><i class="ti ti-target" aria-hidden="true"></i>Caracterizar la microestructura en la zona de fusión, HAZ y zona recalentada para cada capa de un muro WAAM de 10 capas.</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Construir mapas de microdureza Vickers en alta resolución (grilla 0.3 mm) sobre la sección transversal completa del muro.</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Estimar el número de ciclos térmicos que recibe cada posición del muro mediante modelo térmico simple y correlacionarlo con el tamaño de grano medido.</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Correlacionar los gradientes de dureza con las variaciones de señal UT reportadas en el proyecto de correlación.</li>
+            </ul>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Metodología</div>
+            <div class="metodologia-steps">
+              <div class="metodo-step">
+                <div class="metodo-step-num">1</div>
+                <div class="metodo-step-body">
+                  <h4>Fabricación del muro de referencia</h4>
+                  <p>Muro WAAM de 10 capas (150 × 80 × 50 mm) con parámetros óptimos definidos en el proyecto de parámetros. Se registra la temperatura interlayered con termopar tipo K embebido en el sustrato.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">2</div>
+                <div class="metodo-step-body">
+                  <h4>Preparación metalográfica sistemática</h4>
+                  <p>Corte en tres secciones: inicio, centro y final del muro. Para cada sección: desbaste (80–2000 grit), pulido diamante 3 µm y 1 µm, pulido OPS 0.04 µm, ataque Nital 2% por 8 s.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">3</div>
+                <div class="metodo-step-body">
+                  <h4>Microscopía óptica y SEM</h4>
+                  <p>Observación sistemática capa a capa en microscopio óptico (50×–500×). Medición de tamaño de grano ASTM E112. Análisis SEM-EDS en zonas de interés para identificación de fases y segregaciones.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">4</div>
+                <div class="metodo-step-body">
+                  <h4>Mapas de microdureza y correlación</h4>
+                  <p>Grilla de indentaciones HV0.3 con paso 0.3 mm en toda la sección transversal. Visualización de mapas de dureza con gradiente de color. Correlación estadística con tamaño de grano y número estimado de ciclos térmicos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Resultados parciales</div>
+            <div class="resultados-grid">
+              <div class="resultado-card"><span class="num">3</span><span class="label">Secciones analizadas</span></div>
+              <div class="resultado-card"><span class="num">1 200+</span><span class="label">Indentaciones Vickers</span></div>
+              <div class="resultado-card"><span class="num">HV 180–240</span><span class="label">Rango de dureza en el muro</span></div>
+              <div class="resultado-card"><span class="num">En curso</span><span class="label">Análisis SEM</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="proyecto-sidebar">
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Integrantes</div>
+            <div class="sidebar-block-body">
+              <a href="../equipo.html#laura-castillo" class="sidebar-integrante">
+                <div class="sidebar-avatar">LC</div>
+                <div class="sidebar-integrante-info">
+                  <span class="sidebar-integrante-name">Laura Castillo</span>
+                  <span class="sidebar-integrante-role">MSc · Investigadora</span>
+                </div>
+              </a>
+              <a href="../equipo.html#valentina-rios" class="sidebar-integrante">
+                <div class="sidebar-avatar">VR</div>
+                <div class="sidebar-integrante-info">
+                  <span class="sidebar-integrante-name">Valentina Ríos</span>
+                  <span class="sidebar-integrante-role">Estudiante · Pregrado</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Proyectos relacionados</div>
+            <div class="sidebar-block-body">
+              <div class="sidebar-related">
+                <a href="waam-parametros.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>Optimización de parámetros WAAM</a>
+                <a href="ut-correlacion.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>Correlación señal UT</a>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Información</div>
+            <div class="sidebar-block-body">
+              <div class="sidebar-info-line"><i class="ti ti-calendar" aria-hidden="true"></i><div><strong>Inicio</strong>Marzo 2026</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-clock" aria-hidden="true"></i><div><strong>Duración</strong>14 meses</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-tool" aria-hidden="true"></i><div><strong>Equipo</strong>Microscopio óptico · SEM · Durómetro Vickers</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-building" aria-hidden="true"></i><div><strong>Institución</strong>UNAL Bogotá · Ing. Mecánica</div></div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
+      <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
+    </div>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

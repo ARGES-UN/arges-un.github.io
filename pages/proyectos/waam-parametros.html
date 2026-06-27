@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optimización de parámetros WAAM · ARGES</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/proyectos.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="nav-logo-img-wrap">
+          <img src="../../assets/img/logo.svg" alt="Arges logo" class="nav-logo-img" onerror="this.style.display='none'"/>
+        </span>
+        ARGES
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../investigacion.html">Investigación</a></li>
+        <li><a href="../equipo.html">Equipo</a></li>
+        <li><a href="../noticias.html">Noticias</a></li>
+        <li><a href="../contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="proyecto-hero">
+    <div class="proyecto-hero-grid"></div>
+    <div class="proyecto-hero-glow"></div>
+    <div class="container">
+      <div class="proyecto-hero-inner">
+        <div class="proyecto-breadcrumb">
+          <a href="../investigacion.html">Investigación</a>
+          <span class="sep">/</span>
+          <a href="../investigacion.html#waam">WAAM</a>
+          <span class="sep">/</span>
+          <span class="current">Optimización de parámetros</span>
+        </div>
+        <div class="proyecto-meta-top">
+          <span class="badge badge-active">En curso</span>
+          <span class="badge badge-waam">WAAM</span>
+        </div>
+        <h1>Optimización de parámetros de depósito en acero ER70S-6</h1>
+        <p class="proyecto-hero-desc">Estudio sistemático de los parámetros del proceso GMAW sobre la geometría del cordón, dilución y microestructura resultante en fabricación WAAM sobre sustrato ASTM A36.</p>
+        <div class="proyecto-hero-integrantes">
+          <span class="proyecto-hero-integrantes-label">Equipo &nbsp;</span>
+          <a href="../equipo.html#laura-castillo" class="integrante-chip">L. Castillo</a>
+          <a href="../equipo.html#julian-moreno" class="integrante-chip">J. Moreno</a>
+        </div>
+      </div>
+    </div>
+    <img src="../../assets/img/proyectos/waam-parametros.svg" alt="Depósito WAAM ER70S-6" class="proyecto-cover" />
+  </div>
+
+  <!-- CONTENIDO -->
+  <section class="section">
+    <div class="container">
+      <div class="proyecto-layout">
+
+        <!-- MAIN -->
+        <div class="proyecto-main">
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Contexto y motivación</div>
+            <p>El Wire Arc Additive Manufacturing (WAAM) es una técnica de fabricación aditiva que deposita material metálico capa a capa mediante el calor generado por un arco eléctrico. A diferencia de otros procesos de fabricación aditiva, WAAM permite altas tasas de deposición y el uso de materiales convencionales de soldadura, lo que lo hace atractivo para la industria aeronáutica, naval y de petróleo y gas.</p>
+            <p>Sin embargo, la calidad del material depositado depende fuertemente de los parámetros del proceso: corriente, tensión, velocidad de avance y velocidad de alimentación del alambre. Una selección inadecuada de parámetros puede resultar en defectos internos, distorsión geométrica y propiedades mecánicas heterogéneas a lo largo del muro depositado.</p>
+            <p>Este proyecto busca construir un mapa sistemático de parámetros óptimos para el acero ER70S-6, el electrodo de mayor uso en aplicaciones estructurales, a partir de experimentos controlados con análisis de geometría, metalografía y microdureza.</p>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Objetivos</div>
+            <ul class="objetivos-list">
+              <li><i class="ti ti-target" aria-hidden="true"></i>Determinar la influencia de corriente, velocidad de avance y aporte térmico lineal sobre la geometría del cordón unitario (ancho, altura, dilución).</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Caracterizar la microestructura resultante en la zona de fusión y la zona afectada por el calor (HAZ) para cada combinación de parámetros.</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Construir modelos de regresión que relacionen los parámetros de entrada con las características geométricas y metalúrgicas de salida.</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Identificar ventanas de parámetros óptimos para la fabricación de muros multicapa con propiedades homogéneas.</li>
+            </ul>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Metodología</div>
+            <div class="metodologia-steps">
+              <div class="metodo-step">
+                <div class="metodo-step-num">1</div>
+                <div class="metodo-step-body">
+                  <h4>Diseño experimental</h4>
+                  <p>Diseño factorial de experimentos (DOE) con tres factores: corriente (120–220 A), velocidad de avance (300–600 mm/min) y velocidad de alambre (4–8 m/min). Se aplica un diseño Box-Behnken con puntos centrales para 15 combinaciones experimentales.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">2</div>
+                <div class="metodo-step-body">
+                  <h4>Deposición y medición geométrica</h4>
+                  <p>Para cada combinación, se deposita un cordón único sobre sustrato A36 pre-calentado. Se mide el perfil transversal mediante perfilometría y se calcula el área del cordón, la dilución y el factor de forma.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">3</div>
+                <div class="metodo-step-body">
+                  <h4>Preparación metalográfica</h4>
+                  <p>Corte transversal, montaje en resina, desbaste secuencial (80 a 2000 grit), pulido con alúmina 0.05 µm y ataque con Nital 2%. Observación en microscopio óptico a 50×, 100×, 200× y 500×.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">4</div>
+                <div class="metodo-step-body">
+                  <h4>Mapas de microdureza</h4>
+                  <p>Indentaciones Vickers HV0.3 en grilla de 0.5 mm sobre la sección transversal del cordón, cubriendo zona de fusión, HAZ y metal base. Análisis estadístico de la distribución de dureza.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">5</div>
+                <div class="metodo-step-body">
+                  <h4>Modelado y validación</h4>
+                  <p>Ajuste de modelos de superficie de respuesta (RSM) y validación con 5 puntos de confirmación adicionales. Identificación de la ventana de parámetros óptimos mediante función de deseabilidad.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Resultados parciales</div>
+            <div class="resultados-grid">
+              <div class="resultado-card">
+                <span class="num">15</span>
+                <span class="label">Experimentos completados</span>
+              </div>
+              <div class="resultado-card">
+                <span class="num">3</span>
+                <span class="label">Variables estudiadas</span>
+              </div>
+              <div class="resultado-card">
+                <span class="num">420+</span>
+                <span class="label">Indentaciones Vickers</span>
+              </div>
+              <div class="resultado-card">
+                <span class="num">R²&gt;0.91</span>
+                <span class="label">Ajuste modelo RSM</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="proyecto-sidebar">
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Integrantes</div>
+            <div class="sidebar-block-body">
+              <a href="../equipo.html#laura-castillo" class="sidebar-integrante">
+                <div class="sidebar-avatar">LC</div>
+                <div class="sidebar-integrante-info">
+                  <span class="sidebar-integrante-name">Laura Castillo</span>
+                  <span class="sidebar-integrante-role">MSc · Investigadora</span>
+                </div>
+              </a>
+              <a href="../equipo.html#julian-moreno" class="sidebar-integrante">
+                <div class="sidebar-avatar">JM</div>
+                <div class="sidebar-integrante-info">
+                  <span class="sidebar-integrante-name">Julián Moreno</span>
+                  <span class="sidebar-integrante-role">Estudiante · Pregrado</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Proyectos relacionados</div>
+            <div class="sidebar-block-body">
+              <div class="sidebar-related">
+                <a href="waam-ut-inline.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>UT en línea durante WAAM</a>
+                <a href="metalurgia-ciclos.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>Evolución microestructural</a>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Información</div>
+            <div class="sidebar-block-body">
+              <div class="sidebar-info-line"><i class="ti ti-calendar" aria-hidden="true"></i><div><strong>Inicio</strong>Enero 2026</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-clock" aria-hidden="true"></i><div><strong>Duración</strong>18 meses</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-tool" aria-hidden="true"></i><div><strong>Equipo principal</strong>GMAW Lincoln Electric · Microscopio óptico · Durómetro Vickers</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-building" aria-hidden="true"></i><div><strong>Institución</strong>UNAL Bogotá · Ing. Mecánica</div></div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
+      <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

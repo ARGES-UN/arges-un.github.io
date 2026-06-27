@@ -4,154 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Contacta al semillero ARCANUM · Soldadura WAAM y END · UNAL Bogotá" />
-  <title>Contacto · ARCANUM</title>
+  <title>Contacto · ARGES</title>
   <link rel="stylesheet" href="../css/main.css" />
-  <style>
-    [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
-    [data-reveal].revealed { opacity: 1; transform: none; }
-    [data-reveal-delay="1"] { transition-delay: 0.1s; }
-    [data-reveal-delay="2"] { transition-delay: 0.2s; }
-
-    /* PAGE HEADER */
-    .page-header { background: var(--metal); padding: 4rem 0 3rem; position: relative; overflow: hidden; }
-    .page-header-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
-    .page-header-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--arc); text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px; }
-    .page-header-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--arc); display: inline-block; }
-    .page-header h1 { color: #fff; }
-    .page-header p { color: rgba(255,255,255,0.5); font-size: 15px; margin-top: 0.75rem; }
-
-    /* LAYOUT DOS COLUMNAS */
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    /* FORMULARIO */
-    .form-group { margin-bottom: 1.2rem; }
-    .form-label {
-      display: block;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
-    .form-input,
-    .form-select,
-    .form-textarea {
-      width: 100%;
-      padding: 0.7rem 0.9rem;
-      border: 1px solid var(--border-mid);
-      border-radius: var(--radius-md);
-      background: var(--surface);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 14px;
-      transition: border-color var(--transition);
-      outline: none;
-      appearance: none;
-    }
-    .form-input:focus,
-    .form-select:focus,
-    .form-textarea:focus { border-color: var(--arc); }
-    .form-textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
-    .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6B6B' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 2rem; cursor: pointer; }
-    .form-hint { font-size: 12px; color: var(--text-faint); margin-top: 4px; }
-
-    .form-submit {
-      width: 100%;
-      padding: 0.85rem;
-      background: var(--arc);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-family: var(--mono);
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      transition: background var(--transition);
-      margin-top: 0.5rem;
-    }
-    .form-submit:hover:not(:disabled) { background: var(--arc-dark); }
-    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-
-    .form-success {
-      display: none;
-      background: rgba(16,150,90,0.08);
-      border: 1px solid rgba(16,150,90,0.25);
-      border-radius: var(--radius-md);
-      padding: 1rem 1.2rem;
-      font-size: 14px;
-      color: #0F6E56;
-      margin-top: 1rem;
-      text-align: center;
-    }
-
-    /* SIDEBAR INFO */
-    .info-block {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-    .info-block-header {
-      background: var(--metal);
-      padding: 1rem 1.3rem;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.6);
-      text-transform: uppercase;
-    }
-    .info-block-body { padding: 1.2rem 1.3rem; }
-    .info-line {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 1rem;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-    .info-line:last-child { margin-bottom: 0; }
-    .info-line i { color: var(--arc); font-size: 16px; margin-top: 1px; flex-shrink: 0; }
-    .info-line strong { color: var(--text); display: block; font-weight: 500; font-size: 13px; margin-bottom: 1px; }
-
-    /* REQUISITOS */
-    .req-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .req-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 13.5px;
-      color: var(--text-muted);
-    }
-    .req-list li i { color: var(--arc); margin-top: 2px; font-size: 14px; flex-shrink: 0; }
-
-    /* MAPA PLACEHOLDER */
-    .map-placeholder {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      height: 160px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      color: var(--text-faint);
-      font-size: 13px;
-      margin-top: 1rem;
-    }
-    .map-placeholder i { font-size: 28px; color: var(--arc); }
-
-    @media (max-width: 800px) {
-      .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
-    }
-  </style>
 </head>
 <body>
 
@@ -175,8 +29,9 @@
   <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="page-header-grid"></div>
+    <div class="page-header-glow"></div>
     <div class="container">
-      <div class="page-header-eyebrow">ARCANUM · UNAL</div>
+      <div class="page-header-eyebrow">ARGES · UNAL</div>
       <h1>Contacto</h1>
       <p>¿Quieres unirte al semillero, colaborar en un proyecto o simplemente preguntar algo? Escríbenos.</p>
     </div>
@@ -189,13 +44,13 @@
 
         <!-- FORMULARIO -->
         <div data-reveal>
-          <div class="section-header" style="margin-bottom: 1.5rem;">
+          <div class="section-header">
             <span class="section-tag">Formulario</span>
             <div class="section-line"></div>
           </div>
 
-          <form class="contact-form" id="contact-form" novalidate>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <form id="contact-form" novalidate>
+            <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="nombre">Nombre</label>
                 <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
@@ -245,13 +100,12 @@
             <button type="submit" class="form-submit" id="submit-btn">Enviar mensaje</button>
 
             <div class="form-success" id="form-success">
-              <i class="ti ti-circle-check" aria-hidden="true"></i>
-              ¡Mensaje recibido! Te contactaremos en los próximos días hábiles.
+              ✓ &nbsp;¡Mensaje recibido! Te contactaremos en los próximos días hábiles.
             </div>
           </form>
         </div>
 
-        <!-- SIDEBAR -->
+        <!-- SIDEBAR INFO -->
         <div data-reveal data-reveal-delay="1">
 
           <div class="info-block">
@@ -268,14 +122,16 @@
                 <i class="ti ti-map-pin" aria-hidden="true"></i>
                 <div>
                   <strong>Ubicación del laboratorio</strong>
-                  Edificio de Mecánica · Oficina 215<br>Ciudad Universitaria · UNAL Bogotá
+                  Edificio de Mecánica · Oficina 215<br>
+                  Ciudad Universitaria · UNAL Bogotá
                 </div>
               </div>
               <div class="info-line">
                 <i class="ti ti-clock" aria-hidden="true"></i>
                 <div>
                   <strong>Horario de atención</strong>
-                  Martes y jueves 10:00–13:00<br>Viernes 14:00–17:00
+                  Martes y jueves 10:00–13:00<br>
+                  Viernes 14:00–17:00
                 </div>
               </div>
               <div class="info-line">
@@ -304,7 +160,7 @@
           <div class="map-placeholder">
             <i class="ti ti-map" aria-hidden="true"></i>
             <span>Ciudad Universitaria · UNAL Bogotá</span>
-            <span style="font-size: 11px;">Carrera 45 # 26-85 · Bogotá D.C.</span>
+            <span>Carrera 45 # 26-85 · Bogotá D.C.</span>
           </div>
 
         </div>
@@ -315,7 +171,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-copy">© 2026 ARCANUM · Semillero de Soldadura & END · UNAL Bogotá</span>
+      <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
       <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
     </div>
   </footer>
@@ -332,12 +188,12 @@
       const email   = form.email.value.trim();
       const mensaje = form.mensaje.value.trim();
       if (!nombre || !email || mensaje.length < 50) {
-        alert('Por favor completa todos los campos requeridos (el mensaje debe tener al menos 50 caracteres).');
+        alert('Por favor completa todos los campos requeridos.\nEl mensaje debe tener al menos 50 caracteres.');
         return;
       }
       submitBtn.textContent = 'Enviando...';
       submitBtn.disabled = true;
-      // ── Aquí conectar con Formspree, EmailJS o backend propio ──
+      // ── Conectar con Formspree u otro backend aquí ──
       // fetch('https://formspree.io/f/TU_ID', { method:'POST', body: new FormData(form) })
       setTimeout(() => {
         success.style.display = 'block';

@@ -3,190 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Proyectos e investigación en soldadura WAAM y ensayos no destructivos · ARCANUM · UNAL Bogotá" />
-  <title>Investigación · ARCANUM</title>
+  <meta name="description" content="Proyectos e investigación · ARGES · UNAL Bogotá" />
+  <title>Investigación · ARGES</title>
   <link rel="stylesheet" href="../css/main.css" />
-  <style>
-    [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
-    [data-reveal].revealed { opacity: 1; transform: none; }
-    [data-reveal-delay="1"] { transition-delay: 0.1s; }
-    [data-reveal-delay="2"] { transition-delay: 0.2s; }
-    [data-reveal-delay="3"] { transition-delay: 0.3s; }
-
-    /* PAGE HEADER */
-    .page-header {
-      background: var(--metal);
-      padding: 4rem 0 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .page-header-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 44px 44px;
-      pointer-events: none;
-    }
-    .page-header-eyebrow {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      color: var(--arc);
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .page-header-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--arc); display: inline-block; }
-    .page-header h1 { color: #fff; }
-    .page-header p { color: rgba(255,255,255,0.5); max-width: 560px; font-size: 15px; margin-top: 0.75rem; }
-
-    /* ANCHOR TABS */
-    .tabs-bar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 56px;
-      z-index: 100;
-    }
-    .tabs-inner {
-      display: flex;
-      gap: 0;
-      overflow-x: auto;
-    }
-    .tab-link {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 0.85rem 1.4rem;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      transition: all var(--transition);
-    }
-    .tab-link:hover { color: var(--text); opacity: 1; }
-    .tab-link.active { color: var(--arc); border-bottom-color: var(--arc); opacity: 1; }
-
-    /* PROJECT CARDS */
-    .project-card {
-      display: grid;
-      grid-template-columns: 3px 1fr;
-      gap: 0;
-      margin-bottom: 1.5rem;
-    }
-    .project-stripe { background: var(--arc); border-radius: 3px 0 0 3px; }
-    .project-body {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: none;
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      padding: 1.6rem 1.8rem;
-    }
-    .project-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .badge {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      padding: 3px 9px;
-      border-radius: var(--radius-sm);
-      text-transform: uppercase;
-    }
-    .badge-active   { background: rgba(16,150,90,0.12); color: #0F6E56; }
-    .badge-planned  { background: rgba(224,92,26,0.10); color: var(--arc); }
-    .badge-waam     { background: var(--metal); color: rgba(255,255,255,0.8); }
-    .badge-end      { background: rgba(53,80,175,0.10); color: #185FA5; }
-
-    .project-body h3 { font-size: 1rem; color: var(--text); margin-bottom: 0.5rem; }
-    .project-body p  { font-size: 14px; line-height: 1.65; }
-
-    .project-outcomes {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .outcome {
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .outcome i { color: var(--arc); margin-top: 2px; font-size: 14px; }
-
-    /* METODOLOGÍA TIMELINE */
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 6px; top: 0; bottom: 0;
-      width: 1px;
-      background: var(--border-mid);
-    }
-    .tl-item {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-    .tl-dot {
-      position: absolute;
-      left: -2rem;
-      top: 4px;
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      background: var(--arc);
-      border: 2px solid var(--bg);
-      box-shadow: 0 0 0 2px var(--arc);
-    }
-    .tl-phase {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--arc);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-    .tl-item h4 { font-size: 14px; color: var(--text); margin-bottom: 0.3rem; }
-    .tl-item p  { font-size: 13.5px; }
-
-    /* EQUIPOS TABLA */
-    .equipment-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-    }
-    .equip-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1rem 1.1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .equip-icon { color: var(--arc); font-size: 20px; margin-top: 2px; flex-shrink: 0; }
-    .equip-card h4 { font-size: 13px; color: var(--text); margin-bottom: 2px; }
-    .equip-card p  { font-size: 12px; }
-
-    @media (max-width: 600px) {
-      .project-outcomes { gap: 0.75rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/investigacion.css" />
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="../index.html" class="nav-logo">ARC<span class="dot">.</span>ANUM</a>
+      <a href="../index.html" class="nav-logo">
+        <span class="nav-logo-img-wrap">
+          <img src="../assets/img/logo.svg" alt="Arges logo" class="nav-logo-img" onerror="this.style.display='none'"/>
+        </span>
+        ARGES
+      </a>
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -203,242 +35,237 @@
   <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="page-header-grid"></div>
+    <div class="page-header-glow"></div>
     <div class="container">
-      <div class="page-header-eyebrow">ARCANUM · UNAL</div>
+      <div class="page-header-eyebrow">ARGES · UNAL</div>
       <h1>Investigación</h1>
-      <p>Proyectos activos y líneas de trabajo del semillero en soldadura WAAM y ensayos no destructivos.</p>
+      <p>Proyectos activos organizados por línea de trabajo. Haz clic en una línea para explorar sus proyectos.</p>
     </div>
   </div>
 
-  <!-- TABS DE ANCLA -->
+  <!-- ═══════════════ TABS DE LÍNEAS ═══════════════ -->
   <div class="tabs-bar">
     <div class="container">
-      <div class="tabs-inner">
-        <a href="#waam"    class="tab-link active">WAAM</a>
-        <a href="#ut"      class="tab-link">Ultrasonido</a>
-        <a href="#rt"      class="tab-link">Radiografía</a>
-        <a href="#metal"   class="tab-link">Metalurgia</a>
-        <a href="#metodo"  class="tab-link">Metodología</a>
-        <a href="#equipo"  class="tab-link">Equipos del lab</a>
+      <div class="lineas-tabs">
+
+        <button class="linea-tab active" data-linea="waam">
+          <span class="linea-tab-icon"><i class="ti ti-layers-intersect" aria-hidden="true"></i></span>
+          <span class="linea-tab-label">WAAM</span>
+          <span class="linea-tab-count">2</span>
+        </button>
+
+        <button class="linea-tab" data-linea="soldadura">
+          <span class="linea-tab-icon"><i class="ti ti-flame" aria-hidden="true"></i></span>
+          <span class="linea-tab-label">Soldadura</span>
+          <span class="linea-tab-count">1</span>
+        </button>
+
+        <button class="linea-tab" data-linea="end">
+          <span class="linea-tab-icon"><i class="ti ti-ripple" aria-hidden="true"></i></span>
+          <span class="linea-tab-label">Ensayos No Destructivos</span>
+          <span class="linea-tab-count">2</span>
+        </button>
+
+        <button class="linea-tab" data-linea="materiales">
+          <span class="linea-tab-icon"><i class="ti ti-microscope" aria-hidden="true"></i></span>
+          <span class="linea-tab-label">Materiales</span>
+          <span class="linea-tab-count">1</span>
+        </button>
+
       </div>
     </div>
   </div>
 
-  <!-- ============ WAAM ============ -->
-  <section class="section" id="waam">
+  <!-- ═══════════════ PANELES ═══════════════ -->
+  <section class="section">
     <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-tag">WAAM</span>
-        <div class="section-line"></div>
-        <span class="section-label">Wire Arc Additive Manufacturing</span>
+
+      <!-- ── PANEL: WAAM ── -->
+      <div class="linea-panel active" id="linea-waam">
+        <div class="linea-intro" data-reveal>
+          <i class="ti ti-layers-intersect linea-intro-icon" aria-hidden="true"></i>
+          <div>
+            <h2>Wire Arc Additive Manufacturing</h2>
+            <p>Fabricación de piezas metálicas capa a capa mediante arco eléctrico y electrodo de alambre. La línea estudia el control de parámetros térmicos, la geometría del depósito y la integración con sistemas de inspección en línea.</p>
+          </div>
+        </div>
+        <div class="proyectos-grid">
+
+          <div class="proyecto-card" data-reveal data-reveal-delay="1">
+            <a href="proyectos/waam-parametros.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/waam-parametros.svg" alt="Optimización de parámetros WAAM" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge">
+                <span class="badge badge-active">En curso</span>
+                <span class="badge badge-waam">WAAM</span>
+              </div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/waam-parametros.html" class="proyecto-nombre">Optimización de parámetros de depósito en acero ER70S-6</a>
+              <p class="proyecto-desc">Estudio sistemático de corriente, velocidad de avance y aporte térmico lineal sobre la geometría del cordón, dilución y microestructura resultante sobre sustrato ASTM A36.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#laura-castillo" class="integrante-chip">L. Castillo</a>
+                <a href="equipo.html#julian-moreno" class="integrante-chip">J. Moreno</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="proyecto-card" data-reveal data-reveal-delay="2">
+            <a href="proyectos/waam-ut-inline.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/waam-ut-inline.svg" alt="Inspección UT en línea WAAM" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge">
+                <span class="badge badge-planned">Planificado</span>
+                <span class="badge badge-waam">WAAM</span>
+                <span class="badge badge-end">END</span>
+              </div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/waam-ut-inline.html" class="proyecto-nombre">Inspección ultrasónica en línea durante depósito WAAM</a>
+              <p class="proyecto-desc">Integración de transductor de contacto en el cabezal de depósito para inspección en tiempo real de cada capa. Detección de porosidad y fisuras de solidificación sin interrumpir el proceso.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#santiago-molina" class="integrante-chip">S. Molina</a>
+                <a href="equipo.html#carlos-fuentes" class="integrante-chip">C. Fuentes</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="project-card" data-reveal>
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="badge badge-active">En curso</span>
-            <span class="badge badge-waam">WAAM</span>
+      <!-- ── PANEL: SOLDADURA ── -->
+      <div class="linea-panel" id="linea-soldadura">
+        <div class="linea-intro" data-reveal>
+          <i class="ti ti-flame linea-intro-icon" aria-hidden="true"></i>
+          <div>
+            <h2>Procesos de Soldadura</h2>
+            <p>Estudio y optimización de procesos de unión por fusión. La línea abarca la caracterización de uniones soldadas, el control de aportes térmicos y la correlación entre parámetros de proceso y calidad de la junta.</p>
           </div>
-          <h3>Optimización de parámetros de depósito en acero ER70S-6</h3>
-          <p>Estudio sistemático del efecto de corriente, velocidad de avance y aporte térmico lineal sobre la geometría del cordón, dilución y microestructura resultante. Se trabaja con un equipo GMAW semi-automatizado sobre sustrato de acero ASTM A36.</p>
-          <div class="project-outcomes">
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Mapa de parámetros óptimos</span></div>
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Modelos de predicción de geometría</span></div>
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Base de datos microestructural</span></div>
+        </div>
+        <div class="proyectos-grid">
+
+          <div class="proyecto-card" data-reveal data-reveal-delay="1">
+            <a href="proyectos/waam-parametros.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/waam-parametros.svg" alt="Parámetros GMAW" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge">
+                <span class="badge badge-active">En curso</span>
+              </div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/waam-parametros.html" class="proyecto-nombre">Caracterización de uniones GMAW en acero de baja aleación</a>
+              <p class="proyecto-desc">Análisis de la influencia de los parámetros GMAW (corriente, voltaje, velocidad) sobre la geometría de la junta, zona afectada por el calor y propiedades mecánicas resultantes.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#laura-castillo" class="integrante-chip">L. Castillo</a>
+                <a href="equipo.html#valentina-rios" class="integrante-chip">V. Ríos</a>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
 
-      <div class="project-card" data-reveal>
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="badge badge-planned">Planificado</span>
-            <span class="badge badge-waam">WAAM</span>
-            <span class="badge badge-end">END</span>
-          </div>
-          <h3>Inspección ultrasónica en línea durante depósito WAAM</h3>
-          <p>Integración de un transductor de contacto en el cabezal de depósito para inspección en tiempo real de cada capa antes de depositar la siguiente. Objetivo: detectar porosidad, falta de fusión y fisuras de solidificación sin interrumpir el proceso.</p>
-          <div class="project-outcomes">
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Prototipo de cabezal integrado</span></div>
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Criterios de aceptación por capa</span></div>
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Publicación en revista indexada</span></div>
+      <!-- ── PANEL: END ── -->
+      <div class="linea-panel" id="linea-end">
+        <div class="linea-intro" data-reveal>
+          <i class="ti ti-ripple linea-intro-icon" aria-hidden="true"></i>
+          <div>
+            <h2>Ensayos No Destructivos</h2>
+            <p>Inspección de materiales y uniones sin afectar su integridad. La línea trabaja con ultrasonido (UT), radiografía digital (RT) y técnicas de correlación entre señal END y microestructura real.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="proyectos-grid">
 
-  <!-- ============ ULTRASONIDO ============ -->
-  <section class="section" id="ut" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-tag">UT</span>
-        <div class="section-line"></div>
-        <span class="section-label">Ensayo por Ultrasonido</span>
-      </div>
+          <div class="proyecto-card" data-reveal data-reveal-delay="1">
+            <a href="proyectos/ut-correlacion.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/ut-correlacion.svg" alt="Correlación UT" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge">
+                <span class="badge badge-active">En curso</span>
+                <span class="badge badge-end">END</span>
+              </div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/ut-correlacion.html" class="proyecto-nombre">Correlación entre señal ultrasónica y tipo de discontinuidad en WAAM</a>
+              <p class="proyecto-desc">Construcción de una biblioteca de señales UT de referencia a partir de probetas con defectos inducidos controladamente. Validación por metalografía.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#santiago-molina" class="integrante-chip">S. Molina</a>
+                <a href="equipo.html#ana-pinzon" class="integrante-chip">A. Pinzón</a>
+              </div>
+            </div>
+          </div>
 
-      <div class="project-card" data-reveal>
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="badge badge-active">En curso</span>
-            <span class="badge badge-end">END</span>
+          <div class="proyecto-card" data-reveal data-reveal-delay="2">
+            <a href="proyectos/rt-digital.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/rt-digital.svg" alt="Radiografía digital WAAM" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge">
+                <span class="badge badge-planned">Planificado</span>
+                <span class="badge badge-end">END</span>
+              </div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/rt-digital.html" class="proyecto-nombre">Radiografía digital de muros WAAM multicapa</a>
+              <p class="proyecto-desc">Evaluación de la radiografía digital (DR) para inspección de estructuras WAAM. Análisis de sensibilidad de detección en función del número de capas y comparativa con UT.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#ana-pinzon" class="integrante-chip">A. Pinzón</a>
+              </div>
+            </div>
           </div>
-          <h3>Correlación entre señal ultrasónica y tipo de discontinuidad en depósitos WAAM</h3>
-          <p>Se fabrican probetas con defectos inducidos controladamente (porosidad, grietas, falta de fusión) mediante variación de parámetros. Cada probeta se inspecciona por UT convencional y luego se secciona para validación metalográfica. El objetivo es construir una biblioteca de señales de referencia.</p>
-          <div class="project-outcomes">
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Biblioteca de ecos de referencia</span></div>
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Criterios de aceptación propios para WAAM</span></div>
-          </div>
+
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ RADIOGRAFÍA ============ -->
-  <section class="section" id="rt">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-tag">RT</span>
-        <div class="section-line"></div>
-        <span class="section-label">Radiografía Industrial</span>
       </div>
 
-      <div class="project-card" data-reveal>
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="badge badge-planned">Planificado</span>
-            <span class="badge badge-end">END</span>
-          </div>
-          <h3>Radiografía digital de muros WAAM multicapa</h3>
-          <p>Evaluación de la aplicabilidad de la radiografía digital (DR) para inspección de estructuras fabricadas por WAAM. Se analizará la sensibilidad de detección en función del número de capas y la geometría del muro, comparando con los resultados de UT y metalografía.</p>
-          <div class="project-outcomes">
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Protocolo de inspección RT para WAAM</span></div>
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Comparativa UT vs RT</span></div>
+      <!-- ── PANEL: MATERIALES ── -->
+      <div class="linea-panel" id="linea-materiales">
+        <div class="linea-intro" data-reveal>
+          <i class="ti ti-microscope linea-intro-icon" aria-hidden="true"></i>
+          <div>
+            <h2>Ciencia de Materiales</h2>
+            <p>Caracterización microestructural y mecánica de materiales metálicos procesados por soldadura y fabricación aditiva. La línea correlaciona microestructura, ciclos térmicos y propiedades finales del material.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="proyectos-grid">
 
-  <!-- ============ METALURGIA ============ -->
-  <section class="section" id="metal" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-tag">Metalurgia</span>
-        <div class="section-line"></div>
-        <span class="section-label">Caracterización microestructural</span>
+          <div class="proyecto-card" data-reveal data-reveal-delay="1">
+            <a href="proyectos/metalurgia-ciclos.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/metalurgia-ciclos.svg" alt="Metalurgia ciclos térmicos" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge">
+                <span class="badge badge-active">En curso</span>
+              </div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/metalurgia-ciclos.html" class="proyecto-nombre">Evolución microestructural por ciclos térmicos en WAAM multicapa</a>
+              <p class="proyecto-desc">Estudio mediante microscopía óptica y SEM de la evolución microestructural en función de la posición en el muro. Correlación con dureza Vickers y resultados de END.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#laura-castillo" class="integrante-chip">L. Castillo</a>
+                <a href="equipo.html#valentina-rios" class="integrante-chip">V. Ríos</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="project-card" data-reveal>
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-meta">
-            <span class="badge badge-active">En curso</span>
-          </div>
-          <h3>Evolución microestructural por ciclos térmicos en WAAM multicapa</h3>
-          <p>Cada capa depositada somete a las anteriores a ciclos de recalentamiento que modifican su microestructura. Este proyecto estudia mediante microscopía óptica y SEM la evolución de la microestructura en función de la posición en el muro, correlacionando con dureza Vickers y resultados de END.</p>
-          <div class="project-outcomes">
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Mapas de dureza por capa</span></div>
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Análisis SEM de zonas críticas</span></div>
-            <div class="outcome"><i class="ti ti-check" aria-hidden="true"></i><span>Modelo de ciclos térmicos</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ METODOLOGÍA ============ -->
-  <section class="section" id="metodo">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-tag">Metodología</span>
-        <div class="section-line"></div>
-        <span class="section-label">Cómo trabajamos</span>
-      </div>
-      <div style="max-width: 640px;" data-reveal>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-phase">Fase 1 · 2025–2026</div>
-            <h4>Caracterización del proceso base</h4>
-            <p>Establecimiento de parámetros de referencia WAAM, construcción de probetas de validación y montaje del sistema de inspección por ultrasonido convencional.</p>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-phase">Fase 2 · 2026</div>
-            <h4>Integración END–WAAM</h4>
-            <p>Desarrollo del protocolo de inspección en línea. Correlación entre señales END y resultados metalográficos. Primeros ensayos de inspección durante el depósito.</p>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-phase">Fase 3 · 2026–2027</div>
-            <h4>Validación y difusión</h4>
-            <p>Validación del sistema integrado sobre geometrías complejas. Redacción de artículos, presentación en congresos y apertura de nuevas líneas de investigación.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ EQUIPOS ============ -->
-  <section class="section" id="equipo" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-tag">Equipos</span>
-        <div class="section-line"></div>
-        <span class="section-label">Laboratorio</span>
-      </div>
-      <div class="equipment-grid">
-        <div class="equip-card" data-reveal data-reveal-delay="1">
-          <i class="ti ti-flame equip-icon" aria-hidden="true"></i>
-          <div><h4>Equipo GMAW · Lincoln Electric</h4><p>Fuente inversora con control de parámetros en tiempo real</p></div>
-        </div>
-        <div class="equip-card" data-reveal data-reveal-delay="1">
-          <i class="ti ti-ripple equip-icon" aria-hidden="true"></i>
-          <div><h4>Equipo UT · Olympus Epoch 650</h4><p>Ultrasonido por pulso-eco, rango 0.1–20 MHz</p></div>
-        </div>
-        <div class="equip-card" data-reveal data-reveal-delay="2">
-          <i class="ti ti-microscope equip-icon" aria-hidden="true"></i>
-          <div><h4>Microscopio óptico metalográfico</h4><p>Hasta 1000x con cámara digital integrada</p></div>
-        </div>
-        <div class="equip-card" data-reveal data-reveal-delay="2">
-          <i class="ti ti-cube equip-icon" aria-hidden="true"></i>
-          <div><h4>Durómetro Vickers/Rockwell</h4><p>Mapeo de dureza sobre secciones transversales</p></div>
-        </div>
-        <div class="equip-card" data-reveal data-reveal-delay="3">
-          <i class="ti ti-current-dc equip-icon" aria-hidden="true"></i>
-          <div><h4>DAQ de adquisición térmica</h4><p>Termopares tipo K con registro en tiempo real</p></div>
-        </div>
-        <div class="equip-card" data-reveal data-reveal-delay="3">
-          <i class="ti ti-radiation equip-icon" aria-hidden="true"></i>
-          <div><h4>Acceso a equipo RT digital</h4><p>En gestión · Convenio con laboratorio externo</p></div>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-copy">© 2026 ARCANUM · Semillero de Soldadura & END · UNAL Bogotá</span>
+      <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
       <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
     </div>
   </footer>
 
   <script src="../js/main.js"></script>
-  <script>
-    // Tabs de ancla activo al hacer scroll
-    const tabs = document.querySelectorAll('.tab-link');
-    const sections = ['waam','ut','rt','metal','metodo','equipo'].map(id => document.getElementById(id));
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => { if (sec && window.scrollY >= sec.offsetTop - 120) current = sec.id; });
-      tabs.forEach(t => { t.classList.toggle('active', t.getAttribute('href') === '#' + current); });
-    }, { passive: true });
-  </script>
+  <script src="../js/investigacion.js"></script>
 </body>
 </html>

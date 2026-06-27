@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Correlación señal UT · ARGES</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/proyectos.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="nav-logo-img-wrap">
+          <img src="../../assets/img/logo.svg" alt="Arges logo" class="nav-logo-img" onerror="this.style.display='none'"/>
+        </span>
+        ARGES
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../investigacion.html">Investigación</a></li>
+        <li><a href="../equipo.html">Equipo</a></li>
+        <li><a href="../noticias.html">Noticias</a></li>
+        <li><a href="../contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="proyecto-hero">
+    <div class="proyecto-hero-grid"></div>
+    <div class="proyecto-hero-glow"></div>
+    <div class="container">
+      <div class="proyecto-hero-inner">
+        <div class="proyecto-breadcrumb">
+          <a href="../investigacion.html">Investigación</a>
+          <span class="sep">/</span>
+          <a href="../investigacion.html#end">Ensayos No Destructivos</a>
+          <span class="sep">/</span>
+          <span class="current">Correlación señal UT</span>
+        </div>
+        <div class="proyecto-meta-top">
+          <span class="badge badge-active">En curso</span>
+          <span class="badge badge-end">END</span>
+        </div>
+        <h1>Correlación entre señal ultrasónica y tipo de discontinuidad en depósitos WAAM</h1>
+        <p class="proyecto-hero-desc">Construcción de una biblioteca de señales UT de referencia a partir de probetas con defectos inducidos controladamente, validadas por metalografía. Base para criterios de aceptación propios en WAAM.</p>
+        <div class="proyecto-hero-integrantes">
+          <span class="proyecto-hero-integrantes-label">Equipo &nbsp;</span>
+          <a href="../equipo.html#santiago-molina" class="integrante-chip">S. Molina</a>
+          <a href="../equipo.html#ana-pinzon" class="integrante-chip">A. Pinzón</a>
+        </div>
+      </div>
+    </div>
+    <img src="../../assets/img/proyectos/ut-correlacion.svg" alt="Señal A-scan UT" class="proyecto-cover" />
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="proyecto-layout">
+
+        <div class="proyecto-main">
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Contexto y motivación</div>
+            <p>Los estándares actuales de inspección por ultrasonido (AWS D1.1, ASME V) fueron desarrollados para uniones soldadas convencionales. Las estructuras fabricadas por WAAM presentan características microestructurales y geométricas distintas: granos columnares de gran tamaño, anisotropía acústica, y defectos con morfología diferente a los típicos de la soldadura por fusión.</p>
+            <p>Esta diferencia hace que la aplicación directa de los criterios de aceptación convencionales pueda ser inadecuada — tanto por exceso (rechazo de piezas aceptables) como por defecto (aceptación de piezas con defectos críticos). Es necesario construir criterios específicos para WAAM basados en evidencia experimental.</p>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Objetivos</div>
+            <ul class="objetivos-list">
+              <li><i class="ti ti-target" aria-hidden="true"></i>Fabricar probetas WAAM con defectos inducidos controladamente: porosidad, grietas de solidificación y falta de fusión entre capas.</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Inspeccionar cada probeta por ultrasonido convencional (pulso-eco, 5 MHz) y registrar las señales A-scan y B-scan correspondientes.</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Correlacionar las señales UT con la morfología real de los defectos determinada por sección metalográfica.</li>
+              <li><i class="ti ti-target" aria-hidden="true"></i>Proponer criterios de aceptación/rechazo basados en altura de eco equivalente y longitud de indicación para cada tipo de discontinuidad.</li>
+            </ul>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Metodología</div>
+            <div class="metodologia-steps">
+              <div class="metodo-step">
+                <div class="metodo-step-num">1</div>
+                <div class="metodo-step-body">
+                  <h4>Fabricación de probetas con defectos controlados</h4>
+                  <p>Se inducen tres tipos de defecto: porosidad (interrupciones breves del gas de protección), grietas (enfriamiento forzado entre capas), y falta de fusión (reducción deliberada de corriente en capas específicas). Cada probeta de 150 × 80 × 30 mm contiene un tipo de defecto en posición conocida.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">2</div>
+                <div class="metodo-step-body">
+                  <h4>Inspección UT sistemática</h4>
+                  <p>Barrido manual con transductor de contacto (5 MHz, 10 mm Ø) y gel de acoplamiento. Registro de señales A-scan, cálculo de altura de eco en dB respecto al reflector de referencia (agujero de fondo plano 3 mm). B-scan digital con resolución de 1 mm en dirección de barrido.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">3</div>
+                <div class="metodo-step-body">
+                  <h4>Validación metalográfica</h4>
+                  <p>Corte de probetas en las posiciones de indicación UT. Preparación metalográfica estándar y observación en microscopio óptico. Medición de dimensiones reales del defecto (área, longitud, profundidad) para correlación con señal UT.</p>
+                </div>
+              </div>
+              <div class="metodo-step">
+                <div class="metodo-step-num">4</div>
+                <div class="metodo-step-body">
+                  <h4>Propuesta de criterios de aceptación</h4>
+                  <p>Análisis estadístico de la relación señal UT – tamaño real del defecto. Definición de niveles de referencia y criterios de aceptación diferenciados por tipo de defecto y posición en el muro WAAM.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Resultados parciales</div>
+            <div class="resultados-grid">
+              <div class="resultado-card">
+                <span class="num">9</span>
+                <span class="label">Probetas fabricadas</span>
+              </div>
+              <div class="resultado-card">
+                <span class="num">3</span>
+                <span class="label">Tipos de defecto</span>
+              </div>
+              <div class="resultado-card">
+                <span class="num">27</span>
+                <span class="label">Secciones metalográficas</span>
+              </div>
+              <div class="resultado-card">
+                <span class="num">En curso</span>
+                <span class="label">Biblioteca de señales</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="proyecto-sidebar">
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Integrantes</div>
+            <div class="sidebar-block-body">
+              <a href="../equipo.html#santiago-molina" class="sidebar-integrante">
+                <div class="sidebar-avatar">SM</div>
+                <div class="sidebar-integrante-info">
+                  <span class="sidebar-integrante-name">Santiago Molina</span>
+                  <span class="sidebar-integrante-role">MSc · Investigador</span>
+                </div>
+              </a>
+              <a href="../equipo.html#ana-pinzon" class="sidebar-integrante">
+                <div class="sidebar-avatar">AP</div>
+                <div class="sidebar-integrante-info">
+                  <span class="sidebar-integrante-name">Ana Pinzón</span>
+                  <span class="sidebar-integrante-role">MSc · Investigadora</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Proyectos relacionados</div>
+            <div class="sidebar-block-body">
+              <div class="sidebar-related">
+                <a href="waam-ut-inline.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>UT en línea durante WAAM</a>
+                <a href="rt-digital.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>Radiografía digital WAAM</a>
+                <a href="metalurgia-ciclos.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>Evolución microestructural</a>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-block">
+            <div class="sidebar-block-header">Información</div>
+            <div class="sidebar-block-body">
+              <div class="sidebar-info-line"><i class="ti ti-calendar" aria-hidden="true"></i><div><strong>Inicio</strong>Febrero 2026</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-clock" aria-hidden="true"></i><div><strong>Duración</strong>12 meses</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-tool" aria-hidden="true"></i><div><strong>Equipo principal</strong>Olympus Epoch 650 · Transductor 5 MHz</div></div>
+              <div class="sidebar-info-line"><i class="ti ti-building" aria-hidden="true"></i><div><strong>Institución</strong>UNAL Bogotá · Ing. Mecánica</div></div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
+      <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
+    </div>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

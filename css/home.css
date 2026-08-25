@@ -1,0 +1,443 @@
+/* ================================================================
+   ARGES · home.css  (extiende core.css)
+   Usado únicamente por index.html.
+   ================================================================ */
+
+/* ── HERO ── */
+.hero { background: var(--bg-surface); padding: 6.5rem 0 5rem; position: relative; overflow: hidden; }
+.hero .glow--top    { top: -140px; right: -100px; width: 560px; height: 560px; }
+.hero .glow--bottom { bottom: -120px; left: -80px; width: 340px; height: 340px; opacity: 0.6; }
+
+.hero-content { position: relative; max-width: 660px; }
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--link);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: linear-gradient(90deg, transparent, var(--primary)); }
+.hero h1 { margin-bottom: 1.4rem; }
+/* La palabra destacada va en azul pleno, no en el celeste del núcleo:
+   el celeste se reserva para el trazo del arco que va debajo, así el
+   azul de marca sigue mandando en el titular. */
+.hero h1 .hl { color: var(--primary-hover); }
+.hero-desc { color: var(--text-secondary); font-size: 17px; font-weight: 300; max-width: 520px; margin-bottom: 2.5rem; line-height: 1.75; }
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ── STATS BAR ── */
+.stats-bar { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stats-inner { display: flex; overflow-x: auto; }
+.stat { display: flex; flex-direction: column; padding: 1.2rem 2.2rem; border-right: 1px solid var(--border); min-width: 140px; gap: 3px; }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: var(--mono); font-size: 20px; font-weight: 700; color: var(--link); line-height: 1; }
+.stat-label { font-size: 11px; color: var(--text-faint); letter-spacing: 0.05em; }
+
+/* ── ÁREAS: cuadrícula de líneas de trabajo ──
+   Antes las 4 tarjetas vivían dentro de un solo bloque con bordes
+   internos de 1px, y se leían como una tabla. Ahora cada línea de
+   trabajo es una tarjeta propia y separada: se pueden reordenar,
+   quitar o agregar sin que el bloque se rompa.
+
+   Las columnas se calculan solas (auto-fit) según el ancho mínimo
+   de cada tarjeta: 230px. Para cambiar cuántas caben, ajusta ese
+   número. */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+.area-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.7rem 1.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--t), background var(--t), transform var(--t), box-shadow var(--t);
+}
+/* el filo superior se "enciende" al pasar el cursor, como el arco
+   al establecerse: de apagado a encendido, de izquierda a derecha */
+.area-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--arc-deep), var(--arc-core), var(--primary));
+  transform: scaleX(0); transform-origin: left; transition: transform var(--t-slow);
+}
+.area-card:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-blue);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-arc);
+}
+.area-card:hover::before { transform: scaleX(1); }
+.area-icon {
+  width: 40px; height: 40px; border-radius: var(--radius-md);
+  background: var(--primary-subtle); border: 1px solid var(--border-blue);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.1rem; color: var(--link); font-size: 20px;
+  transition: color var(--t), border-color var(--t);
+}
+.area-card:hover .area-icon { color: var(--arc-core); border-color: var(--primary); }
+.area-card h3 { margin-bottom: 0.55rem; font-size: 0.975rem; }
+.area-card p  { font-size: 13.5px; line-height: 1.6; }
+.area-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--mono); font-size: 10px; color: var(--link);
+  margin-top: auto; padding-top: 1rem; letter-spacing: 0.06em;
+  transition: gap var(--t), color var(--t);
+}
+.area-link:hover { gap: 9px; color: var(--arc-core); }
+
+/* ── NOTICIAS: vista previa (home) ── */
+.news-preview { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.news-home-card { display: flex; flex-direction: column; }
+.news-home-date { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--link); text-transform: uppercase; margin-bottom: 0.5rem; }
+.news-home-card h4 { font-size: 15px; color: var(--text-main); margin-bottom: 0.4rem; font-family: var(--sans); font-weight: 600; line-height: 1.4; }
+.news-home-card p { font-size: 13.5px; }
+.news-home-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: var(--link); margin-top: auto; padding-top: 0.75rem; display: block; }
+
+/* ── CTA BANNER ── */
+.cta-banner {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-blue);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta-banner .glow { right: -60px; top: -60px; width: 260px; height: 260px; }
+.cta-banner h2 { margin-bottom: 0.4rem; position: relative; }
+.cta-banner p  { max-width: 460px; font-size: 14px; position: relative; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  /* En vertical, cinco datos en fila obligaban a desplazar en
+     horizontal o a apilarlos en cinco filas altísimas. En dos
+     columnas caben en tres filas y se leen de un vistazo. */
+  .stats-inner { display: grid; grid-template-columns: 1fr 1fr; overflow: visible; }
+  .stat { padding: 0.9rem 1.2rem; min-width: 0; border-bottom: 1px solid var(--border); }
+  .stat:nth-child(2n) { border-right: none; }
+  .stat:last-child { grid-column: 1 / -1; border-bottom: none; }
+  .cta-banner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ================================================================
+   AÑADIDOS DE LA ACTUALIZACIÓN — index.html
+   ================================================================ */
+
+/* ── COLLAGE DE FONDO DEL HERO ──
+   Cinta de imágenes/videos que se desplaza lateralmente detrás del
+   texto. La cuadrícula (.bg-grid) sigue existiendo DEBAJO: si se
+   quiere volver al fondo anterior, basta con quitar la clase
+   `has-collage` del <section class="hero"> en index.html y el
+   collage desaparece dejando la cuadrícula intacta. */
+.hero-collage {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  pointer-events: none;          /* el usuario no puede seleccionar ni arrastrar */
+  user-select: none;
+  opacity: 0;                     /* oculto salvo que el hero tenga .has-collage */
+  transition: opacity 600ms ease;
+}
+.hero.has-collage .hero-collage { opacity: 1; }
+.hero-collage-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  animation: collage-slide 60s linear infinite;
+}
+.hero-collage-item {
+  position: relative;
+  height: 100%;
+  width: 34vw;
+  min-width: 300px;
+  flex: none;
+}
+.hero-collage-item img,
+.hero-collage-item video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.35) brightness(0.42) contrast(1.05);
+}
+/* velo que funde el collage con el fondo para que el texto siempre se lea */
+.hero-collage::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, var(--bg-surface) 0%, rgba(14,19,32,0.72) 42%, rgba(14,19,32,0.55) 100%),
+    linear-gradient(0deg, var(--bg-surface) 2%, transparent 45%);
+}
+@keyframes collage-slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .hero-collage-track { animation: none; } }
+
+/* el contenido del hero debe quedar por encima del collage */
+.hero-content { position: relative; z-index: 2; }
+
+/* ── TÍTULO DEL HERO ── */
+.hero h1 { margin-bottom: 0.7rem; }
+.hero-subtitle {
+  font-family: var(--mono);
+  font-size: clamp(1.05rem, 2.1vw, 1.45rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.hero-subtitle .hl { color: var(--text-main); }
+
+/* ── BARRA DE STATS: bloque fijo + carrusel ── */
+.stats-inner { display: flex; align-items: stretch; overflow: hidden; }
+.stat-fixed {
+  flex: none;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 1.15rem 2rem;
+  border-right: 1px solid var(--border);
+  background: var(--bg-card);
+  z-index: 2;
+  gap: 3px;
+}
+.stat-fixed .stat-num { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--link); line-height: 1; }
+.stat-fixed .stat-label { font-size: 12.5px; color: var(--text-faint); letter-spacing: 0.05em; }
+
+.stats-marquee {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.stats-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: stats-slide var(--marquee-duration, 46s) linear infinite;
+}
+/* se detiene al pasar el mouse (escritorio) o al tocar (móvil, vía JS) */
+.stats-marquee:hover .stats-marquee-track,
+.stats-marquee.is-paused .stats-marquee-track { animation-play-state: paused; }
+@keyframes stats-slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .stats-marquee-track { animation: none; } }
+
+.marquee-item {
+  display: flex; align-items: center; gap: 9px;
+  padding: 1.15rem 1.6rem;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background var(--t);
+}
+.marquee-item:hover { background: var(--bg-hover); }
+.marquee-item i { color: var(--primary); font-size: 19px; flex: none; }
+.marquee-kind {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-faint); display: block;
+}
+.marquee-name { font-size: 14.5px; color: var(--text-main); font-weight: 500; display: block; }
+
+.stats-speed {
+  flex: none;
+  width: 46px;
+  border-left: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-faint);
+  cursor: pointer;
+  display: grid; place-items: center;
+  font-size: 19px;
+  transition: all var(--t);
+}
+.stats-speed:hover { color: var(--link); background: var(--bg-hover); }
+.stats-speed.is-fast { color: var(--arc-core); }
+.stats-speed .ti { transition: transform var(--t); }
+.stats-speed.is-fast .ti { transform: scale(1.15); }
+
+/* ── QUIÉNES SOMOS ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.about-lead {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+.about-lead strong { color: var(--text-main); font-weight: 600; }
+.about-cards { display: grid; gap: 12px; }
+.about-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 1.3rem 1.4rem;
+  transition: border-color var(--t), transform var(--t), background var(--t);
+}
+.about-card:hover { background: var(--bg-hover); transform: translateX(3px); border-left-color: var(--arc-core); }
+.about-card-title {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--link); margin-bottom: 0.5rem;
+}
+.about-card p { font-size: 14.5px; line-height: 1.65; }
+
+/* ── PIE DE SECCIÓN CLICLEABLE (ver todas las líneas / noticias) ── */
+.section-more {
+  display: flex; justify-content: center;
+  margin-top: 1.8rem;
+}
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+}
+@media (max-width: 720px) {
+  .stat-fixed { padding: 0.9rem 1.1rem; }
+  .hero-collage-item { width: 62vw; }
+}
+
+/* ── AJUSTES FINOS DEL HERO Y LA BARRA DE DATOS ──
+   (correcciones tras revisar la página ya montada) */
+
+/* El nombre completo del grupo es largo: en monoespaciada ocupaba
+   media pantalla. Va en la tipografía de texto, algo más compacto,
+   y el gesto del arco se lo queda el subtítulo. */
+.hero h1 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(1.85rem, 3.4vw, 2.6rem);
+  line-height: 1.2;
+  max-width: 100%;
+}
+/* el hero necesita algo más de ancho para que el nombre del grupo
+   no se parta en demasiadas líneas */
+.hero-content { max-width: 760px; }
+.hero-subtitle { max-width: 34ch; }
+
+/* El collage estaba tan oscuro que no se distinguía. Sube algo el
+   brillo y se afina el velo para que siga leyéndose el texto. */
+.hero-collage-item img,
+.hero-collage-item video { filter: grayscale(0.2) brightness(0.72) contrast(1.03); }
+.hero-collage::after {
+  background:
+    linear-gradient(90deg, var(--bg-surface) 0%, rgba(14,19,32,0.90) 34%, rgba(14,19,32,0.60) 100%),
+    linear-gradient(0deg, var(--bg-surface) 2%, transparent 40%);
+}
+
+/* El primer ítem del carrusel quedaba cortado contra el bloque fijo.
+   Un degradado a la izquierda hace que entre y salga sin costura. */
+.stats-marquee::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 46px;
+  background: linear-gradient(90deg, var(--bg-card), transparent);
+  z-index: 2; pointer-events: none;
+}
+
+/* ================================================================
+   AJUSTES: frase del arco, barra de datos y botón de velocidad
+   ================================================================ */
+
+/* ── La frase del arco va en una sola línea horizontal ──
+   En pantallas angostas mantenerla en una línea la dejaría ilegible,
+   así que ahí sí se permite que envuelva. */
+.hero-subtitle {
+  max-width: none;
+  white-space: nowrap;
+  font-size: clamp(0.95rem, 2.35vw, 1.4rem);
+  margin-bottom: 1.6rem;
+}
+@media (max-width: 620px) {
+  .hero-subtitle {
+    white-space: normal;
+    font-size: clamp(1rem, 4.6vw, 1.25rem);
+    max-width: 22ch;
+    line-height: 1.45;
+  }
+}
+
+/* ── BARRA DE DATOS ──
+   En móvil el bloque UNAL se comía todo el ancho y el carrusel quedaba
+   sin espacio. Ahora el bloque fijo tiene un ancho acotado y el
+   carrusel siempre conserva su parte (min-width:0 permite que un hijo
+   flex se encoja dentro de su contenedor). */
+.stat-fixed { max-width: 300px; }
+.stats-marquee { min-width: 0; }
+
+@media (max-width: 720px) {
+  .stat-fixed { max-width: 116px; padding: 0.75rem 0.85rem; }
+  .stat-fixed .stat-num { font-size: 17px; }
+  .stat-fixed .stat-label { font-size: 10.5px; line-height: 1.3; }
+  .marquee-item { padding: 0.8rem 1rem; }
+  .marquee-name { font-size: 13.5px; }
+  .stats-marquee::before { width: 22px; }
+}
+@media (max-width: 420px) {
+  /* en pantallas muy angostas el subtítulo del bloque fijo estorba */
+  .stat-fixed .stat-label { display: none; }
+  .stat-fixed { max-width: 74px; }
+}
+
+/* ── BOTÓN DE VELOCIDAD ──
+   Antes era un rectángulo con borde que cortaba la barra. Ahora es un
+   botón redondo, flotante sobre el extremo derecho del carrusel, y el
+   cambio de velocidad es progresivo (la transición está en el track). */
+.stats-speed {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  color: var(--text-secondary);
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background var(--t), color var(--t), transform var(--t);
+}
+.stats-speed:hover {
+  background: var(--primary);
+  color: var(--text-on-blue);
+  transform: translateY(-50%) scale(1.08);
+}
+.stats-speed:active { transform: translateY(-50%) scale(0.94); }
+.stats-speed .ti { transition: none; transform: none; }
+
+/* el envoltorio del carrusel pasa a ser el contexto del botón */
+.stats-inner { position: relative; }
+/* espacio para que el botón no tape el último ítem */
+.stats-marquee { padding-right: 54px; }
+.stats-marquee::after {
+  content: '';
+  position: absolute; right: 0; top: 0; bottom: 0; width: 76px;
+  background: linear-gradient(270deg, var(--bg-card) 30%, transparent);
+  z-index: 2; pointer-events: none;
+}
+
+/* La velocidad cambia de forma suave, no de golpe. */
+.stats-marquee-track {
+  animation-duration: var(--marquee-duration, 150s);
+  transition: none;
+}
+/* estado de pausa activado desde el botón */
+.stats-marquee.is-stopped .stats-marquee-track { animation-play-state: paused; }
+
+/* etiqueta de velocidad dentro del botón (1× / ½×) */
+.speed-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.stats-speed[data-estado="pausa"] { background: var(--primary); color: var(--text-on-blue); }

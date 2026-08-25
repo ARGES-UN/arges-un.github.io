@@ -3,233 +3,318 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Equipo de investigación ARGES · UNAL Bogotá" />
+  <meta name="description" content="Grupo de investigación y semilleros en soldadura, ensayos no destructivos y materiales · Universidad Nacional de Colombia, Bogotá" />
   <title>Equipo · ARGES</title>
-  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/core.css" />
+  <link rel="stylesheet" href="../css/icons.css" />
   <link rel="stylesheet" href="../css/equipo.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="../index.html" class="nav-logo">
-        <span class="nav-logo-img-wrap">
-          <img src="../assets/img/logo.svg" alt="Arges logo" class="nav-logo-img" onerror="this.style.display='none'"/>
-        </span>
-        ARGES
-      </a>
+      <a href="../index.html" class="nav-logo">ARGES</a>
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="investigacion.html">Investigación</a></li>
-        <li><a href="equipo.html">Equipo</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="../pages/investigacion.html">Investigación</a></li>
+        <li><a href="../pages/equipo.html" class="active">Equipo</a></li>
+        <li class="nav-item-split" data-nav-dropdown>
+          <a href="../pages/recursos/index.html">Recursos</a>
+          <button class="nav-caret" aria-label="Desplegar secciones de Recursos" aria-expanded="false">
+            <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../pages/recursos/noticias.html"><i class="ti ti-news" aria-hidden="true"></i>Noticias y convocatorias</a>
+            <a href="../pages/recursos/servicios.html"><i class="ti ti-briefcase" aria-hidden="true"></i>Servicios<span class="dd-soon">Pronto</span></a>
+            <a href="../pages/recursos/cursos.html"><i class="ti ti-school" aria-hidden="true"></i>Cursos y material<span class="dd-soon">Pronto</span></a>
+          </div>
+        </li>
+        <li><a href="../pages/contacto.html">Contacto</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
-    <div class="page-header-grid"></div>
-    <div class="page-header-glow"></div>
+    <div class="bg-grid"></div>
+    <div class="glow"></div>
     <div class="container">
       <div class="page-header-eyebrow">ARGES · UNAL</div>
       <h1>Equipo</h1>
-      <p>Las personas detrás de cada cordón depositado, cada señal analizada y cada resultado publicado.</p>
+      <!--<p>Las personas detrás de cada cordón depositado, cada señal analizada y cada equipo puesto a punto.</p>-->
     </div>
   </div>
 
-  <!-- ═══ DIRECTOR ═══ -->
   <section class="section">
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="section-tag">Dirección</span>
         <div class="section-line"></div>
       </div>
-
       <div class="director-card" data-reveal>
-        <div class="director-card-glow"></div>
-        <div class="director-photo">
-          <div class="director-photo-placeholder">
-            <div class="director-avatar">DR</div>
-            <span class="director-photo-label">Foto próximamente</span>
-          </div>
+        <div class="glow"></div>
+        <div class="director-photo" data-member-slider>
+          <img class="member-slide is-active" src="../assets/img/equipo/juan-hernando-reyes-pacheco-1.png" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/juan-hernando-reyes-pacheco-2.png" alt="" loading="lazy" />
+          <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
         </div>
         <div class="director-body">
-          <h3>[Nombre del Director]</h3>
-          <span class="director-role">Director del semillero</span>
-          <p class="director-bio">Profesor asociado del Departamento de Ingeniería Mecánica y Mecatrónica de la Universidad Nacional de Colombia. Doctor en Ingeniería con énfasis en materiales y procesos de manufactura. Más de 10 años de experiencia en investigación en soldadura y caracterización de materiales.</p>
-          <div class="director-tags">
-            <span class="interest-tag">Soldadura</span>
-            <span class="interest-tag">WAAM</span>
-            <span class="interest-tag">Metalurgia</span>
-            <span class="interest-tag">END</span>
-            <span class="interest-tag">Fabricación aditiva</span>
+          <h3>Juan Hernando Reyes Pacheco</h3>
+          <span class="director-role">Líder del grupo de investigación</span>
+          <p class="director-bio">Docente del Departamento de Ingeniería Mecánica y Mecatrónica de la Universidad Nacional de Colombia y líder registrado ante el sistema Hermes. Acompaña la formulación de los proyectos y la formación técnica del grupo.</p>
+          <div class="director-tags"><span class="interest-tag">Soldadura</span><span class="interest-tag">Materiales</span><span class="interest-tag">Ensayos no destructivos</span></div>
+        </div>
+      </div>
+
+      <div class="role-label" data-reveal>Liderazgo estudiantil</div>
+      <div class="members-grid">
+        <div class="member-card" id="david-felipe-ruiz-reyes" data-reveal data-reveal-delay="1">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/DavidR1.jpg" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/DavidR2.jpg" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
           </div>
-          <span class="director-proyectos-label" style="margin-top:1.2rem">Proyectos</span>
-          <div class="director-proyectos">
-            <a href="proyectos/waam-parametros.html" class="integrante-chip">Optimización WAAM</a>
-            <a href="proyectos/waam-ut-inline.html" class="integrante-chip">UT en línea</a>
-            <a href="proyectos/metalurgia-ciclos.html" class="integrante-chip">Ciclos térmicos</a>
+          <div class="member-body">
+            <h4>David Felipe Ruiz Reyes</h4>
+            <span class="member-role">Líder del equipo</span>
+            <p class="member-desc">Líder estudiantil del equipo. Responsable del proyecto de evaluación automática de 
+              ensayos no destructivos e integrante de proyectos relacionados con WAAM y soldadura.</p>
+            <div class="member-focus-list">
+            <div class="member-focus">END</div><div class="member-focus">WAAM</div><div class="member-focus">Basket</div>
+            </div>
+            <div class="member-proyectos">
+              <span class="member-proyectos-label">Proyectos</span>
+              <div class="member-proyectos-list"><a href="proyectos/dl-end.html" class="proyecto-chip">Evaluación automática de ensayos
+                 no destructivos</a><a href="proyectos/waam-hibrido.html" class="proyecto-chip">WAAM · Modificaciones (VM-Híbrido)</a>
+                 <a href="proyectos/waam-caracterizacion.html" class="proyecto-chip">WAAM · Caracterización de materiales</a>
+                 <a href="proyectos/waam-tandem.html" class="proyecto-chip">WAAM · Tándem</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card" id="jorge-nicolas-garzon" data-reveal data-reveal-delay="2">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/JorgeN1.jpg" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/JorgeN2.jpg" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
+          </div>
+          <div class="member-body">
+            <h4>Jorge Nicolás Garzón</h4>
+            <span class="member-role">Coordinador de proyectos</span>
+            <p class="member-desc">Pendiente</p>
+            <div class="member-focus-list">
+            <div class="member-focus">Pendiente</div></div>
+            <div class="member-proyectos">
+              <span class="member-proyectos-label">Proyectos</span>
+              <div class="member-proyectos-list"><a href="proyectos/pai-desgaste.html" class="proyecto-chip">Máquina de desgaste · Modernización</a>
+              <a href="proyectos/waam-caracterizacion.html" class="proyecto-chip">WAAM · Caracterización de materiales</a>
+              <a href="proyectos/pai-desgaste.html" class="proyecto-chip">Máquina de desgaste · Modernización</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card" id="david-santiago-perez" data-reveal data-reveal-delay="3">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/SantiagoP2.jpg" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/david-santiago-perez-2.png" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
+          </div>
+          <div class="member-body">
+            <h4>David Santiago Pérez</h4>
+            <span class="member-role">Coordinador de proyectos</span>
+            <p class="member-desc">Estudiante de Ingeniería Mecánica en etapa avanzada de formación, con experiencia práctica en montaje de equipos y fortalezas en elaboración de planos técnicos. Interesado en especializarse en metalurgia y certificarse en soldadura. Buenos conocimientos de transferencia de calor y manejo de herramientas de corte.</p>
+            <div class="member-focus-list">
+            <div class="member-focus">Corte de distintos materiales</div><div class="member-focus">Transferencia de calor</div>
+            <div class="member-focus">Generardor de buen ambiente de trabajo</div><div class="member-focus">Paciencia</div>
+            </div>
+            <div class="member-proyectos">
+              <span class="member-proyectos-label">Proyectos</span>
+              <div class="member-proyectos-list"><a href="proyectos/waam-caracterizacion.html" class="proyecto-chip">WAAM · Caracterización de materiales</a>
+                <a href="proyectos/waam-hibrido.html" class="proyecto-chip">WAAM · Modificaciones (VM-Híbrido)</a>
+                <a href="proyectos/pai-desgaste.html" class="proyecto-chip">Máquina de desgaste · Modernización</a></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- ── INVESTIGADORES ── -->
-      <div class="role-label" data-reveal>Investigadores</div>
+      <div class="role-label" data-reveal>Integrantes</div>
+
       <div class="members-grid">
-
-        <div class="member-card" id="laura-castillo" data-reveal data-reveal-delay="1">
-          <div class="member-photo">
-            <div class="member-photo-placeholder">
-              <div class="member-avatar">LC</div>
-              <span class="member-avatar-label">Foto próximamente</span>
-            </div>
+        <div class="member-card" id="david-pirateque" data-reveal data-reveal-delay="4">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/david-pirateque-1.png" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/david-pirateque-2.png" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
           </div>
           <div class="member-body">
-            <h4>Laura Castillo</h4>
-            <span class="member-role">MSc · Investigadora</span>
-            <p class="member-desc">Posgrado en Ingeniería Mecánica. Tesis en metalurgia de soldadura WAAM.</p>
-            <div class="member-focus">Microestructura · HAZ</div>
+            <h4>David Pirateque</h4>
+            <span class="member-role">Pregrado</span>
+            <p class="member-desc">Reseña próximamente.</p>         
+            <div class="member-focus-list"></div>
             <div class="member-proyectos">
               <span class="member-proyectos-label">Proyectos</span>
-              <div class="member-proyectos-list">
-                <a href="proyectos/waam-parametros.html" class="proyecto-chip">Optimización de parámetros WAAM</a>
-                <a href="proyectos/metalurgia-ciclos.html" class="proyecto-chip">Evolución microestructural</a>
-              </div>
+              <div class="member-proyectos-list"><a href="proyectos/pai-desgaste.html" class="proyecto-chip">Máquina de desgaste · Modernización</a></div>
             </div>
           </div>
         </div>
 
-        <div class="member-card" id="santiago-molina" data-reveal data-reveal-delay="2">
-          <div class="member-photo">
-            <div class="member-photo-placeholder">
-              <div class="member-avatar">SM</div>
-              <span class="member-avatar-label">Foto próximamente</span>
-            </div>
+        <div class="member-card" id="julio-cesar-fernandez-ferreira" data-reveal data-reveal-delay="1">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/JulioF1.jpg" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/JulioF2.jpg" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
           </div>
           <div class="member-body">
-            <h4>Santiago Molina</h4>
-            <span class="member-role">MSc · Investigador</span>
-            <p class="member-desc">Énfasis en ensayos no destructivos y procesamiento de señal ultrasónica.</p>
-            <div class="member-focus">Ultrasonido · Phased Array</div>
+            <h4>Julio César Fernández Ferreira</h4>
+            <span class="member-role">Pregrado · Ing. Mecánica</span>
+            <p class="member-desc">Estudiante de ingeniería mecánica interesado en el área de inspección no destructiva, metalurgia y ciencia de materiales. Familiarizado con valoraciones destructivas en máquinas universales y no destructivas en los métodos de radiografía, tintas penetrantes y partículas magnéticas, así como en metodologías de selección, sintetización y caracterización de materiales.</p>
+            <div class="member-focus-list">
+            <div class="member-focus">Experiencia con distintas técnicas END</div><div class="member-focus">Fundamentos de soldadura</div>
+            <div class="member-focus">Selección de materiales</div><div class="member-focus">Caracterización de materiales</div>
+            </div>
             <div class="member-proyectos">
               <span class="member-proyectos-label">Proyectos</span>
-              <div class="member-proyectos-list">
-                <a href="proyectos/waam-ut-inline.html" class="proyecto-chip">UT en línea durante WAAM</a>
-                <a href="proyectos/ut-correlacion.html" class="proyecto-chip">Correlación señal UT</a>
-              </div>
+              <div class="member-proyectos-list"><a href="proyectos/dl-end.html" class="proyecto-chip">Evaluación automática de ensayos no destructivos</a><a href="proyectos/revelado-radiografico.html" class="proyecto-chip">Revelado automático de películas radiográficas</a></div>
             </div>
           </div>
         </div>
 
-        <div class="member-card" id="ana-pinzon" data-reveal data-reveal-delay="3">
-          <div class="member-photo">
-            <div class="member-photo-placeholder">
-              <div class="member-avatar">AP</div>
-              <span class="member-avatar-label">Foto próximamente</span>
-            </div>
+        <div class="member-card" id="david-alejandro-botero-mejia" data-reveal data-reveal-delay="2">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/AlejandroB1.jpg" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/AlejandroB2.jpg" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
           </div>
           <div class="member-body">
-            <h4>Ana Pinzón</h4>
-            <span class="member-role">MSc · Investigadora</span>
-            <p class="member-desc">Especialización en radiografía industrial y criterios de aceptación ASME.</p>
-            <div class="member-focus">RT digital · ASME IX</div>
+            <h4>David Alejandro Botero Mejía</h4>
+            <span class="member-role">Pregrado · Ing. Mecánica</span>
+            <p class="member-desc">Interesado en el diseño mecánico, la industria automotriz y el prototipado mediante impresión 3D. Familiarizado con fundamentos de soldadura e inspección no destructiva, y con la integración del modelado CAD con la evaluación física de los materiales.</p>
+            <div class="member-focus-list">
+            <div class="member-focus">Diseño mecánico</div><div class="member-focus">Prototipado 3D</div>
+            </div>
             <div class="member-proyectos">
               <span class="member-proyectos-label">Proyectos</span>
-              <div class="member-proyectos-list">
-                <a href="proyectos/ut-correlacion.html" class="proyecto-chip">Correlación señal UT</a>
-                <a href="proyectos/rt-digital.html" class="proyecto-chip">Radiografía digital WAAM</a>
-              </div>
+              <div class="member-proyectos-list"><a href="proyectos/dl-end.html" class="proyecto-chip">Evaluación automática de ensayos no destructivos</a></div>
             </div>
           </div>
         </div>
 
-      </div>
-
-      <!-- ── ESTUDIANTES ── -->
-      <div class="role-label" data-reveal>Estudiantes de pregrado</div>
-      <div class="members-grid">
-
-        <div class="member-card" id="julian-moreno" data-reveal data-reveal-delay="1">
-          <div class="member-photo">
-            <div class="member-photo-placeholder">
-              <div class="member-avatar">JM</div>
-              <span class="member-avatar-label">Foto próximamente</span>
-            </div>
+        <div class="member-card" id="maria-teresa-parra" data-reveal data-reveal-delay="4">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/MariaT1.jpg" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/MariaT2.jpg" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
           </div>
           <div class="member-body">
-            <h4>Julián Moreno</h4>
-            <span class="member-role">Estudiante · Ing. Mecánica</span>
-            <p class="member-desc">Trabajo de grado en optimización de parámetros WAAM.</p>
-            <div class="member-focus">WAAM · Parámetros</div>
+            <h4>María Teresa Parra</h4>
+            <span class="member-role">Pregrado</span>
+            <p class="member-desc">Reseña próximamente.</p>       
+            <div class="member-focus-list"></div>
             <div class="member-proyectos">
               <span class="member-proyectos-label">Proyectos</span>
-              <div class="member-proyectos-list">
-                <a href="proyectos/waam-parametros.html" class="proyecto-chip">Optimización de parámetros WAAM</a>
-              </div>
+              <div class="member-proyectos-list"><a href="proyectos/waam-caracterizacion.html" class="proyecto-chip">WAAM · Caracterización de materiales</a></div>
             </div>
           </div>
         </div>
 
-        <div class="member-card" id="valentina-rios" data-reveal data-reveal-delay="2">
-          <div class="member-photo">
-            <div class="member-photo-placeholder">
-              <div class="member-avatar">VR</div>
-              <span class="member-avatar-label">Foto próximamente</span>
-            </div>
+
+        <div class="member-card" id="jorge-alejandro-torres" data-reveal data-reveal-delay="3">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/jorge-alejandro-torres-1.png" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/jorge-alejandro-torres-2.png" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
           </div>
           <div class="member-body">
-            <h4>Valentina Ríos</h4>
-            <span class="member-role">Estudiante · Ing. Mecánica</span>
-            <p class="member-desc">Proyecto en caracterización metalográfica de cordones multicapa.</p>
-            <div class="member-focus">Metalografía · SEM</div>
+            <h4>Jorge Alejandro Torres</h4>
+            <span class="member-role">Pregrado · Ing. Mecatrónica</span>
+            <p class="member-desc">Reseña próximamente.</p>
+            <div class="member-focus-list"></div>
             <div class="member-proyectos">
               <span class="member-proyectos-label">Proyectos</span>
-              <div class="member-proyectos-list">
-                <a href="proyectos/metalurgia-ciclos.html" class="proyecto-chip">Evolución microestructural</a>
-              </div>
+              <div class="member-proyectos-list"><a href="proyectos/mantenimiento-saw-rsw.html" class="proyecto-chip">Mantenimiento SAW y RSW</a><a href="proyectos/dl-end.html" class="proyecto-chip">Evaluación automática de ensayos no destructivos</a><a href="proyectos/brazo-robotico.html" class="proyecto-chip">Brazo robótico · Motoman (adaptaciones y control)</a></div>
             </div>
           </div>
         </div>
 
-        <div class="member-card" id="carlos-fuentes" data-reveal data-reveal-delay="3">
-          <div class="member-photo">
-            <div class="member-photo-placeholder">
-              <div class="member-avatar">CF</div>
-              <span class="member-avatar-label">Foto próximamente</span>
-            </div>
+        <div class="member-card" id="alejandro-vargas-caballero" data-reveal data-reveal-delay="1">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/alejandro-vargas-caballero-1.png" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/alejandro-vargas-caballero-2.png" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
           </div>
           <div class="member-body">
-            <h4>Carlos Fuentes</h4>
-            <span class="member-role">Estudiante · Ing. Mecatrónica</span>
-            <p class="member-desc">Automatización del sistema de adquisición de datos térmicos.</p>
-            <div class="member-focus">DAQ · Automatización</div>
+            <h4>Alejandro Vargas Caballero</h4>
+            <span class="member-role">Pregrado</span>
+            <p class="member-desc">Reseña próximamente.</p>
+            <div class="member-focus-list"></div>
             <div class="member-proyectos">
               <span class="member-proyectos-label">Proyectos</span>
-              <div class="member-proyectos-list">
-                <a href="proyectos/waam-ut-inline.html" class="proyecto-chip">UT en línea durante WAAM</a>
-              </div>
+              <div class="member-proyectos-list"><a href="proyectos/dl-end.html" class="proyecto-chip">Evaluación automática de ensayos no destructivos</a></div>
             </div>
           </div>
         </div>
+
+        <div class="member-card" id="ian-rivera" data-reveal data-reveal-delay="1">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/ian-rivera-1.png" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/ian-rivera-2.png" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
+          </div>
+          <div class="member-body">
+            <h4>Ian Rivera</h4>
+            <span class="member-role">Pregrado · Ing. Mecánica</span>
+            <p class="member-desc">Interesado en metalurgia, mantenimiento, ciencia de materiales, diseño mecánico y manufactura aditiva. Familiarizado con procesos de soldadura, modelado CAD y planos según NTC, con experiencia en torneado y desarrollo de proyectos.</p>
+            <div class="member-focus-list">
+            <div class="member-focus"></div>
+            </div>
+            <div class="member-proyectos">
+              <span class="member-proyectos-label">Proyectos</span>
+              <div class="member-proyectos-list"><a href="proyectos/waam-caracterizacion.html" class="proyecto-chip">WAAM · Caracterización de materiales, aplicaciones y códigos de trayectoria</a><a href="proyectos/mantenimiento-saw-rsw.html" class="proyecto-chip">Mantenimiento SAW y RSW</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card" id="santiago-marino" data-reveal data-reveal-delay="2">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/SantiagoM1.jpg" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/santiago-marino-2.png" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
+          </div>
+          <div class="member-body">
+            <h4>Santiago Mariño</h4>
+            <span class="member-role">Pregrado · Ing. Mecatrónica</span>
+            <p class="member-desc">Interesado en el diseño mecánico y electrónico de dispositivos, la programación y el desarrollo de aplicaciones. Habilidades en CAD, manejo de robots industriales, redes, microcontroladores y soldadura.</p>
+            <div class="member-focus-list">
+            <div class="member-focus">Robótica</div><div class="member-focus">Programación</div><div class="member-focus">Electrónica</div>
+            </div>
+            <div class="member-proyectos">
+              <span class="member-proyectos-label">Proyectos</span>
+              <div class="member-proyectos-list"><a href="proyectos/waam-caracterizacion.html" class="proyecto-chip">WAAM · Caracterización de materiales, aplicaciones y códigos de trayectoria</a><a href="proyectos/waam-tandem.html" class="proyecto-chip">WAAM · Tándem</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card" id="david-santiago-nino" data-reveal data-reveal-delay="3">
+          <div class="member-photo" data-member-slider>
+            <img class="member-slide is-active" src="../assets/img/equipo/david-santiago-nino-1.png" alt="" loading="lazy" /><img class="member-slide" src="../assets/img/equipo/david-santiago-nino-2.png" alt="" loading="lazy" />
+            <div class="member-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
+          </div>
+          <div class="member-body">
+            <h4>David Santiago Niño</h4>
+            <span class="member-role">Pregrado · Ing. Mecánica</span>
+            <p class="member-desc">Interesado en mantenimiento y modificación de maquinaria y en diseño mecánico. Familiarizado con modelado 3D y elaboración de planos según NTC, con experiencia en soldadura con arco revestido, torneado y fundamentos de programación.</p>
+            <div class="member-focus-list">
+            <div class="member-focus">Mantenimiento</div><div class="member-focus">Diseño mecánico</div>
+            </div>
+            <div class="member-proyectos">
+              <span class="member-proyectos-label">Proyectos</span>
+              <div class="member-proyectos-list"><a href="proyectos/dl-end.html" class="proyecto-chip">Evaluación automática de ensayos no destructivos</a></div>
+            </div>
+          </div>
+        </div>
+        
+        <div></div>
 
         <div class="join-card" data-reveal data-reveal-delay="4">
           <div class="join-plus"><i class="ti ti-plus" aria-hidden="true"></i></div>
           <h4>¡Tu nombre aquí!</h4>
-          <p>Convocatoria abierta para estudiantes de pregrado y posgrado. Cupos limitados cada semestre.</p>
+          <p>Cualquier programa, cualquier semestre. El grupo está creciendo y hay proyectos
+             esperando a alguien que los tome.</p>
           <a href="contacto.html" class="btn btn-outline">Postúlate &rarr;</a>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══ VALORES ═══ -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -241,45 +326,44 @@
         <div class="valor-card" data-reveal data-reveal-delay="1">
           <i class="ti ti-flask valor-icon" aria-hidden="true"></i>
           <h4>Rigor experimental</h4>
-          <p>Cada resultado parte de datos reproducibles. Documentamos todos los parámetros y condiciones de cada ensayo.</p>
+          <p>Cada resultado parte de datos reproducibles. Documentamos parámetros y condiciones de cada ensayo.</p>
         </div>
         <div class="valor-card" data-reveal data-reveal-delay="2">
-          <i class="ti ti-users valor-icon" aria-hidden="true"></i>
-          <h4>Trabajo en equipo</h4>
-          <p>Reuniones semanales, revisión cruzada de resultados y responsabilidades compartidas en el laboratorio.</p>
+          <i class="ti ti-tools valor-icon" aria-hidden="true"></i>
+          <h4>Aprender haciendo</h4>
+          <p>Se entra sin saber y se aprende en el montaje, no esperando a tener el curso perfecto.</p>
         </div>
         <div class="valor-card" data-reveal data-reveal-delay="3">
-          <i class="ti ti-book valor-icon" aria-hidden="true"></i>
-          <h4>Formación continua</h4>
-          <p>Cada miembro desarrolla habilidades técnicas y de escritura científica a lo largo de su participación.</p>
+          <i class="ti ti-users valor-icon" aria-hidden="true"></i>
+          <h4>Puertas abiertas</h4>
+          <p>Cualquier programa, cualquier semestre. Las ideas que aún no encajan en ninguna línea también caben.</p>
         </div>
         <div class="valor-card" data-reveal data-reveal-delay="4">
           <i class="ti ti-share valor-icon" aria-hidden="true"></i>
-          <h4>Difusión abierta</h4>
-          <p>Publicamos en acceso abierto, presentamos en congresos y compartimos nuestros datos con la comunidad.</p>
+          <h4>De la mesa a la industria</h4>
+          <p>Lo que construimos busca salir del laboratorio: publicaciones, congresos y aplicaciones reales.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
+      <div class="social-links">
+        <a href="https://www.instagram.com/drafrix?igsi=NnA0a2xheDI0a3Nq" class="social-link" target="_blank" rel="noopener" aria-label="Instagram de ARGES" title="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-link" target="_blank" rel="noopener" aria-label="YouTube de ARGES" title="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+        <a href="https://github.com/LaboratorioSyENDUNAL" class="social-link" target="_blank" rel="noopener" aria-label="GitHub de ARGES" title="GitHub"><i class="ti ti-brand-github" aria-hidden="true"></i></a>
+      </div>
       <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
     </div>
   </footer>
 
+  <button class="to-top" id="to-top" aria-label="Volver al inicio de la página" title="Volver arriba">
+    <i class="ti ti-arrow-up" aria-hidden="true"></i>
+  </button>
+
   <script src="../js/main.js"></script>
-  <script>
-    // scroll suave al ancla del miembro cuando viene desde investigacion.html
-    window.addEventListener('load', () => {
-      const hash = window.location.hash;
-      if (hash) {
-        const el = document.querySelector(hash);
-        if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
-      }
-    });
-  </script>
+  <script src="../js/equipo.js"></script>
 </body>
 </html>

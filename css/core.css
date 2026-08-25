@@ -1,0 +1,789 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Los íconos ya NO vienen de un CDN externo: están en css/icons.css,
+   incrustados en el propio sitio. Cada página lo carga junto a este
+   archivo. Ver la cabecera de icons.css para el detalle. */
+
+/* ================================================================
+   ARGES · core.css
+   Capa base compartida por TODAS las páginas del sitio.
+   Contiene: tokens de diseño, reset, tipografía base, layout
+   utilitario (.container/.section), nav, footer, page-header,
+   botones, badges, tarjeta base y utilidades decorativas
+   (fondo de cuadrícula y "glow") reutilizadas en varias páginas.
+
+   Las páginas cargan además UN archivo propio (home.css,
+   investigacion.css, equipo.css, noticias.css, contacto.css o
+   proyectos.css) con los estilos que solo usa esa página.
+   Ver GUIA_PAGINA_ARGES.md / ARQUITECTURA.md para el detalle.
+   ================================================================ */
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+img { max-width: 100%; display: block; }
+
+/* ── TOKENS ──
+   Paleta "arco y placa": los dos instrumentos del grupo son el arco
+   eléctrico (luz que se emite) y la placa radiográfica (luz que se
+   absorbe). De ahí salen los dos extremos de la escala.
+
+   El azul no es solo un acento: los fondos son azul-negro, no gris
+   neutro, así que el color de marca está también en el sustrato de
+   la página y no solo en botones sueltos. Si quieres subir o bajar
+   la presencia del azul, mueve los cuatro tokens --bg-*: acercarlos
+   a #0A0A0C lo vuelve más neutro, alejarlos hacia el azul lo carga
+   más. Todo lo demás se reajusta solo.
+   ─────────────────────────────────────────────────────────────── */
+:root {
+  /* Arco — azul de marca. Escala de tres pasos, de la sombra al
+     núcleo del plasma. --primary es para RELLENOS (botones, barras);
+     para TEXTO azul sobre fondo oscuro se usa --link, que es más
+     claro y sí alcanza el contraste mínimo de accesibilidad. */
+  --arc-deep:       #1B4FD8;
+  --primary:        #2F6BFF;
+  --primary-hover:  #4A82FF;
+  --link:           #6FA0FF;
+  --arc-core:       #A9D4FF;
+  --primary-glow:   rgba(47, 107, 255, 0.20);
+  --primary-subtle: rgba(47, 107, 255, 0.12);
+
+  /* Acentos secundarios (antes estaban repetidos como rgba() sueltos
+     en cada badge; ahora son tokens únicos para poder retocar
+     el esquema de color completo desde un solo lugar) */
+  --accent-violet:        #8B5CF6;
+  --accent-violet-text:   #C9B8FF;
+  --accent-violet-subtle: rgba(139, 92, 246, 0.12);
+  --accent-violet-border: rgba(139, 92, 246, 0.30);
+
+  --success:        #16A34A;
+  --success-text:   #5EE39B;
+  --success-subtle: rgba(22, 163, 74, 0.12);
+  --success-border: rgba(22, 163, 74, 0.30);
+
+  --warning:        #D97706;
+  --warning-text:   #F5B855;
+  --warning-subtle: rgba(217, 119, 6, 0.12);
+  --warning-border: rgba(217, 119, 6, 0.30);
+
+  --danger:  #DC2626;
+
+  /* Fondos — azul-negro, no gris. De la placa velada (main) a la
+     superficie iluminada (hover). */
+  --bg-main:    #080B14;
+  --bg-surface: #0E1320;
+  --bg-card:    #131A2A;
+  --bg-hover:   #1A2338;
+  --bg-input:   #0B101B;
+
+  /* Texto (todos verificados ≥ 4.5:1 sobre fondo de tarjeta) */
+  --text-main:      #EAEFF7;
+  --text-secondary: #9FAEC6;
+  --text-faint:     #7E8EA8;
+  --text-on-blue:   #FFFFFF;
+
+  /* Bordes — con tinte azul en vez de blanco puro, para que la
+     retícula técnica se lea como plano y no como polvo gris. */
+  --border:      rgba(125, 160, 230, 0.11);
+  --border-mid:  rgba(125, 160, 230, 0.21);
+  --border-blue: rgba(47, 107, 255, 0.42);
+
+  /* Tipografía. Space Mono es la voz de la marca (lectura de
+     instrumento) pero solo en titulares grandes y etiquetas: de h3
+     hacia abajo manda Inter, porque en listas largas como equipo o
+     investigación el mono se vuelve costoso de leer.
+     Las pilas incluyen alternativas del sistema para que, si el CDN
+     de fuentes no carga, la página siga siendo legible. */
+  --mono: 'Space Mono', ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Geometría */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+
+  /* Escala de espaciado (convención para uso progresivo;
+     no reemplaza todos los valores existentes, pero todo
+     código nuevo debería usar esta escala) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Elevación (antes el sitio no usaba sombras, solo bordes;
+     una sombra sutil en hover da sensación de profundidad
+     sin perder la estética plana/industrial) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.55);
+  /* sombra "encendida": para elementos que el azul debe iluminar */
+  --shadow-arc: 0 6px 24px rgba(47, 107, 255, 0.22);
+
+  /* Transiciones */
+  --t: 0.18s ease;
+  --t-slow: 0.35s ease;
+}
+
+/* ── BASE ── */
+body {
+  font-family: var(--sans);
+  /* El azul empieza en el fondo: una veladura muy tenue arriba, como
+     la luz del arco tiñendo la parte alta de la página. */
+  background:
+    radial-gradient(120% 70% at 50% -10%, rgba(47, 107, 255, 0.10) 0%, transparent 60%),
+    var(--bg-main);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-size: 17.5px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Mono solo en los tamaños de despliegue (h1/h2) y en las etiquetas.
+   h3/h4 pasan a Inter: son los titulares de tarjeta que aparecen
+   decenas de veces por página y en mono costaban leerse. */
+h1, h2 {
+  font-family: var(--mono);
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--text-main);
+}
+h3, h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-main);
+}
+h1 { font-size: clamp(2.2rem, 5.2vw, 3.5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.35rem, 2.7vw, 1.8rem); letter-spacing: -0.01em; }
+h3 { font-size: 1.12rem; }
+h4 { font-size: 1.03rem; }
+
+p  { color: var(--text-secondary); line-height: 1.7; }
+
+/* Los enlaces usan --link (más claro que --primary). Con --primary
+   el texto azul quedaba en 3.5:1 sobre el fondo, por debajo del
+   mínimo de 4.5:1; así queda en 7:1 y el azul se ve más encendido. */
+a  { color: var(--link); text-decoration: none; transition: color var(--t); }
+a:hover { color: var(--arc-core); }
+
+/* accesibilidad: foco visible consistente en todo el sitio */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 1040px; margin: 0 auto; padding: 0 2rem; }
+.section   { padding: 5rem 0; }
+.section-alt {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── REVEAL AL SCROLL ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+[data-reveal].revealed  { opacity: 1; transform: none; }
+[data-reveal-delay="1"] { transition-delay: 0.08s; }
+[data-reveal-delay="2"] { transition-delay: 0.16s; }
+[data-reveal-delay="3"] { transition-delay: 0.24s; }
+[data-reveal-delay="4"] { transition-delay: 0.32s; }
+
+/* ── UTILIDADES DECORATIVAS COMPARTIDAS ──
+   Antes .hero-grid / .page-header-grid / .proyecto-hero-grid
+   repetían exactamente la misma regla 3 veces. Ahora es una sola
+   clase .bg-grid reutilizada. Lo mismo con .glow: una base común
+   más una modificadora de posición/tamaño por caso de uso. */
+.bg-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  /* La retícula se desvanece hacia abajo en vez de cortarse en seco:
+     lee como plano técnico iluminado desde arriba, no como wallpaper. */
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,0.35) 65%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,0.35) 65%, transparent 100%);
+}
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 62%);
+}
+.glow--violet { background: radial-gradient(circle, var(--accent-violet-border) 0%, transparent 65%); }
+
+/* ── FIRMA: EL ARCO ──
+   El único gesto llamativo del sitio, y solo aparece en dos lugares
+   (la palabra destacada del hero y el logo del nav). Es un trazo de
+   plasma: núcleo claro al centro, azul profundo en los extremos,
+   igual que un arco eléctrico real. Todo lo demás se mantiene sobrio
+   a propósito para que este momento no compita con nada.
+
+   Para quitarlo: borra la regla .arc-strike y la clase `hl` del h1. */
+.arc-strike { position: relative; display: inline-block; }
+.arc-strike::after {
+  content: '';
+  position: absolute;
+  left: -2px; right: -2px; bottom: -0.14em;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg,
+    var(--arc-deep) 0%,
+    var(--primary) 22%,
+    #DCEBFF 50%,
+    var(--primary) 78%,
+    var(--arc-deep) 100%);
+  box-shadow: 0 0 10px rgba(120,175,255,0.85), 0 0 30px rgba(47,107,255,0.45);
+  transform-origin: center;
+  animation: arc-ignite 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes arc-ignite {
+  0%   { transform: scaleX(0); opacity: 0; }
+  55%  { transform: scaleX(1); opacity: 1; }
+  70%  { opacity: 0.55; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+/* ── MENSAJES FLASH (Django messages framework) ── */
+.flash-message {
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 0.85rem 1.2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+.flash-success { background: var(--success-subtle); border: 1px solid var(--success-border); color: var(--success-text); }
+.flash-error   { background: rgba(220,38,38,0.10); border: 1px solid rgba(220,38,38,0.3); color: #FCA5A5; }
+
+/* ─────────────────────────────────────────
+   SECTION HEADER (título + línea + etiqueta, usado en casi toda página)
+───────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.section-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--link);
+  text-transform: uppercase;
+  background: var(--primary-subtle);
+  border: 1px solid var(--border-blue);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.section-line  { flex: 1; height: 1px; background: var(--border); }
+.section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+.section-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--link);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transition: color var(--t);
+}
+.section-link:hover { color: var(--arc-core); }
+
+/* ── BOTONES ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--t);
+  text-decoration: none;
+  border: none;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--primary); color: var(--text-on-blue); }
+.btn-primary:hover { background: var(--primary-hover); color: var(--text-on-blue); box-shadow: var(--shadow-sm); }
+
+.btn-ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-mid); }
+.btn-ghost:hover { border-color: var(--primary); color: var(--text-main); }
+
+.btn-outline { background: transparent; color: var(--primary); border: 1px solid var(--border-blue); }
+.btn-outline:hover { background: var(--primary); color: var(--text-on-blue); }
+
+/* ── TARJETA BASE ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: border-color var(--t), transform var(--t), background var(--t), box-shadow var(--t);
+}
+.card:hover {
+  border-color: var(--border-mid);
+  background: var(--bg-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.card-accent { border-left: 2px solid var(--primary); }
+
+/* ── BADGES (colores ahora vienen de tokens, no de rgba() sueltos) ── */
+.badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+.badge-activo       { background: var(--success-subtle); color: var(--success-text); border-color: var(--success-border); }
+.badge-planificado  { background: var(--primary-subtle); color: var(--arc-core); border-color: var(--border-blue); }
+.badge-pausado      { background: rgba(255,255,255,0.05); color: var(--text-secondary); border-color: var(--border); }
+.badge-end,
+.badge-prioridad    { background: var(--accent-violet-subtle); color: var(--accent-violet-text); border-color: var(--accent-violet-border); }
+
+/* chip de integrante (usado en investigación, equipo y proyectos) */
+.integrante-chip {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--link);
+  background: var(--primary-subtle);
+  border: 1px solid var(--border-blue);
+  border-radius: 999px;
+  padding: 2px 9px;
+  text-decoration: none;
+  transition: all var(--t);
+  white-space: nowrap;
+  display: inline-flex;
+}
+.integrante-chip:hover { background: var(--primary); color: var(--text-on-blue); border-color: var(--primary); }
+
+/* ─────────────────────────────────────────
+   NAV (idéntico en las 9 páginas del sitio)
+───────────────────────────────────────── */
+.nav {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  transition: color var(--t), text-shadow var(--t);
+}
+.nav-logo:hover { color: var(--arc-core); text-shadow: 0 0 18px rgba(120,175,255,0.55); }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a {
+  color: var(--text-faint);
+  font-size: 15.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color var(--t);
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--arc-deep), var(--arc-core), var(--arc-deep));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--t);
+}
+.nav-links a:hover { color: var(--text-main); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--link); }
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text-secondary); transition: all var(--t); }
+
+/* ─────────────────────────────────────────
+   FOOTER (idéntico en las 9 páginas del sitio)
+───────────────────────────────────────── */
+.footer { background: var(--bg-surface); border-top: 1px solid var(--border); padding: 1.5rem 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.footer-copy { font-family: var(--mono); font-size: 11px; color: var(--text-faint); letter-spacing: 0.05em; }
+.footer-link { font-family: var(--mono); font-size: 11px; color: var(--link); }
+.footer-link:hover { color: var(--arc-core); }
+
+/* ─────────────────────────────────────────
+   PAGE HEADER (encabezado compartido por páginas internas)
+───────────────────────────────────────── */
+.page-header {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 0 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.page-header .glow { top: -100px; right: -80px; width: 400px; height: 400px; }
+.page-header-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--link);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.page-header-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--primary); display: inline-block; }
+.page-header h1 { position: relative; }
+.page-header p {
+  color: var(--text-secondary);
+  max-width: 520px;
+  font-size: 15px;
+  margin-top: 0.75rem;
+  position: relative;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE BASE (afecta a nav/footer en todas las páginas)
+───────────────────────────────────────── */
+@media (max-width: 720px) {
+  .container { padding: 0 1.2rem; }
+  .section   { padding: 3rem 0; }
+  .nav-links {
+    display: none; flex-direction: column; align-items: flex-start; position: absolute;
+    top: 64px; left: 0; right: 0; background: var(--bg-surface);
+    border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; gap: 0.75rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+
+/* ─────────────────────────────────────────
+   MOVIMIENTO REDUCIDO
+   Si la persona pidió en su sistema operativo que se reduzcan las
+   animaciones (una preferencia de accesibilidad, común en quienes
+   sufren mareo o migraña por movimiento en pantalla), el sitio se
+   queda quieto: nada desaparece, todo se muestra en su estado final.
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ================================================================
+   AÑADIDOS DE LA ACTUALIZACIÓN
+   ================================================================ */
+
+/* ── BOTÓN "VOLVER ARRIBA" ──
+   Aparece solo cuando el usuario ha bajado lo suficiente (lo controla
+   js/main.js añadiendo la clase .is-visible). Presente en todas las
+   páginas porque vive en el partial del footer. */
+.to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 300;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-blue);
+  background: var(--bg-card);
+  color: var(--link);
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.92);
+  transition: opacity var(--t), transform var(--t), visibility var(--t),
+              background var(--t), border-color var(--t), box-shadow var(--t);
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--text-on-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(47,107,255,0.45);
+}
+@media (max-width: 720px) { .to-top { right: 14px; bottom: 14px; width: 44px; height: 44px; } }
+
+/* ── HOVERS REFORZADOS ──
+   Antes los botones solo cambiaban de color; ahora también se elevan
+   un poco y proyectan luz, para que la interacción se sienta. */
+.btn { position: relative; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(47,107,255,0.42); }
+.btn-ghost:hover   { transform: translateY(-2px); background: var(--bg-hover); border-color: var(--primary); }
+.btn-outline:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(47,107,255,0.35); }
+.btn:active { transform: translateY(0); }
+
+/* enlaces de texto: subrayado que crece al pasar el mouse */
+.area-link, .section-link, .proyecto-chip, .sidebar-related-link { position: relative; }
+.area-link:hover, .section-link:hover { letter-spacing: 0.1em; }
+
+/* ── REDES SOCIALES (contacto y footer) ── */
+.social-links { display: flex; align-items: center; gap: 10px; }
+.social-link {
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--border-mid);
+  color: var(--text-secondary);
+  font-size: 21px;
+  text-decoration: none;
+  transition: all var(--t);
+}
+.social-link:hover {
+  color: var(--text-on-blue);
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(47,107,255,0.4);
+}
+.footer-inner .social-links .social-link { width: 36px; height: 36px; font-size: 18px; }
+
+/* ── BLOQUE "EN CONSTRUCCIÓN" (secciones aún no disponibles) ── */
+.under-construction {
+  background: var(--bg-card);
+  border: 1px dashed var(--border-mid);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2rem;
+  text-align: center;
+}
+.uc-gears { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 1.1rem; color: var(--primary); }
+.uc-gears .ti { font-size: 42px; animation: uc-spin 7s linear infinite; }
+.uc-gears .ti:nth-child(2) { font-size: 27px; animation-direction: reverse; animation-duration: 5s; opacity: 0.75; }
+@keyframes uc-spin { to { transform: rotate(360deg); } }
+.under-construction h3 { margin-bottom: 0.5rem; }
+.under-construction p { max-width: 460px; margin: 0 auto; font-size: 15px; }
+
+/* ── ETIQUETA DE ORIGEN/CONVENIO (ej. PAI) ── */
+.badge-pai {
+  background: rgba(255,176,32,0.12);
+  color: #FFC966;
+  border-color: rgba(255,176,32,0.4);
+}
+.badge-construccion {
+  background: rgba(255,255,255,0.06);
+  color: var(--text-secondary);
+  border-color: var(--border-mid);
+}
+
+/* ================================================================
+   MENÚ DESPLEGABLE DEL NAV (Recursos)
+   La palabra es un enlace normal a la página índice; la flechita de
+   la derecha es un botón aparte que despliega la lista. Así se puede
+   ir directo o elegir una subsección sin pasar por el índice.
+   ================================================================ */
+.nav-item-split { position: relative; display: block; }
+.nav-caret {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  line-height: 1;
+  color: var(--text-faint);
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: var(--radius-sm);
+  transition: color var(--t), background var(--t), transform var(--t);
+}
+.nav-caret .ti { transition: transform var(--t); }
+.nav-caret:hover { color: var(--text-main); }
+.nav-item-split.is-open .nav-caret { color: var(--link); }
+.nav-item-split.is-open .nav-caret .ti { transform: rotate(180deg); }
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  min-width: 300px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.55);
+  padding: 6px;
+  display: none;
+  z-index: 320;
+}
+.nav-item-split.is-open .nav-dropdown { display: block; }
+  
+.nav-dropdown a {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: background var(--t), color var(--t);
+}
+.nav-dropdown a::after { content: none; }   /* sin el subrayado del nav */
+.nav-dropdown a:hover { background: var(--bg-hover); color: var(--text-main); }
+.nav-dropdown a i { color: var(--primary); font-size: 18px; flex: none; }
+.nav-dropdown .dd-soon {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border: 1px solid var(--border-mid);
+  border-radius: 999px;
+  padding: 2px 7px;
+}
+
+/* En móvil el menú ya está desplegado dentro del panel, así que la
+   lista se muestra en línea y la flecha no hace falta. */
+@media (max-width: 720px) {
+  .nav-item-split { flex-direction: column; align-items: flex-start; width: 100%; gap: 0; }
+  .nav-caret { display: none; }
+  .nav-dropdown {
+    position: static;
+    display: block;
+    min-width: 0;
+    width: 100%;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 4px 0 0 12px;
+  }
+  .nav-dropdown a { padding: 7px 0; font-size: 14px; }
+}
+
+/* ================================================================
+   REVISIÓN DE RESPONSIVE Y LEGIBILIDAD
+   ================================================================ */
+
+/* ── Nada se sale de la pantalla ──
+   Regla de seguridad: ningún elemento puede provocar scroll lateral. */
+body { overflow-x: clip; max-width: 100%; }
+img, video, iframe, table { max-width: 100%; }
+
+/* Los botones largos se partían fuera del margen en móvil. Ahora se
+   ajustan al ancho disponible y el texto envuelve si hace falta. */
+.btn {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+  justify-content: center;
+  line-height: 1.35;
+}
+@media (max-width: 560px) {
+  .btn { width: 100%; }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas .btn { width: 100%; }
+  .section-more .btn { width: 100%; }
+}
+
+/* ── Ritmo del texto ──
+   Los párrafos se dejan alineados a la izquierda a propósito: en
+   columnas angostas el texto justificado abre "ríos" de espacio entre
+   palabras y se vuelve incómodo de leer. Lo que sí se corrige es el
+   corte feo de línea: `pretty` evita palabras huérfanas al final y
+   `balance` reparte los títulos en líneas de largo parecido. */
+p, li { text-wrap: pretty; }
+h1, h2, h3, h4, .hero-subtitle { text-wrap: balance; }
+
+/* Los bloques cortos (icono + título + frase) sí se centran: ahí el
+   centrado se ve ordenado porque el texto ocupa dos o tres líneas. */
+.valor-card, .linea-empty, .under-construction, .join-card, .empty-state {
+  text-align: center;
+}
+.valor-card .valor-icon { margin-left: auto; margin-right: auto; }
+
+/* ── El footer no debe quedar debajo del botón "volver arriba" ── */
+@media (max-width: 720px) {
+  .footer { padding-bottom: 5.5rem; }
+  .footer-inner { align-items: center; text-align: center; }
+  .footer-copy, .footer-link { text-align: center; }
+}
+
+/* ── Encabezados de página en móvil ── */
+@media (max-width: 560px) {
+  .page-header { padding: 2.6rem 0 2rem; }
+  .page-header h1 { font-size: clamp(1.7rem, 8.5vw, 2.4rem); }
+  .section-header { flex-wrap: wrap; gap: 0.65rem; margin-bottom: 1.8rem; }
+  .section-header .section-line { min-width: 30px; }
+}
+
+/* ── Tarjetas: que no se compriman hasta romperse ── */
+@media (max-width: 560px) {
+  .areas-grid,
+  .news-preview,
+  .valores-grid,
+  .extras-grid,
+  .members-grid,
+  .proyectos-grid,
+  .descargables,
+  .galeria-grid { grid-template-columns: 1fr !important; }
+  .card, .area-card, .extra-card { padding: 1.4rem 1.2rem; }
+}
+
+/* Los chips e integrantes se apilan sin desbordar */
+.proyecto-integrantes, .proyecto-hero-integrantes, .director-tags { min-width: 0; }
+.integrante-chip, .interest-tag, .proyecto-chip { max-width: 100%; overflow-wrap: anywhere; }
+
+/* Palabras técnicas largas (nombres de proyecto, correos) nunca rompen el layout */
+h1, h2, h3, h4, .proyecto-nombre, .member-proyectos-list a, .descargable-name { overflow-wrap: anywhere; }

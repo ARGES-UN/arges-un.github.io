@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Semillero de investigación en soldadura WAAM y ensayos no destructivos · Universidad Nacional de Colombia · Bogotá" />
-  <title>ARGES · Soldadura & END · UNAL</title>
-  <link rel="stylesheet" href="css/main.css" />
+  <meta name="description" content="Grupo de investigación y semilleros en soldadura, ensayos no destructivos y materiales · Universidad Nacional de Colombia, Bogotá" />
+  <title>ARGES · Soldadura, END y Materiales · UNAL</title>
+  <link rel="stylesheet" href="css/core.css" />
+  <link rel="stylesheet" href="css/icons.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
   <nav class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">ARGES</a>
@@ -17,28 +18,40 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
         <li><a href="pages/investigacion.html">Investigación</a></li>
         <li><a href="pages/equipo.html">Equipo</a></li>
-        <li><a href="pages/noticias.html">Noticias</a></li>
+        <li class="nav-item-split" data-nav-dropdown>
+          <a href="pages/recursos/index.html">Recursos</a>
+          <button class="nav-caret" aria-label="Desplegar secciones de Recursos" aria-expanded="false">
+            <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown">
+            <a href="pages/recursos/noticias.html"><i class="ti ti-news" aria-hidden="true"></i>Noticias y convocatorias</a>
+            <a href="pages/recursos/servicios.html"><i class="ti ti-briefcase" aria-hidden="true"></i>Servicios<span class="dd-soon">Pronto</span></a>
+            <a href="pages/recursos/cursos.html"><i class="ti ti-school" aria-hidden="true"></i>Cursos y material<span class="dd-soon">Pronto</span></a>
+          </div>
+        </li>
         <li><a href="pages/contacto.html">Contacto</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow-bottom"></div>
+  <section class="hero has-collage">
+    <div class="bg-grid"></div>
+    <div class="hero-collage" aria-hidden="true">
+      <div class="hero-collage-track" id="collage-track"><div class="hero-collage-item"><img src="assets/img/collage/Coll1.jpg" alt="" /></div><div class="hero-collage-item"><img src="assets/img/collage/Coll2.jpg" alt="" /></div><div class="hero-collage-item"><img src="assets/img/collage/Coll3.jpg" alt="" /></div><div class="hero-collage-item"><img src="assets/img/collage/Coll4.jpg" alt="" /></div><div class="hero-collage-item"><img src="assets/img/collage/Coll5.jpg" alt="" /></div><div class="hero-collage-item"><img src="assets/img/collage/Coll6.jpg" alt="" /></div><div class="hero-collage-item"><img src="assets/img/collage/Coll7.jpg" alt="" /></div></div>
+    </div>
+    <!--<div class="glow glow--top"></div>
+    <div class="glow glow--bottom"></div>-->
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow">Lab. Soldadura &amp; END · UNAL Bogotá</div>
-        <h1>Donde el arco<br>revela lo <span class="hl">invisible</span></h1>
-        <p class="hero-desc">
-          Semillero de investigación en soldadura WAAM y ensayos no destructivos.
-          Fabricamos, inspeccionamos y comprendemos los materiales desde adentro.
-        </p>
+        <div class="hero-eyebrow">UNAL Bogotá · Facultad de Ingeniería</div>
+        <h1>Grupo de investigación y semilleros en soldadura, ensayos no destructivos y materiales</h1>
+        <p class="hero-subtitle">Donde el <span class="hl arc-strike">arco</span> crea y la innovación <span class="hl arc-strike">revela</span>.</p>
+        <!--<p class="hero-desc">
+          Fabricamos, inspeccionamos y entendemos materiales: desde los procesos de unión de siempre
+          hasta las técnicas que apenas están entrando al sector.
+        </p>-->
         <div class="hero-ctas">
           <a href="pages/investigacion.html" class="btn btn-primary">Ver proyectos &rarr;</a>
           <a href="pages/contacto.html" class="btn btn-ghost">Únete al grupo</a>
@@ -47,124 +60,248 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════ STATS BAR ════════════════════════════ -->
   <div class="stats-bar">
     <div class="container">
       <div class="stats-inner">
-        <div class="stat">
-          <span class="stat-num" data-count="2">0</span>
-          <span class="stat-label">Años de horizonte</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-count="3">0</span>
-          <span class="stat-label">Líneas de investigación</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">WAAM</span>
-          <span class="stat-label">Wire Arc Additive Mfg.</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">END</span>
-          <span class="stat-label">Ensayos No Destructivos</span>
-        </div>
-        <div class="stat">
+        <div class="stat-fixed">
           <span class="stat-num">UNAL</span>
-          <span class="stat-label">Bogotá · Ing. Mecánica</span>
+          <span class="stat-label">Bogotá · Ing. Mecánica y Mecatrónica</span>
         </div>
+        <div class="stats-marquee">
+          <div class="stats-marquee-track" id="marquee-track"><a class="marquee-item" href="pages/investigacion.html#waam">
+            <i class="ti ti-layers-intersect" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Línea</span><span class="marquee-name">WAAM</span></span>
+          </a><a class="marquee-item" href="pages/investigacion.html#mantenimiento">
+            <i class="ti ti-tool" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Línea</span><span class="marquee-name">Mantenimiento y Automatización</span></span>
+          </a><a class="marquee-item" href="pages/investigacion.html#end">
+            <i class="ti ti-cpu" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Línea</span><span class="marquee-name">Ensayos No Destructivos</span></span>
+          </a><a class="marquee-item" href="pages/investigacion.html#materiales">
+            <i class="ti ti-microscope" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Línea</span><span class="marquee-name">Materiales</span></span>
+          </a><a class="marquee-item" href="pages/investigacion.html#didactica">
+            <i class="ti ti-school" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Línea</span><span class="marquee-name">Didáctica y Divulgación</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/waam-caracterizacion.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Caracterización de materiales, aplicaciones y códigos de trayectoria</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/waam-hibrido.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Modificaciones (VM-Híbrido): entrada de material</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/waam-tandem.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Tándem</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/mantenimiento-saw-rsw.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Mantenimiento SAW y RSW</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/pai-desgaste.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Modernización</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/revelado-radiografico.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Revelado automático de películas radiográficas</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/brazo-robotico.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Motoman (adaptaciones y control)</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/dl-end.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Evaluación automática de ensayos no destructivos</span></span>
+          </a><a class="marquee-item" href="pages/proyectos/desgaste-recubrimientos-mo-v.html">
+            <i class="ti ti-target" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Proyecto</span><span class="marquee-name">Desgaste en recubrimientos depositados por SMAW con electrodos Mo-V</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#david-felipe-ruiz-reyes">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">David Felipe Ruiz Reyes</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#jorge-nicolas-garzon">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">Jorge Nicolás Garzón</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#david-santiago-perez">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">David Santiago Pérez</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#julio-cesar-fernandez-ferreira">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">Julio César Fernández Ferreira</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#david-alejandro-botero-mejia">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">David Alejandro Botero Mejía</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#david-santiago-nino">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">David Santiago Niño</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#maria-teresa-parra">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">María Teresa Parra</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#ian-rivera">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">Ian Rivera</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#santiago-marino">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">Santiago Mariño</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#jorge-alejandro-torres">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">Jorge Alejandro Torres</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#david-pirateque">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">David Pirateque</span></span>
+          </a><a class="marquee-item" href="pages/equipo.html#alejandro-vargas-caballero">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            <span><span class="marquee-kind">Integrante</span><span class="marquee-name">Alejandro Vargas Caballero</span></span>
+          </a></div>
+        </div>
+        <button class="stats-speed" aria-pressed="false" aria-label="Cambiar velocidad del carrusel" title="Velocidad normal (clic para acelerar)">
+          <i class="ti ti-player-play" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ ÁREAS ════════════════════════════ -->
-  <section class="section">
+  <!-- ═══════════════ QUIÉNES SOMOS ═══════════════ -->
+  <section class="section" id="quienes-somos">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-tag">Áreas</span>
+        <span class="section-tag">Quiénes somos</span>
         <div class="section-line"></div>
-        <span class="section-label">Líneas de trabajo</span>
+        <span class="section-label">Semillero en reactivación</span>
+      </div>
+      <div class="about-grid">
+        <div data-reveal>
+          <p class="about-lead">
+            ARGES es el grupo de investigación en <strong>soldadura, ensayos no destructivos y
+            materiales</strong> del Departamento de Ingeniería Mecánica y Mecatrónica de la
+            Universidad Nacional de Colombia, sede Bogotá.
+          </p>
+          <p class="about-lead">
+            El grupo existía, se apagó y <strong>volvió a empezar este año</strong>. No lo tomamos
+            como una continuación: lo tomamos como un nuevo comienzo. Eso deriva en crecimiento,
+            con equipos que hay que poner a punto, líneas que apenas se están escribiendo y espacio
+            real para que quien llegue deje su marca en algo que todavía se está construyendo.
+          </p>
+          <p class="about-lead">
+            Trabajamos sobre problemas concretos y buscamos que lo que sale de aquí no se quede en el
+            laboratorio. A dos años nos vemos con <strong>egresados formados en el grupo</strong>,
+            participación sostenida en congresos, vínculos con la industria y una comunidad que se
+            renueva sola.
+          </p>
+        </div>
+        <div class="about-cards" data-reveal data-reveal-delay="1">
+          <div class="about-card">
+            <div class="about-card-title"><i class="ti ti-target" aria-hidden="true"></i>Qué hacemos</div>
+            <p>Fabricamos, modernizamos equipos y desarrollamos formas de inspeccionar lo que
+               fabricamos. Cada línea nace de un equipo real del laboratorio y de una pregunta que
+               todavía no tiene respuesta propia.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-title"><i class="ti ti-seeding" aria-hidden="true"></i>Qué buscamos</div>
+            <p>Formar personas que sepan moverse entre los procesos tradicionales y los emergentes,
+               y aportar a la industria colombiana desarrollos que pueda usar.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-title"><i class="ti ti-users" aria-hidden="true"></i>Quién puede entrar</div>
+            <p>Cualquier estudiante de la Universidad, de cualquier programa y cualquier semestre.
+               No pedimos saber de soldadura: pedimos ganas de aprender haciendo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-tag">Líneas</span>
+        <div class="section-line"></div>
+        <span class="section-label">En qué trabajamos</span>
       </div>
       <div class="areas-grid">
         <div class="area-card" data-reveal data-reveal-delay="1">
           <div class="area-icon"><i class="ti ti-layers-intersect" aria-hidden="true"></i></div>
-          <h3>Fabricación WAAM</h3>
-          <p>Depósito capa a capa mediante arco eléctrico. Control de parámetros térmicos, geometría y microestructura.</p>
+          <h3>WAAM</h3>
+          <p>Fabricación aditiva por arco eléctrico. Caracterizamos el equipo y las piezas que produce, desarrollamos las modificaciones que amplían sus capacidades y estudiamos cómo se…</p>
           <a href="pages/investigacion.html#waam" class="area-link">Más detalle &rarr;</a>
         </div>
         <div class="area-card" data-reveal data-reveal-delay="2">
-          <div class="area-icon"><i class="ti ti-ripple" aria-hidden="true"></i></div>
-          <h3>Ultrasonido (UT)</h3>
-          <p>Detección de discontinuidades internas. Phased array e inspección volumétrica en cordones soldados.</p>
-          <a href="pages/investigacion.html#ut" class="area-link">Más detalle &rarr;</a>
+          <div class="area-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
+          <h3>Mantenimiento y Automatización</h3>
+          <p>Mantenimiento, modernización y automatización de los equipos del laboratorio: arco sumergido, soldadura por resistencia, robótica aplicada a soldadura y montajes propios para ensayo e…</p>
+          <a href="pages/investigacion.html#mantenimiento" class="area-link">Más detalle &rarr;</a>
         </div>
         <div class="area-card" data-reveal data-reveal-delay="3">
-          <div class="area-icon"><i class="ti ti-radiation" aria-hidden="true"></i></div>
-          <h3>Radiografía (RT)</h3>
-          <p>Inspección radiográfica digital. Análisis de porosidad, fisuras y falta de fusión con criterios ASME/AWS.</p>
-          <a href="pages/investigacion.html#rt" class="area-link">Más detalle &rarr;</a>
+          <div class="area-icon"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+          <h3>Ensayos No Destructivos</h3>
+          <p>Inspección de materiales y uniones sin afectar su integridad, y desarrollo de herramientas propias para hacer esa evaluación más rápida, más repetible y menos…</p>
+          <a href="pages/investigacion.html#end" class="area-link">Más detalle &rarr;</a>
         </div>
-        <div class="area-card" data-reveal data-reveal-delay="4">
-          <div class="area-icon"><i class="ti ti-microscope" aria-hidden="true"></i></div>
-          <h3>Metalurgia</h3>
-          <p>Caracterización microestructural de zonas de fusión y HAZ. Correlación proceso–microestructura–propiedades.</p>
-          <a href="pages/investigacion.html#metal" class="area-link">Más detalle &rarr;</a>
-        </div>
+      </div>
+      <div class="section-more" data-reveal>
+        <a href="pages/investigacion.html" class="btn btn-outline">Ver todas las líneas y proyectos &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════ ÚLTIMAS NOTICIAS ═══════════════════════ -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="section-tag">Noticias</span>
         <div class="section-line"></div>
-        <a href="pages/noticias.html" class="section-link">Ver todas &rarr;</a>
+        <a href="pages/recursos/noticias.html" class="section-link">Ver todas &rarr;</a>
       </div>
       <div class="news-preview">
         <div class="card news-home-card" data-reveal data-reveal-delay="1">
-          <div class="news-home-date">May 2026</div>
-          <h4>Apertura de convocatoria 2026-I</h4>
-          <p>Inscripciones para nuevos miembros abiertas. Estudiantes de Ing. Mecánica y Mecatrónica pueden postularse.</p>
-          <span class="news-home-tag">Convocatoria</span>
-        </div>
-        <div class="card news-home-card" data-reveal data-reveal-delay="2">
-          <div class="news-home-date">Mar 2026</div>
-          <h4>Primer depósito WAAM exitoso en ER70S-6</h4>
-          <p>Muro multicapa de 12 cordones con análisis metalográfico completo. Resultados presentados en reunión de grupo.</p>
+          <div class="news-home-date">Jul 2026</div>
+          <h4>Envío de dos artículos sobre WAAM al Congreso CICI 2026</h4>
+          <p>El grupo de trabajo de la línea WAAM envió dos artículos derivados de sus proyectos de caracterización y modificación del equipo al Congreso CICI…</p>
           <span class="news-home-tag">Investigación</span>
         </div>
-        <div class="card news-home-card" data-reveal data-reveal-delay="3">
-          <div class="news-home-date">Ene 2026</div>
-          <h4>Constitución oficial en Hermes · UNAL</h4>
-          <p>El semillero queda registrado en el sistema de investigación de la Universidad Nacional de Colombia.</p>
-          <span class="news-home-tag">Institucional</span>
+        <div class="card news-home-card" data-reveal data-reveal-delay="2">
+          <div class="news-home-date">May 2026</div>
+          <h4>Convocatoria abierta para nuevos integrantes</h4>
+          <p>El semillero abre inscripciones para estudiantes de cualquier programa y semestre de la Universidad. No se requiere experiencia previa en soldadura ni en ensayos…</p>
+          <span class="news-home-tag">Convocatorias</span>
         </div>
+        <div class="card news-home-card" data-reveal data-reveal-delay="3">
+          <div class="news-home-date">Mar 2026</div>
+          <h4>Primer muro multicapa depositado en el equipo WAAM</h4>
+          <p>El equipo completó el primer muro multicapa sobre sustrato de acero, con registro completo de parámetros de depósito. La probeta se convierte en la…</p>
+          <span class="news-home-tag">Investigación</span>
+        </div>
+      </div>
+      <div class="section-more" data-reveal>
+        <a href="pages/recursos/index.html" class="btn btn-outline">Ver todos los recursos &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════ CTA BANNER ══════════════════════════ -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="cta-banner" data-reveal>
-        <div class="cta-banner-glow"></div>
+        <div class="glow"></div>
         <div>
           <h2>¿Quieres investigar con nosotros?</h2>
-          <p>Buscamos estudiantes de pregrado y posgrado apasionados por la fabricación avanzada y el análisis de materiales. Cupos limitados cada semestre.</p>
+          <p>Estamos creciendo y hay espacio. No importa el programa ni el semestre: si te interesa
+             fabricar, medir o entender materiales, hay un proyecto donde empezar.</p>
         </div>
         <a href="pages/contacto.html" class="btn btn-primary">Postúlate &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ FOOTER ════════════════════════════ -->
   <footer class="footer">
     <div class="container footer-inner">
       <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
+      <div class="social-links">
+        <a href="https://www.instagram.com/drafrix?igsi=NnA0a2xheDI0a3Nq" class="social-link" target="_blank" rel="noopener" aria-label="Instagram de ARGES" title="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-link" target="_blank" rel="noopener" aria-label="YouTube de ARGES" title="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+        <a href="https://github.com/LaboratorioSyENDUNAL" class="social-link" target="_blank" rel="noopener" aria-label="GitHub de ARGES" title="GitHub"><i class="ti ti-brand-github" aria-hidden="true"></i></a>
+      </div>
       <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
     </div>
   </footer>
 
+  <button class="to-top" id="to-top" aria-label="Volver al inicio de la página" title="Volver arriba">
+    <i class="ti ti-arrow-up" aria-hidden="true"></i>
+  </button>
+
   <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

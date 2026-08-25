@@ -3,267 +3,371 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Proyectos e investigación · ARGES · UNAL Bogotá" />
+  <meta name="description" content="Grupo de investigación y semilleros en soldadura, ensayos no destructivos y materiales · Universidad Nacional de Colombia, Bogotá" />
   <title>Investigación · ARGES</title>
-  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/core.css" />
+  <link rel="stylesheet" href="../css/icons.css" />
   <link rel="stylesheet" href="../css/investigacion.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="../index.html" class="nav-logo">
-        <span class="nav-logo-img-wrap">
-          <img src="../assets/img/logo.svg" alt="Arges logo" class="nav-logo-img" onerror="this.style.display='none'"/>
-        </span>
-        ARGES
-      </a>
+      <a href="../index.html" class="nav-logo">ARGES</a>
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="investigacion.html">Investigación</a></li>
-        <li><a href="equipo.html">Equipo</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="../pages/investigacion.html" class="active">Investigación</a></li>
+        <li><a href="../pages/equipo.html">Equipo</a></li>
+        <li class="nav-item-split" data-nav-dropdown>
+          <a href="../pages/recursos/index.html">Recursos</a>
+          <button class="nav-caret" aria-label="Desplegar secciones de Recursos" aria-expanded="false">
+            <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../pages/recursos/noticias.html"><i class="ti ti-news" aria-hidden="true"></i>Noticias y convocatorias</a>
+            <a href="../pages/recursos/servicios.html"><i class="ti ti-briefcase" aria-hidden="true"></i>Servicios<span class="dd-soon">Pronto</span></a>
+            <a href="../pages/recursos/cursos.html"><i class="ti ti-school" aria-hidden="true"></i>Cursos y material<span class="dd-soon">Pronto</span></a>
+          </div>
+        </li>
+        <li><a href="../pages/contacto.html">Contacto</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
-    <div class="page-header-grid"></div>
-    <div class="page-header-glow"></div>
+    <div class="bg-grid"></div>
+    <div class="glow"></div>
     <div class="container">
       <div class="page-header-eyebrow">ARGES · UNAL</div>
       <h1>Investigación</h1>
-      <p>Proyectos activos organizados por línea de trabajo. Haz clic en una línea para explorar sus proyectos.</p>
+      <p>Cada línea agrupa sus proyectos y su propio horizonte de trabajo. Elige una para explorarla.</p>
     </div>
   </div>
 
-  <!-- ═══════════════ TABS DE LÍNEAS ═══════════════ -->
   <div class="tabs-bar">
     <div class="container">
       <div class="lineas-tabs">
-
         <button class="linea-tab active" data-linea="waam">
           <span class="linea-tab-icon"><i class="ti ti-layers-intersect" aria-hidden="true"></i></span>
           <span class="linea-tab-label">WAAM</span>
-          <span class="linea-tab-count">2</span>
+          <span class="linea-tab-count">3</span>
         </button>
-
-        <button class="linea-tab" data-linea="soldadura">
-          <span class="linea-tab-icon"><i class="ti ti-flame" aria-hidden="true"></i></span>
-          <span class="linea-tab-label">Soldadura</span>
+        <button class="linea-tab" data-linea="mantenimiento">
+          <span class="linea-tab-icon"><i class="ti ti-tool" aria-hidden="true"></i></span>
+          <span class="linea-tab-label">Mantenimiento y Automatización</span>
+          <span class="linea-tab-count">4</span>
+        </button>
+        <button class="linea-tab" data-linea="end">
+          <span class="linea-tab-icon"><i class="ti ti-cpu" aria-hidden="true"></i></span>
+          <span class="linea-tab-label">Ensayos No Destructivos</span>
           <span class="linea-tab-count">1</span>
         </button>
-
-        <button class="linea-tab" data-linea="end">
-          <span class="linea-tab-icon"><i class="ti ti-ripple" aria-hidden="true"></i></span>
-          <span class="linea-tab-label">Ensayos No Destructivos</span>
-          <span class="linea-tab-count">2</span>
-        </button>
-
-        <button class="linea-tab" data-linea="materiales">
+        <button class="linea-tab is-soon" data-linea="materiales">
           <span class="linea-tab-icon"><i class="ti ti-microscope" aria-hidden="true"></i></span>
           <span class="linea-tab-label">Materiales</span>
           <span class="linea-tab-count">1</span>
         </button>
-
+        <button class="linea-tab is-soon" data-linea="didactica">
+          <span class="linea-tab-icon"><i class="ti ti-school" aria-hidden="true"></i></span>
+          <span class="linea-tab-label">Didáctica y Divulgación</span>
+          <span class="linea-tab-count">—</span>
+        </button>
+      </div>
+      <div class="lineas-select">
+        <button class="lineas-select-btn" aria-expanded="false" aria-label="Elegir línea de trabajo">
+          <i class="ti ti-flask" aria-hidden="true"></i>
+          <span class="sel-label">Línea</span>
+          <span class="sel-count">—</span>
+          <i class="ti ti-chevron-down sel-caret" aria-hidden="true"></i>
+        </button>
+        <div class="lineas-select-list">
+          <button data-linea="waam" data-nombre="WAAM" data-icono="ti-layers-intersect"
+                  data-count="3">
+            <i class="ti ti-layers-intersect" aria-hidden="true"></i>
+            <span>WAAM</span>
+            <span class="sel-count">3</span>
+          </button>
+          <button data-linea="mantenimiento" data-nombre="Mantenimiento y Automatización" data-icono="ti-tool"
+                  data-count="4">
+            <i class="ti ti-tool" aria-hidden="true"></i>
+            <span>Mantenimiento y Automatización</span>
+            <span class="sel-count">4</span>
+          </button>
+          <button data-linea="end" data-nombre="Ensayos No Destructivos" data-icono="ti-cpu"
+                  data-count="1">
+            <i class="ti ti-cpu" aria-hidden="true"></i>
+            <span>Ensayos No Destructivos</span>
+            <span class="sel-count">1</span>
+          </button>
+          <button data-linea="materiales" data-nombre="Materiales" data-icono="ti-microscope"
+                  data-count="1">
+            <i class="ti ti-microscope" aria-hidden="true"></i>
+            <span>Materiales</span>
+            <span class="sel-count">1</span>
+          </button>
+          <button data-linea="didactica" data-nombre="Didáctica y Divulgación" data-icono="ti-school"
+                  data-count="—">
+            <i class="ti ti-school" aria-hidden="true"></i>
+            <span>Didáctica y Divulgación</span>
+            <span class="sel-count">—</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════ PANELES ═══════════════ -->
   <section class="section">
     <div class="container">
-
-      <!-- ── PANEL: WAAM ── -->
       <div class="linea-panel active" id="linea-waam">
         <div class="linea-intro" data-reveal>
           <i class="ti ti-layers-intersect linea-intro-icon" aria-hidden="true"></i>
           <div>
-            <h2>Wire Arc Additive Manufacturing</h2>
-            <p>Fabricación de piezas metálicas capa a capa mediante arco eléctrico y electrodo de alambre. La línea estudia el control de parámetros térmicos, la geometría del depósito y la integración con sistemas de inspección en línea.</p>
+            <h2>WAAM - (Wire Arc Additive Manufacturing)</h2>
+            <p>Fabricación aditiva por arco eléctrico. Caracterizamos el equipo y las piezas que produce, desarrollamos las modificaciones que amplían sus capacidades y estudiamos cómo se comporta el material depositado capa a capa. Se espera conseguir un servicio de prototipo con metales y ser pioneros en el país sobre esta tecnología</p>
           </div>
         </div>
         <div class="proyectos-grid">
-
           <div class="proyecto-card" data-reveal data-reveal-delay="1">
-            <a href="proyectos/waam-parametros.html" class="proyecto-img-wrap">
-              <img src="../assets/img/proyectos/waam-parametros.svg" alt="Optimización de parámetros WAAM" loading="lazy" />
+            <a href="proyectos/waam-caracterizacion.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/waam-caracterizacion.png" alt="Portada del proyecto WAAM · Caracterización de materiales, aplicaciones y códigos de trayectoria" loading="lazy" />
               <div class="proyecto-img-overlay"></div>
-              <div class="proyecto-img-badge">
-                <span class="badge badge-active">En curso</span>
-                <span class="badge badge-waam">WAAM</span>
-              </div>
+              <div class="proyecto-img-badge"><span class="badge badge-activo">En curso</span><span class="badge badge-prioridad">Prioridad</span></div>
             </a>
             <div class="proyecto-body">
-              <a href="proyectos/waam-parametros.html" class="proyecto-nombre">Optimización de parámetros de depósito en acero ER70S-6</a>
-              <p class="proyecto-desc">Estudio sistemático de corriente, velocidad de avance y aporte térmico lineal sobre la geometría del cordón, dilución y microestructura resultante sobre sustrato ASTM A36.</p>
+              <a href="proyectos/waam-caracterizacion.html" class="proyecto-nombre">WAAM - Caracterización de materiales y aplicaciones</a>
+              <p class="proyecto-desc">Caracterización del equipo WAAM del laboratorio y de las piezas que produce, como base para futuras aplicaciones y modificaciones del sistema.</p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#laura-castillo" class="integrante-chip">L. Castillo</a>
-                <a href="equipo.html#julian-moreno" class="integrante-chip">J. Moreno</a>
+                <a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">F. Ruiz</a><a href="equipo.html#david-santiago-perez" class="integrante-chip">S. Pérez</a><a href="equipo.html#santiago-marino" class="integrante-chip">S. Mariño</a><a href="equipo.html#ian-rivera" class="integrante-chip">I. Rivera</a>
               </div>
             </div>
           </div>
-
           <div class="proyecto-card" data-reveal data-reveal-delay="2">
-            <a href="proyectos/waam-ut-inline.html" class="proyecto-img-wrap">
-              <img src="../assets/img/proyectos/waam-ut-inline.svg" alt="Inspección UT en línea WAAM" loading="lazy" />
+            <a href="proyectos/waam-hibrido.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/waam-hibrido.png" alt="Portada del proyecto WAAM · Modificaciones (VM-Híbrido): entrada de material" loading="lazy" />
               <div class="proyecto-img-overlay"></div>
-              <div class="proyecto-img-badge">
-                <span class="badge badge-planned">Planificado</span>
-                <span class="badge badge-waam">WAAM</span>
-                <span class="badge badge-end">END</span>
-              </div>
+              <div class="proyecto-img-badge"><span class="badge badge-activo">En curso</span><span class="badge badge-pai">PAI</span></div>
             </a>
             <div class="proyecto-body">
-              <a href="proyectos/waam-ut-inline.html" class="proyecto-nombre">Inspección ultrasónica en línea durante depósito WAAM</a>
-              <p class="proyecto-desc">Integración de transductor de contacto en el cabezal de depósito para inspección en tiempo real de cada capa. Detección de porosidad y fisuras de solidificación sin interrumpir el proceso.</p>
+              <a href="proyectos/waam-hibrido.html" class="proyecto-nombre">WAAM · Modificaciones (VM-Híbrido)</a>
+              <p class="proyecto-desc">Ampliación y modificación del equipo WAAM con enfoque inicial en la independencia de la alimentación de material. Se busca implementar visión de máquina junto a sistemas que permitan la automatización del proceso.</p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#santiago-molina" class="integrante-chip">S. Molina</a>
-                <a href="equipo.html#carlos-fuentes" class="integrante-chip">C. Fuentes</a>
+                <a href="equipo.html#david-santiago-perez" class="integrante-chip">S. Pérez</a><a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">D. Ruiz</a>
               </div>
             </div>
           </div>
-
+          <div class="proyecto-card" data-reveal data-reveal-delay="3">
+            <a href="proyectos/waam-tandem.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/waam-tandem.png" alt="Portada del proyecto WAAM · Tándem" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge"><span class="badge badge-pausado">Pausado</span></div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/waam-tandem.html" class="proyecto-nombre">WAAM - Tándem</a>
+              <p class="proyecto-desc">Depósito con más de un alambre o material de forma simultánea, dentro del concepto de ampliación por estaciones del equipo.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#santiago-marino" class="integrante-chip">S. Mariño</a><a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">D. Ruiz</a><a href="equipo.html#david-alejandro-botero-mejia" class="integrante-chip">D. Botero</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="linea-futuro" data-reveal>
+          <div class="linea-futuro-title"><i class="ti ti-seeding" aria-hidden="true"></i>A futuro en WAAM</div>
+          <ul class="linea-futuro-list"><li><i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Manufactura aditiva por arco sumergido (SAAM)</strong> — Explorar el depósito aditivo usando el equipo de arco sumergido del laboratorio.</span></li><li>
+            <i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Escalar el equipo WAAM para llegar a ser un servicio riguroso y de alta productividad</strong> </span></li><li>
+              <i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Múltiples materiales y gradientes</strong> — Depositar más de un material en una misma pieza para obtener propiedades graduales.</span></li></ul>
         </div>
       </div>
-
-      <!-- ── PANEL: SOLDADURA ── -->
-      <div class="linea-panel" id="linea-soldadura">
+      <div class="linea-panel" id="linea-mantenimiento">
         <div class="linea-intro" data-reveal>
-          <i class="ti ti-flame linea-intro-icon" aria-hidden="true"></i>
+          <i class="ti ti-tool linea-intro-icon" aria-hidden="true"></i>
           <div>
-            <h2>Procesos de Soldadura</h2>
-            <p>Estudio y optimización de procesos de unión por fusión. La línea abarca la caracterización de uniones soldadas, el control de aportes térmicos y la correlación entre parámetros de proceso y calidad de la junta.</p>
+            <h2>Mantenimiento y Automatización</h2>
+            <p>Mantenimiento, modernización y automatización de los equipos del laboratorio: arco sumergido, soldadura por resistencia, robótica aplicada a soldadura y montajes propios para ensayo e inspección.</p>
           </div>
         </div>
         <div class="proyectos-grid">
-
           <div class="proyecto-card" data-reveal data-reveal-delay="1">
-            <a href="proyectos/waam-parametros.html" class="proyecto-img-wrap">
-              <img src="../assets/img/proyectos/waam-parametros.svg" alt="Parámetros GMAW" loading="lazy" />
+            <a href="proyectos/mantenimiento-saw-rsw.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/mantenimiento-saw-rsw.png" alt="Portada del proyecto Mantenimiento SAW y RSW" loading="lazy" />
               <div class="proyecto-img-overlay"></div>
-              <div class="proyecto-img-badge">
-                <span class="badge badge-active">En curso</span>
-              </div>
+              <div class="proyecto-img-badge"><span class="badge badge-activo">Pausado</span></div>
             </a>
             <div class="proyecto-body">
-              <a href="proyectos/waam-parametros.html" class="proyecto-nombre">Caracterización de uniones GMAW en acero de baja aleación</a>
-              <p class="proyecto-desc">Análisis de la influencia de los parámetros GMAW (corriente, voltaje, velocidad) sobre la geometría de la junta, zona afectada por el calor y propiedades mecánicas resultantes.</p>
+              <a href="proyectos/mantenimiento-saw-rsw.html" class="proyecto-nombre">Mantenimiento SAW y RSW</a>
+              <p class="proyecto-desc">Ingeniería inversa, mantenimiento y modernización de los equipos de soldadura por arco sumergido y por resistencia en puntos del laboratorio.</p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#laura-castillo" class="integrante-chip">L. Castillo</a>
-                <a href="equipo.html#valentina-rios" class="integrante-chip">V. Ríos</a>
+                <a href="equipo.html#david-alejandro-botero-mejia" class="integrante-chip">D. Botero</a><a href="equipo.html#julio-cesar-fernandez-ferreira" class="integrante-chip">J. Fernández</a><a href="equipo.html#ian-rivera" class="integrante-chip">I. Rivera</a><a href="equipo.html#david-pirateque" class="integrante-chip">D. Pirateque</a>
               </div>
             </div>
           </div>
-
+          <div class="proyecto-card" data-reveal data-reveal-delay="2">
+            <a href="proyectos/pai-desgaste.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/pai-desgaste.png" alt="Portada del proyecto Máquina de desgaste · Modernización" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge"><span class="badge badge-planificado">En Curso</span><span class="badge badge-pai">PAI</span></div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/pai-desgaste.html" class="proyecto-nombre">Máquina de desgaste · Modernización</a>
+              <p class="proyecto-desc">Reconstrucción y modernización de la máquina de desgaste: estructura, conexiones eléctricas, instrumentación y control.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#david-santiago-perez" class="integrante-chip">S. Pérez</a><a href="equipo.html#jorge-nicolas-garzon" class="integrante-chip">N. Garzón</a><a href="equipo.html#david-pirateque" class="integrante-chip">D. Pirateque</a>
+              </div>
+            </div>
+          </div>
+          <div class="proyecto-card" data-reveal data-reveal-delay="3">
+            <a href="proyectos/revelado-radiografico.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/revelado-radiografico.png" alt="Portada del proyecto Revelado automático de películas radiográficas" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge"><span class="badge badge-planificado">Planificado</span><span class="badge badge-pai">PAI</span></div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/revelado-radiografico.html" class="proyecto-nombre">Revelado automático de películas radiográficas</a>
+              <p class="proyecto-desc">Diseño y construcción de un equipo que automatice el revelado y fijado de películas radiográficas del laboratorio.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#julio-cesar-fernandez-ferreira" class="integrante-chip">J. Fernández</a>
+                <a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">F. Ruiz</a>
+                <a href="equipo.html#alejandro-botero-mejia" class="integrante-chip">A. Botero</a>
+              </div>
+            </div>
+          </div>
+          <div class="proyecto-card" data-reveal data-reveal-delay="4">
+            <a href="proyectos/brazo-robotico.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/brazo-robotico.png" alt="Portada del proyecto Brazo robótico · Motoman (adaptaciones y control)" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge"><span class="badge badge-planificado">Planificado</span></div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/brazo-robotico.html" class="proyecto-nombre">Brazo robótico · Motoman (adaptaciones y control)</a>
+              <p class="proyecto-desc">Adaptación del robot industrial Motoman MH6 para procesos de soldadura, incluyendo la protección del robot y del riel sobre el que se desplaza.</p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="linea-futuro" data-reveal>
+          <div class="linea-futuro-title"><i class="ti ti-seeding" aria-hidden="true"></i>A futuro en Mantenimiento y Automatización</div>
+          <ul class="linea-futuro-list"><li><i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Soldadura de tuberías y bajo el agua</strong> — Habilitar el movimiento y los accesorios que hoy limitan al equipo de arco sumergido.</span></li><li><i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Gemelo digital de los equipos</strong> — Modelo digital de la máquina de desgaste y del resto de montajes intervenidos.</span></li><li><i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>GTAW mecanizado en paralelo</strong> — Adaptar el proceso GTAW a los montajes automatizados existentes.</span></li></ul>
         </div>
       </div>
-
-      <!-- ── PANEL: END ── -->
       <div class="linea-panel" id="linea-end">
         <div class="linea-intro" data-reveal>
-          <i class="ti ti-ripple linea-intro-icon" aria-hidden="true"></i>
+          <i class="ti ti-cpu linea-intro-icon" aria-hidden="true"></i>
           <div>
             <h2>Ensayos No Destructivos</h2>
-            <p>Inspección de materiales y uniones sin afectar su integridad. La línea trabaja con ultrasonido (UT), radiografía digital (RT) y técnicas de correlación entre señal END y microestructura real.</p>
+            <p>Inspección de materiales y uniones sin afectar su integridad, y desarrollo de herramientas propias para hacer
+               esa evaluación más rápida, más repetible y menos dependiente del criterio de un solo observador.</p>
           </div>
         </div>
         <div class="proyectos-grid">
-
           <div class="proyecto-card" data-reveal data-reveal-delay="1">
-            <a href="proyectos/ut-correlacion.html" class="proyecto-img-wrap">
-              <img src="../assets/img/proyectos/ut-correlacion.svg" alt="Correlación UT" loading="lazy" />
+            <a href="proyectos/dl-end.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/dl-end.png" alt="Portada del proyecto Evaluación automática de ensayos no destructivos" loading="lazy" />
               <div class="proyecto-img-overlay"></div>
-              <div class="proyecto-img-badge">
-                <span class="badge badge-active">En curso</span>
-                <span class="badge badge-end">END</span>
-              </div>
+              <div class="proyecto-img-badge"><span class="badge badge-activo">En curso</span></div>
             </a>
             <div class="proyecto-body">
-              <a href="proyectos/ut-correlacion.html" class="proyecto-nombre">Correlación entre señal ultrasónica y tipo de discontinuidad en WAAM</a>
-              <p class="proyecto-desc">Construcción de una biblioteca de señales UT de referencia a partir de probetas con defectos inducidos controladamente. Validación por metalografía.</p>
+              <a href="proyectos/dl-end.html" class="proyecto-nombre">Evaluación automática de ensayos no destructivos</a>
+              <p class="proyecto-desc">Herramientas de reconocimiento automático (enfoque en Deep Learning) aplicadas a la evaluación de ensayos no destructivos, empezando por la radiografía industrial.</p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#santiago-molina" class="integrante-chip">S. Molina</a>
-                <a href="equipo.html#ana-pinzon" class="integrante-chip">A. Pinzón</a>
+                <a href="equipo.html#julio-cesar-fernandez-ferreira" class="integrante-chip">J. Fernández</a>
+                <a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">D. Ruiz</a>
+                <a href="equipo.html#alejandro-botero-mejia" class="integrante-chip">A. Botero</a>
+                <a href="equipo.html#jorge-alejandro-torres" class="integrante-chip">J. Torres</a>
+                <a href="equipo.html#david-santiago-nino" class="integrante-chip">D. Niño</a>
               </div>
             </div>
           </div>
-
-          <div class="proyecto-card" data-reveal data-reveal-delay="2">
-            <a href="proyectos/rt-digital.html" class="proyecto-img-wrap">
-              <img src="../assets/img/proyectos/rt-digital.svg" alt="Radiografía digital WAAM" loading="lazy" />
-              <div class="proyecto-img-overlay"></div>
-              <div class="proyecto-img-badge">
-                <span class="badge badge-planned">Planificado</span>
-                <span class="badge badge-end">END</span>
-              </div>
-            </a>
-            <div class="proyecto-body">
-              <a href="proyectos/rt-digital.html" class="proyecto-nombre">Radiografía digital de muros WAAM multicapa</a>
-              <p class="proyecto-desc">Evaluación de la radiografía digital (DR) para inspección de estructuras WAAM. Análisis de sensibilidad de detección en función del número de capas y comparativa con UT.</p>
-              <div class="proyecto-integrantes">
-                <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#ana-pinzon" class="integrante-chip">A. Pinzón</a>
-              </div>
-            </div>
-          </div>
-
+        </div>
+        <div class="linea-futuro" data-reveal>
+          <div class="linea-futuro-title"><i class="ti ti-seeding" aria-hidden="true"></i>A futuro en Ensayos No Destructivos</div>
+          <ul class="linea-futuro-list"><li><i class="ti ti-chevron-right" aria-hidden="true"></i>
+            <span><strong>Partículas magnéticas y líquidos penetrantes</strong> — Llevar la evaluación automática a estos dos métodos después de RT.</span></li><li>
+            <i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Corrientes parásitas</strong> — Estudiar el método de eddy current y sus aplicaciones en el laboratorio.</span></li><li>
+            <i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Escaneo ultrasónico automatizado</strong> — Automatizar el barrido por ultrasonido, con posible reconstrucción tridimensional.</span></li><li>
+            <i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Visualización de campos magnéticos</strong> — Equipo para observar el comportamiento del campo usado en partículas magnéticas.</span></li></ul>
         </div>
       </div>
-
-      <!-- ── PANEL: MATERIALES ── -->
       <div class="linea-panel" id="linea-materiales">
         <div class="linea-intro" data-reveal>
           <i class="ti ti-microscope linea-intro-icon" aria-hidden="true"></i>
           <div>
-            <h2>Ciencia de Materiales</h2>
-            <p>Caracterización microestructural y mecánica de materiales metálicos procesados por soldadura y fabricación aditiva. La línea correlaciona microestructura, ciclos térmicos y propiedades finales del material.</p>
+            <h2>Materiales</h2>
+            <p>Línea en construcción. Estudia el material como resultado del proceso: recubrimientos, soldabilidad, comportamiento frente al desgaste y caracterización de las piezas que fabricamos.</p>
           </div>
         </div>
         <div class="proyectos-grid">
-
           <div class="proyecto-card" data-reveal data-reveal-delay="1">
-            <a href="proyectos/metalurgia-ciclos.html" class="proyecto-img-wrap">
-              <img src="../assets/img/proyectos/metalurgia-ciclos.svg" alt="Metalurgia ciclos térmicos" loading="lazy" />
+            <a href="proyectos/desgaste-recubrimientos-mo-v.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/desgaste-recubrimientos-mo-v.png" alt="Portada del proyecto Desgaste en recubrimientos depositados por SMAW con electrodos Mo-V" loading="lazy" />
               <div class="proyecto-img-overlay"></div>
-              <div class="proyecto-img-badge">
-                <span class="badge badge-active">En curso</span>
-              </div>
+              <div class="proyecto-img-badge"><span class="badge badge-planificado">Planificado</span></div>
             </a>
             <div class="proyecto-body">
-              <a href="proyectos/metalurgia-ciclos.html" class="proyecto-nombre">Evolución microestructural por ciclos térmicos en WAAM multicapa</a>
-              <p class="proyecto-desc">Estudio mediante microscopía óptica y SEM de la evolución microestructural en función de la posición en el muro. Correlación con dureza Vickers y resultados de END.</p>
+              <a href="proyectos/desgaste-recubrimientos-mo-v.html" class="proyecto-nombre">Desgaste en recubrimientos depositados por SMAW con electrodos Mo-V</a>
+              <p class="proyecto-desc">Evaluación del comportamiento frente al desgaste de recubrimientos duros depositados por soldadura con electrodo revestido usando electrodos aleados con molibdeno y vanadio.</p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#laura-castillo" class="integrante-chip">L. Castillo</a>
-                <a href="equipo.html#valentina-rios" class="integrante-chip">V. Ríos</a>
+                <span class="integrante-chip">Abierto a nuevos integrantes</span>
               </div>
             </div>
           </div>
-
+        </div>
+        <div class="linea-futuro" data-reveal>
+          <div class="linea-futuro-title"><i class="ti ti-seeding" aria-hidden="true"></i>A futuro en Materiales</div>
+          <ul class="linea-futuro-list"><li><i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Recubrimientos duros por soldadura</strong> — Depósito y evaluación de recubrimientos resistentes al desgaste.</span></li><li><i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Soldabilidad de aceros y aleaciones</strong> — Criterios de soldabilidad y su efecto sobre la unión final.</span></li><li><i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Caracterización mecánica y microestructural</strong> — Ensayos y metalografía como cierre de los proyectos de fabricación.</span></li></ul>
         </div>
       </div>
-
+      <div class="linea-panel" id="linea-didactica">
+        <div class="linea-intro" data-reveal>
+          <i class="ti ti-school linea-intro-icon" aria-hidden="true"></i>
+          <div>
+            <h2>Didáctica y Divulgación</h2>
+            <p>Línea en construcción. Convertir lo que aprendemos en material que otros puedan usar: guías, cursos, entornos de entrenamiento y divulgación del trabajo del grupo.</p>
+          </div>
+        </div>
+        <div class="linea-empty">
+          <!--<i class="ti ti-tools" aria-hidden="true"></i>-->
+          <h4>Línea en construcción</h4>
+          <p>Estamos definiendo los primeros proyectos de esta línea. Si te interesa el tema de divulación incluyendo el diseño gráfico y la logística, es un
+             buen momento para entrar.</p>
+        </div>
+        <div class="linea-futuro" data-reveal>
+          <div class="linea-futuro-title"><i class="ti ti-seeding" aria-hidden="true"></i>A futuro en Didáctica y Divulgación</div>
+          <ul class="linea-futuro-list"><li><i class="ti ti-chevron-right" aria-hidden="true"></i>
+            <span><strong>Objetos virtuales de aprendizaje (OVA)</strong> — Material de estudio especializado en soldadura e inspección.</span></li><li>
+            <i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Entrenamiento con háptica y sensórica</strong> — Entorno virtual para practicar soldadura antes de tomar el equipo real.</span></li><li>
+            <i class="ti ti-chevron-right" aria-hidden="true"></i><span><strong>Divulgación del grupo</strong> — Página web, redes y publicación de artículos en revistas científicas.</span></li></ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
+      <div class="social-links">
+        <a href="https://www.instagram.com/drafrix?igsi=NnA0a2xheDI0a3Nq" class="social-link" target="_blank" rel="noopener" aria-label="Instagram de ARGES" title="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-link" target="_blank" rel="noopener" aria-label="YouTube de ARGES" title="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+        <a href="https://github.com/LaboratorioSyENDUNAL" class="social-link" target="_blank" rel="noopener" aria-label="GitHub de ARGES" title="GitHub"><i class="ti ti-brand-github" aria-hidden="true"></i></a>
+      </div>
       <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
     </div>
   </footer>
+
+  <button class="to-top" id="to-top" aria-label="Volver al inicio de la página" title="Volver arriba">
+    <i class="ti ti-arrow-up" aria-hidden="true"></i>
+  </button>
 
   <script src="../js/main.js"></script>
   <script src="../js/investigacion.js"></script>

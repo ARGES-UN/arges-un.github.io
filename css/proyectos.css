@@ -196,3 +196,170 @@ a.descargable:hover {
   font-size: 13.5px;
   color: var(--text-faint);
 }
+
+/* ================================================================
+   GALERÍA CON VISOR (LIGHTBOX)
+   Los ítems de galería que YA tienen foto o video (no los "próximamente")
+   se pueden abrir en grande. Requiere que el ítem sea un <button> con una
+   <img> o <video> dentro — ver ejemplo en GALERIA_LIGHTBOX.md.
+   ================================================================ */
+
+/* el ítem real es un <button>: se quitan los estilos de botón del
+   navegador para que se vea igual que antes de convertirlo */
+.galeria-item {
+  appearance: none;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+.galeria-item:not(.is-empty) { cursor: pointer; }
+
+/* aviso visual de "esto se puede abrir": un velo + una lupa que
+   aparecen al pasar el mouse o al enfocar con teclado */
+.galeria-item:not(.is-empty)::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(8, 11, 20, 0.35);
+  opacity: 0;
+  transition: opacity var(--t);
+}
+.galeria-item-expand {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-size: 26px;
+  color: var(--text-on-blue);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity var(--t), transform var(--t);
+  z-index: 3;
+  pointer-events: none;
+}
+.galeria-item:not(.is-empty):hover::after,
+.galeria-item:not(.is-empty):focus-visible::after { opacity: 1; }
+.galeria-item:not(.is-empty):hover .galeria-item-expand,
+.galeria-item:not(.is-empty):focus-visible .galeria-item-expand { opacity: 1; transform: scale(1); }
+
+/* impide arrastrar o seleccionar la miniatura (primera barrera contra
+   "guardar imagen como"; ver la nota de seguridad en el .md) */
+.galeria-item img, .galeria-item video {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+/* ── EL VISOR ──
+   Vive UNA vez por página, cerca del final del <body>. Empieza oculto
+   con opacity+visibility (igual que .to-top) para poder animarlo; con
+   display:none no se podría. */
+.lightbox {
+  position: fixed; inset: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity var(--t-slow), visibility var(--t-slow);
+}
+.lightbox.is-open { opacity: 1; visibility: visible; }
+
+.lightbox-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(8, 11, 20, 0.92);
+  backdrop-filter: blur(3px);
+}
+
+.lightbox-body {
+  position: relative;
+  z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  max-width: min(92vw, 1100px);
+  max-height: 90vh;
+  transform: scale(0.96);
+  transition: transform var(--t-slow);
+}
+.lightbox.is-open .lightbox-body { transform: none; }
+
+.lightbox-stage { display: grid; place-items: center; max-width: 100%; max-height: 78vh; }
+.lightbox-stage img, .lightbox-stage video {
+  max-width: min(92vw, 1100px);
+  max-height: 78vh;
+  width: auto; height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.lightbox-caption {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 70ch;
+}
+
+.lightbox-close, .lightbox-prev, .lightbox-next {
+  position: fixed;
+  z-index: 2;
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-mid);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all var(--t);
+}
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+  background: var(--primary); border-color: var(--primary); color: var(--text-on-blue);
+  transform: scale(1.06);
+}
+.lightbox-close { top: 22px; right: 22px; }
+.lightbox-prev  { left: 22px; top: 50%; transform: translateY(-50%); }
+.lightbox-next  { right: 22px; top: 50%; transform: translateY(-50%); }
+.lightbox-prev:hover, .lightbox-next:hover { transform: translateY(-50%) scale(1.06); }
+.lightbox-prev[hidden], .lightbox-next[hidden] { display: none; }
+
+/* mientras el visor está abierto, la página de fondo no se desplaza */
+body.lightbox-open { overflow: hidden; }
+
+@media (max-width: 720px) {
+  .lightbox-close { top: 14px; right: 14px; width: 40px; height: 40px; font-size: 17px; }
+  .lightbox-prev  { left: 8px; width: 40px; height: 40px; font-size: 17px; }
+  .lightbox-next  { right: 8px; width: 40px; height: 40px; font-size: 17px; }
+  .lightbox-caption { font-size: 11.5px; padding: 0 2.5rem; }
+}
+
+/* ================================================================
+   FIGURA DE METODOLOGÍA
+   Una imagen o diagrama suelto DENTRO de una sección de texto
+   (.proyecto-section), con su pie de foto. Se intercala entre los
+   <p> como cualquier otro elemento — no depende de la galería.
+   ================================================================ */
+.proyecto-figura {
+  margin: 1.4rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+.proyecto-figura img { width: 100%; display: block; }
+.proyecto-figura figcaption {
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-faint);
+  text-align: center;
+}
+/* variante angosta: para un diagrama que no necesita ancho completo */
+.proyecto-figura.is-compact { max-width: 420px; margin-left: auto; margin-right: auto; }
+
+/* mientras no haya el diagrama todavía */
+.proyecto-figura.is-empty {
+  border-style: dashed;
+  padding: 2.2rem 1rem;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-faint);
+}
+.proyecto-figura.is-empty i { font-size: 28px; color: var(--primary); opacity: 0.65; }
+.proyecto-figura.is-empty span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; }

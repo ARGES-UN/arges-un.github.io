@@ -75,6 +75,17 @@
           </div>
 
           <div class="proyecto-section" data-reveal>
+            <div class="proyecto-section-title">Metodología</div>
+            <p>Metodología en construcción — aquí se documentará, paso a paso, el
+               procedimiento experimental del proyecto, con las imágenes o diagramas
+               que hagan falta para explicarlo.</p>
+            <figure class="proyecto-figura is-empty">
+              <i class="ti ti-photo" aria-hidden="true"></i>
+              <span>Diagrama próximamente</span>
+            </figure>
+          </div>
+
+          <div class="proyecto-section" data-reveal>
             <div class="proyecto-section-title">Resultados</div>
             <div class="resultados-items">
               <div class="resultado-item is-pending">
@@ -219,9 +230,9 @@
     <div class="container footer-inner">
       <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
       <div class="social-links">
-        <a href="https://www.instagram.com/drafrix?igsi=NnA0a2xheDI0a3Nq" class="social-link" target="_blank" rel="noopener" aria-label="Instagram de ARGES" title="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-link" target="_blank" rel="noopener" aria-label="YouTube de ARGES" title="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
-        <a href="https://github.com/arges-unal" class="social-link" target="_blank" rel="noopener" aria-label="GitHub de ARGES" title="GitHub"><i class="ti ti-brand-github" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram de ARGES" title="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/" class="social-link" target="_blank" rel="noopener" aria-label="YouTube de ARGES" title="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+        <a href="https://github.com/LaboratorioSyENDUNAL" class="social-link" target="_blank" rel="noopener" aria-label="GitHub de ARGES" title="GitHub"><i class="ti ti-brand-github" aria-hidden="true"></i></a>
       </div>
       <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
     </div>
@@ -231,6 +242,27 @@
     <i class="ti ti-arrow-up" aria-hidden="true"></i>
   </button>
 
+  <!-- VISOR DE GALERÍA (lightbox): una sola vez por página.
+       Se abre desde cualquier .galeria-item que tenga foto o video real.
+       Ver GALERIA_LIGHTBOX.md para cómo activar un ítem. -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Cerrar">
+      <i class="ti ti-x" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="lightbox-prev" aria-label="Anterior" hidden>
+      <i class="ti ti-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="lightbox-next" aria-label="Siguiente" hidden>
+      <i class="ti ti-chevron-right" aria-hidden="true"></i>
+    </button>
+    <div class="lightbox-body" data-lightbox-close>
+      <div class="lightbox-stage"></div>
+      <p class="lightbox-caption" hidden></p>
+    </div>
+  </div>
+
   <script src="../../js/main.js"></script>
+  <script src="../../js/galeria.js"></script>
 </body>
 </html>

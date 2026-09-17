@@ -54,8 +54,8 @@ function initStatsMarquee() {
 
   // 3. Estados del botón. Duraciones altas = movimiento lento.
   const ESTADOS = [
-    { id: 'normal', dur: 150, etiqueta: '1×',  titulo: 'Velocidad normal · clic para ir más lento' },
-    { id: 'lento',  dur: 300, etiqueta: '½×',  titulo: 'Velocidad lenta · clic para pausar' },
+    { id: 'normal', dur: 120, etiqueta: '1×',  titulo: 'Velocidad normal · clic para ir más lento' },
+    { id: 'lento',  dur: 200, etiqueta: '½×',  titulo: 'Velocidad lenta · clic para pausar' },
     { id: 'pausa',  dur: null, etiqueta: null, titulo: 'En pausa · clic para reanudar' },
   ];
   let indice = 0;

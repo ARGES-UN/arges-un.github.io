@@ -1,0 +1,84 @@
+/* ================================================================
+   ARGES · extras.css  (extiende core.css)
+   Sección "Extras": índice + Noticias y convocatorias + Servicios +
+   Cursos y material de estudio.
+   Sustituye a la antigua noticias.css, cuyas reglas de listado se
+   conservan aquí porque siguen usándose en la subpágina de noticias.
+   ================================================================ */
+
+/* ── ÍNDICE DE EXTRAS (tarjetas grandes) ── */
+.extras-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; }
+.extra-card {
+  display: flex; flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.6rem;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--t), transform var(--t), background var(--t), box-shadow var(--t);
+}
+.extra-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--arc-deep), var(--arc-core), var(--arc-deep));
+  transform: scaleX(0); transform-origin: left; transition: transform var(--t);
+}
+.extra-card:hover { border-color: var(--border-blue); background: var(--bg-hover); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.extra-card:hover::before { transform: scaleX(1); }
+.extra-icon {
+  width: 52px; height: 52px; border-radius: var(--radius-md);
+  background: var(--primary-subtle); border: 1px solid var(--border-blue);
+  display: grid; place-items: center; color: var(--link); font-size: 25px;
+  margin-bottom: 1.1rem;
+}
+.extra-card h3 { color: var(--text-main); margin-bottom: 0.45rem; font-family: var(--sans); font-weight: 600; font-size: 1.1rem; }
+.extra-card p { font-size: 14.5px; line-height: 1.6; margin-bottom: 1rem; }
+.extra-card-foot {
+  margin-top: auto;
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+  color: var(--link); text-transform: uppercase;
+  transition: gap var(--t);
+}
+.extra-card:hover .extra-card-foot { gap: 11px; }
+.extra-card.is-soon .extra-card-foot { color: var(--text-faint); }
+
+/* ── FILTROS Y LISTADO DE NOTICIAS ── */
+.filters-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.filter-btn {
+  font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.08em;
+  padding: 7px 18px; border-radius: 999px;
+  border: 1px solid var(--border-mid); background: transparent;
+  color: var(--text-secondary); cursor: pointer; transition: all var(--t);
+}
+.filter-btn:hover { border-color: var(--primary); color: var(--text-main); transform: translateY(-2px); }
+.filter-btn.active { background: var(--primary); border-color: var(--primary); color: var(--text-on-blue); }
+
+.news-list { display: flex; flex-direction: column; }
+.news-entry {
+  display: grid; grid-template-columns: 100px 1fr; gap: 2.5rem;
+  padding: 2rem 0; border-bottom: 1px solid var(--border); align-items: start;
+}
+.news-entry.hidden { display: none; }
+.news-entry-date { padding-top: 4px; }
+.news-date-month { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--link); display: block; margin-bottom: 2px; letter-spacing: 0.04em; }
+.news-date-year  { font-family: var(--mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.06em; }
+.news-entry-body h3 { font-family: var(--sans); font-weight: 600; font-size: 1.08rem; color: var(--text-main); margin-bottom: 0.4rem; line-height: 1.4; }
+.news-entry-body p { font-size: 15px; line-height: 1.7; }
+.news-entry-footer { display: flex; align-items: center; gap: 10px; margin-top: 0.85rem; flex-wrap: wrap; }
+
+.cat-badge { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; padding: 3px 9px; border-radius: var(--radius-sm); text-transform: uppercase; border: 1px solid transparent; }
+.cat-investigacion { background: var(--primary-subtle);       color: #9EC2FF; border-color: var(--border-blue); }
+.cat-convocatoria  { background: rgba(46,204,113,0.10);       color: #6EE7A8; border-color: rgba(46,204,113,0.28); }
+.cat-institucional { background: rgba(139,92,246,0.10);       color: #C4B5FD; border-color: rgba(139,92,246,0.28); }
+.cat-evento        { background: rgba(217,119,6,0.10);        color: #FCD34D; border-color: rgba(217,119,6,0.28); }
+.news-author { font-size: 13px; color: var(--text-faint); font-family: var(--mono); }
+
+.empty-state { display: none; text-align: center; padding: 5rem 0; }
+.empty-state i { font-size: 38px; color: var(--text-faint); margin-bottom: 0.75rem; display: block; }
+
+@media (max-width: 720px) {
+  .news-entry { grid-template-columns: 1fr; gap: 0.6rem; }
+  .news-entry-date { display: flex; gap: 6px; align-items: baseline; }
+}

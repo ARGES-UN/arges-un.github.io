@@ -3,33 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contacta al semillero ARCANUM · Soldadura WAAM y END · UNAL Bogotá" />
+  <meta name="description" content="Grupo de investigación y semilleros en soldadura, ensayos no destructivos y materiales · Universidad Nacional de Colombia, Bogotá" />
   <title>Contacto · ARGES</title>
-  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/core.css" />
+  <link rel="stylesheet" href="../css/icons.css" />
+  <link rel="stylesheet" href="../css/contacto.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="../index.html" class="nav-logo">ARC<span class="dot">.</span>ANUM</a>
+      <a href="../index.html" class="nav-logo">ARGES</a>
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="investigacion.html">Investigación</a></li>
-        <li><a href="equipo.html">Equipo</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="../pages/investigacion.html">Investigación</a></li>
+        <li><a href="../pages/equipo.html">Equipo</a></li>
+        <li class="nav-item-split" data-nav-dropdown>
+          <a href="../pages/recursos/index.html">Recursos</a>
+          <button class="nav-caret" aria-label="Desplegar secciones de Recursos" aria-expanded="false">
+            <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../pages/recursos/noticias.html"><i class="ti ti-news" aria-hidden="true"></i>Noticias y convocatorias</a>
+            <a href="../pages/recursos/servicios.html"><i class="ti ti-briefcase" aria-hidden="true"></i>Servicios<span class="dd-soon">Pronto</span></a>
+            <a href="../pages/recursos/cursos.html"><i class="ti ti-school" aria-hidden="true"></i>Cursos y material<span class="dd-soon">Pronto</span></a>
+          </div>
+        </li>
+        <li><a href="../pages/contacto.html" class="active">Contacto</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
-    <div class="page-header-grid"></div>
-    <div class="page-header-glow"></div>
+    <div class="bg-grid"></div>
+    <div class="glow"></div>
     <div class="container">
       <div class="page-header-eyebrow">ARGES · UNAL</div>
       <h1>Contacto</h1>
@@ -37,175 +46,102 @@
     </div>
   </div>
 
-  <!-- CONTENIDO -->
   <section class="section">
     <div class="container">
       <div class="contact-layout">
 
-        <!-- FORMULARIO -->
         <div data-reveal>
           <div class="section-header">
-            <span class="section-tag">Formulario</span>
+            <span class="section-tag">Escríbenos</span>
             <div class="section-line"></div>
           </div>
 
-          <form id="contact-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="nombre">Nombre</label>
-                <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">Correo electrónico</label>
-                <input class="form-input" type="email" id="email" name="email" placeholder="tu@correo.edu.co" required />
-              </div>
+          <div class="contact-cta">
+            <div class="glow"></div>
+            <h2>Cuéntanos sobre ti</h2>
+            <p class="contact-cta-desc">
+              Completa un formulario breve con tu nombre, programa y qué te gustaría hacer con
+              nosotros. Lo revisamos y te contactamos en los próximos días hábiles.
+            </p>
+            <div class="contact-cta-actions">
+              <a href="https://forms.gle/TU_ID_DE_GOOGLE_FORM_AQUI" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                <i class="ti ti-clipboard-text" aria-hidden="true"></i>&nbsp;Llenar formulario &rarr;
+              </a>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="programa">Programa académico</label>
-              <select class="form-select" id="programa" name="programa">
-                <option value="">Selecciona tu programa...</option>
-                <option>Ingeniería Mecánica · Pregrado</option>
-                <option>Ingeniería Mecatrónica · Pregrado</option>
-                <option>Ingeniería Mecánica · Posgrado</option>
-                <option>Otro programa de pregrado</option>
-                <option>Otro programa de posgrado</option>
-                <option>Externo / Industria</option>
-              </select>
-            </div>
+            <span class="req-title">Qué necesitas para entrar</span>
+            <ul class="req-list"><li><i class="ti ti-check" aria-hidden="true"></i>Ser estudiante de la Universidad, de cualquier programa y cualquier semestre — primíparos incluidos.</li><li><i class="ti ti-check" aria-hidden="true"></i>Curiosidad por la soldadura, la inspección o los materiales. No necesitas saber del tema todavía.</li><li><i class="ti ti-check" aria-hidden="true"></i>Ganas de aprender haciendo y de trabajar con otros.</li><li><i class="ti ti-check" aria-hidden="true"></i>Unas horas a la semana para empezar; el ritmo lo acordamos contigo.</li><li><i class="ti ti-star" aria-hidden="true"></i>Preferiblemente, disposición para trabajo en laboratorio con elementos de protección.</li></ul>
+          </div>
 
-            <div class="form-group">
-              <label class="form-label" for="motivo">Motivo del contacto</label>
-              <select class="form-select" id="motivo" name="motivo">
-                <option value="">Selecciona un motivo...</option>
-                <option>Quiero unirme como estudiante</option>
-                <option>Propuesta de colaboración</option>
-                <option>Solicitud de servicios de END</option>
-                <option>Consulta sobre proyectos</option>
-                <option>Otro</option>
-              </select>
+          <!-- Redes: llenan el espacio que quedaba vacío bajo los
+               requisitos, al costado izquierdo del mapa -->
+          <div class="social-band">
+            <span class="social-band-title">Síguenos</span>
+            <div class="social-tiles">
+          <a href="https://www.instagram.com/drafrix?igsi=NnA0a2xheDI0a3Nq" class="social-tile" target="_blank" rel="noopener">
+            <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-tile" target="_blank" rel="noopener">
+            <i class="ti ti-brand-youtube" aria-hidden="true"></i>
+            <span>YouTube</span>
+          </a>
+          <a href="https://github.com/LaboratorioSyENDUNAL" class="social-tile" target="_blank" rel="noopener">
+            <i class="ti ti-brand-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
             </div>
-
-            <div class="form-group">
-              <label class="form-label" for="semestre">Semestre actual (si eres estudiante)</label>
-              <input class="form-input" type="text" id="semestre" name="semestre" placeholder="Ej: 7° semestre" />
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="mensaje">Mensaje</label>
-              <textarea class="form-textarea" id="mensaje" name="mensaje" placeholder="Cuéntanos sobre ti, tus intereses, en qué área te gustaría contribuir o cualquier pregunta que tengas..." required></textarea>
-              <p class="form-hint">Mínimo 50 caracteres. Sé específico, nos ayuda a responder mejor.</p>
-            </div>
-
-            <button type="submit" class="form-submit" id="submit-btn">Enviar mensaje</button>
-
-            <div class="form-success" id="form-success">
-              ✓ &nbsp;¡Mensaje recibido! Te contactaremos en los próximos días hábiles.
-            </div>
-          </form>
+          </div>
         </div>
 
-        <!-- SIDEBAR INFO -->
         <div data-reveal data-reveal-delay="1">
-
           <div class="info-block">
             <div class="info-block-header">Información de contacto</div>
             <div class="info-block-body">
               <div class="info-line">
-                <i class="ti ti-mail" aria-hidden="true"></i>
-                <div>
-                  <strong>Correo del semillero</strong>
-                  arcanum.unal@unal.edu.co
-                </div>
-              </div>
-              <div class="info-line">
                 <i class="ti ti-map-pin" aria-hidden="true"></i>
-                <div>
-                  <strong>Ubicación del laboratorio</strong>
-                  Edificio de Mecánica · Oficina 215<br>
-                  Ciudad Universitaria · UNAL Bogotá
-                </div>
+                <div><strong>Ubicación</strong>Edificio 407 · UNAL Bogotá</div>
               </div>
               <div class="info-line">
                 <i class="ti ti-clock" aria-hidden="true"></i>
                 <div>
                   <strong>Horario de atención</strong>
-                  Martes y jueves 10:00–13:00<br>
-                  Viernes 14:00–17:00
-                </div>
-              </div>
-              <div class="info-line">
-                <i class="ti ti-brand-github" aria-hidden="true"></i>
-                <div>
-                  <strong>GitHub del grupo</strong>
-                  github.com/arcanum-unal
+                  <div class="horario-tabla"><div class="horario-row"><span class="horario-dia">Lunes</span><span class="horario-hora">10:00 – 13:00</span></div><div class="horario-row"><span class="horario-dia">Martes</span><span class="horario-hora">10:00 – 13:00 · 14:00 – 17:00</span></div><div class="horario-row"><span class="horario-dia">Miércoles</span><span class="horario-hora">14:00 – 17:00</span></div><div class="horario-row"><span class="horario-dia">Jueves</span><span class="horario-hora">10:00 – 13:00 · 14:00 – 17:00</span></div><div class="horario-row"><span class="horario-dia">Viernes</span><span class="horario-hora">14:00 – 17:00</span></div></div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="info-block">
-            <div class="info-block-header">Requisitos para unirse</div>
-            <div class="info-block-body">
-              <ul class="req-list">
-                <li><i class="ti ti-check" aria-hidden="true"></i>Haber cursado Ciencia de Materiales o Procesos de Manufactura</li>
-                <li><i class="ti ti-check" aria-hidden="true"></i>Promedio académico ≥ 3.5 / 5.0</li>
-                <li><i class="ti ti-check" aria-hidden="true"></i>Disponibilidad de al menos 8 horas semanales</li>
-                <li><i class="ti ti-check" aria-hidden="true"></i>Interés genuino en investigación experimental</li>
-                <li><i class="ti ti-check" aria-hidden="true"></i>Disposición para trabajo en laboratorio con EPP</li>
-              </ul>
+            <div class="info-note">
+              <i class="ti ti-mail" aria-hidden="true"></i>
+              <span>Escribe a los coordinadores por el correo institucional para asesoría personal.</span>
             </div>
           </div>
 
-          <div class="map-placeholder">
-            <i class="ti ti-map" aria-hidden="true"></i>
-            <span>Ciudad Universitaria · UNAL Bogotá</span>
-            <span>Carrera 45 # 26-85 · Bogotá D.C.</span>
+          <div class="map-embed-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d935.1010605713526!2d-74.08256928404202!3d4.639161768247228!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bcdd275bb4d%3A0x2538d967587f4ce2!2s407%20-%20Postgrado%20en%20Materiales%20y%20Procesos%20de%20Manufactura!5e0!3m2!1ses!2sus!4v1787373211668!5m2!1ses!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa: Edificio 407, UNAL Bogotá"></iframe>
+            <div class="map-embed-caption">Ciudad Universitaria · UNAL Bogotá</div>
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
+      <div class="social-links">
+        <a href="https://www.instagram.com/drafrix?igsi=NnA0a2xheDI0a3Nq" class="social-link" target="_blank" rel="noopener" aria-label="Instagram de ARGES" title="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-link" target="_blank" rel="noopener" aria-label="YouTube de ARGES" title="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+        <a href="https://github.com/LaboratorioSyENDUNAL" class="social-link" target="_blank" rel="noopener" aria-label="GitHub de ARGES" title="GitHub"><i class="ti ti-brand-github" aria-hidden="true"></i></a>
+      </div>
       <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
-  <script>
-    const form      = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const success   = document.getElementById('form-success');
+  <button class="to-top" id="to-top" aria-label="Volver al inicio de la página" title="Volver arriba">
+    <i class="ti ti-arrow-up" aria-hidden="true"></i>
+  </button>
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nombre  = form.nombre.value.trim();
-      const email   = form.email.value.trim();
-      const mensaje = form.mensaje.value.trim();
-      if (!nombre || !email || mensaje.length < 50) {
-        alert('Por favor completa todos los campos requeridos.\nEl mensaje debe tener al menos 50 caracteres.');
-        return;
-      }
-      submitBtn.textContent = 'Enviando...';
-      submitBtn.disabled = true;
-      // ── Conectar con Formspree u otro backend aquí ──
-      // fetch('https://formspree.io/f/TU_ID', { method:'POST', body: new FormData(form) })
-      setTimeout(() => {
-        success.style.display = 'block';
-        submitBtn.textContent = '¡Enviado!';
-        form.reset();
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Enviar mensaje';
-          success.style.display = 'none';
-        }, 5000);
-      }, 800);
-    });
-  </script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

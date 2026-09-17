@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="" />
-  <title>Automatización en la evaluación de ensayos no destructivos</title>
+  <meta name="description" content="Adaptación del robot industrial Motoman MH6 para procesos de soldadura, incluyendo la protección del robot y del riel sobre el que se desplaza." />
+  <title>Modificaciones iniciales sobre el equipo WAAM</title>
   <link rel="stylesheet" href="../../css/core.css" />
   <link rel="stylesheet" href="../../css/icons.css" />
   <link rel="stylesheet" href="../../css/proyectos.css" />
@@ -44,20 +44,16 @@
         <div class="proyecto-breadcrumb">
           <a href="../investigacion.html">Investigación</a>
           <span class="sep">/</span>
-          <a href="../investigacion.html#end">Ensayos No Destructivos</a>
+          <a href="../investigacion.html#mantenimiento">Mantenimiento y Automatización</a>
           <span class="sep">/</span>
-          <span class="current">Automatización en la evaluación de ensayos no destructivos</span>
+          <span class="current">Modificaciones-iniciales-WAAM</span>
         </div>
-        <div class="proyecto-meta-top"><span class="badge badge-activo">En curso</span></div>
-        <h1>Automatización en la evaluación de ensayos no destructivos</h1>
-        <p class="proyecto-hero-desc">Aplicación de redes neuronales y filtros en fotografias para el reconocimiento automático de discontinuidades realizando sus respectivas mediciones para automatizar la interpretación y evaluación de ensayos no destructivos, empezando por el ensayo de radiografia industrial (RT).</p>
+        <div class="proyecto-meta-top"><span class="badge badge-planificado">Planificado</span></div>
+        <h1>Modificaciones inciales del equipo WAAM</h1>
+        <p class="proyecto-hero-desc">Plus Ultra</p>
         <div class="proyecto-hero-integrantes">
           <span class="proyecto-hero-integrantes-label">Equipo &nbsp;</span>
-          <a href="../equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">David Felipe Ruiz Reyes</a>j+
-          <a href="../equipo.html#julio-cesar-fernandez-ferreira" class="integrante-chip">Julio César Fernández Ferreira</a>
-          <a href="../equipo.html#david-alejandro-botero-mejia" class="integrante-chip">David Alejandro Botero Mejía</a>
-          <a href="../equipo.html#alejandro-vargas-caballero" class="integrante-chip">Alejandro Vargas Caballero</a>
-          <a href="../equipo.html#jorge-alejandro-torres" class="integrante-chip">Jorge Alejandro Torres</a>
+          <a href="../equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">David Felipe Ruiz Reyes</a><a href="../equipo.html#jorge-nicolas-garzon" class="integrante-chip">Jorge Nicolas Garzon</a>
         </div>
       </div>
     </div>
@@ -70,56 +66,28 @@
         <div class="proyecto-main">
           <div class="proyecto-section" data-reveal>
             <div class="proyecto-section-title">Contexto y motivación</div>
-            <p>La evaluación por ensayos no destructivos debe pasar siempre por la firma de un inspector calificado, 
-              pero el proceso puede apoyarse en herramientas de computo automáticas para ganar eficiencia y repetibilidad.
-               El proyecto busca desarrollar un programa basado en Deep Learning que, a partir de una imagen con escala, 
-               reconozca discontinuidades y las contraste con los criterios de aceptación de las normas aplicables.</p>
-               <p>Se comparan la información visual y técnica de las normas y los resultados de evaluación manual contra 
-                los del algoritmo, para ir mejorando el reconocimiento hasta acercarlo al desempeño de un evaluador humano.</p>
-                <p>El trabajo exige generar e inspeccionar múltiples probetas por radiografía, lo que además permite calibrar 
-                  las curvas de espesor y tiempo del equipo del laboratorio. El grupo contempla extender el mismo enfoque a 
-                  9partículas magnéticas y líquidos penetrantes.</p>
+            <p>El grupo contempla adaptar el robot industrial Motoman MH6 para soldadura, incluyendo la protección del robot y del riel sobre el que se desplaza, con miras a usarlo en procesos de soldadura como RSW y en procesos de AM con metales como WAAM.</p><p>La lista de integrantes todavía se está definiendo: es uno de los proyectos abiertos a quienes entren al semillero este semestre.</p>
           </div>
           
           <div class="proyecto-section" data-reveal>
             <div class="proyecto-section-title">Objetivos</div>
-            <ul class="objetivos-list"><li><i class="ti ti-target" aria-hidden="true"></i>
-              Construir una base de datos a partir de radiografías con discontinuidades conocidas formando un Data-Set de entrenamiento robusto.</li><li><i class="ti ti-target" aria-hidden="true"></i>
-              Desarrollar el modelo de reconocimiento automático de discontinuidades sobre esas imágenes.</li><li><i class="ti ti-target" aria-hidden="true"></i>
-              Desarrollar el algoritmo de evaluación automática con los criterios de aceptación normativos (ASME, API, AWS, ISO).</li><li><i class="ti ti-target" aria-hidden="true"></i>
-              Desarrolar una aplicación que permita utilizar el modelo desarrollado para ejercicios industriales, academicos e investigativos.  </li><li><i class="ti ti-target" aria-hidden="true"></i>
-              (Secundario) Calibrar las curvas de espesor y tiempo del equipo de radiografía del laboratorio de Soldadura y Ensayos no Destructivos de la UNAL - Bogotá.</li><li><i class="ti ti-target" aria-hidden="true"></i>
-              (A Futuro) Extender el enfoque a partículas magnéticas y líquidos penetrantes.</li></ul>
+            <ul class="objetivos-list"><li><i class="ti ti-target" aria-hidden="true"></i>Diseñar la protección física del robot y del riel.</li><li><i class="ti ti-target" aria-hidden="true"></i>Adaptar el robot para procesos de soldadura.</li><li><i class="ti ti-target" aria-hidden="true"></i>Evaluar su uso en soldadura por resistencia de punto.</li><li><i class="ti ti-target" aria-hidden="true"></i>Evaluar su uso en WAAM.</li></ul>
           </div>
 
           <div class="proyecto-section" data-reveal>
             <div class="proyecto-section-title">Resultados</div>
             <div class="resultados-items">
-              <div class="resultado-item">
-                <i class="ti ti-check" aria-hidden="true"></i>
-                <div class="resultado-item-body">
-                  <h4>Probetas con discontinuidades inducidas</h4>
-                  <p>Set de probetas fabricadas para generar imágenes de referencia.</p>
-                </div>
-              </div>
               <div class="resultado-item is-pending">
                 <i class="ti ti-clock" aria-hidden="true"></i>
                 <div class="resultado-item-body">
-                  <h4>Conjunto de radiografías etiquetadas</h4>
-                  <p>Base de imágenes clasificadas por tipo de discontinuidad.</p>
-                </div>
-              </div>
-              <div class="resultado-item is-pending">
-                <i class="ti ti-clock" aria-hidden="true"></i>
-                <div class="resultado-item-body">
-                  <h4>Modelo de reconocimiento validado</h4>
+                  <h4>Diseño de la protección del robot y el riel</h4>
                   <p>Pendiente: aún no hay resultados publicados para este punto.</p>
                 </div>
               </div>
               <div class="resultado-item is-pending">
                 <i class="ti ti-clock" aria-hidden="true"></i>
                 <div class="resultado-item-body">
-                  <h4>Curvas de espesor y tiempo del equipo</h4>
+                  <h4>Programación de rutinas de soldadura</h4>
                   <p>Pendiente: aún no hay resultados publicados para este punto.</p>
                 </div>
               </div>
@@ -166,6 +134,34 @@
                 </div>
               </div>
               <div class="galeria-item is-empty">
+                <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Imágenes</span>
+                <div class="galeria-empty-inner">
+                  <i class="ti ti-photo" aria-hidden="true"></i>
+                  <span>Fotografías próximamente</span>
+                </div>
+              </div>
+              <div class="galeria-item is-empty">
+                <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Imágenes</span>
+                <div class="galeria-empty-inner">
+                  <i class="ti ti-photo" aria-hidden="true"></i>
+                  <span>Fotografías próximamente</span>
+                </div>
+              </div>
+              <div class="galeria-item is-empty">
+                <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Imágenes</span>
+                <div class="galeria-empty-inner">
+                  <i class="ti ti-photo" aria-hidden="true"></i>
+                  <span>Fotografías próximamente</span>
+                </div>
+              </div>
+              <div class="galeria-item is-empty">
+                <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Imágenes</span>
+                <div class="galeria-empty-inner">
+                  <i class="ti ti-photo" aria-hidden="true"></i>
+                  <span>Fotografías próximamente</span>
+                </div>
+              </div>
+              <div class="galeria-item is-empty">
                 <span class="galeria-item-tag"><i class="ti ti-video" aria-hidden="true"></i>Video</span>
                 <div class="galeria-empty-inner">
                   <i class="ti ti-video" aria-hidden="true"></i>
@@ -189,20 +185,6 @@
           <div class="sidebar-block">
             <div class="sidebar-block-header">Integrantes</div>
             <div class="sidebar-block-body">
-              <a href="../equipo.html#jorge-alejandro-torres" class="sidebar-integrante">
-                <div class="sidebar-avatar">JT</div>
-                <div class="sidebar-integrante-info">
-                  <span class="sidebar-integrante-name">Jorge Alejandro Torres</span>
-                  <span class="sidebar-integrante-role">Pregrado · Ing. Mecatrónica</span>
-                </div>
-              </a>
-              <a href="../equipo.html#julio-cesar-fernandez-ferreira" class="sidebar-integrante">
-                <div class="sidebar-avatar">JF</div>
-                <div class="sidebar-integrante-info">
-                  <span class="sidebar-integrante-name">Julio César Fernández Ferreira</span>
-                  <span class="sidebar-integrante-role">Pregrado · Ing. Mecánica</span>
-                </div>
-              </a>
               <a href="../equipo.html#david-felipe-ruiz-reyes" class="sidebar-integrante">
                 <div class="sidebar-avatar">FR</div>
                 <div class="sidebar-integrante-info">
@@ -210,40 +192,22 @@
                   <span class="sidebar-integrante-role">Integrante</span>
                 </div>
               </a>
-              <a href="../equipo.html#david-santiago-nino" class="sidebar-integrante">
-                <div class="sidebar-avatar">DN</div>
+              <a href="../equipo.html#jorge-nicolas-garzon" class="sidebar-integrante">
+                <div class="sidebar-avatar">JT</div>
                 <div class="sidebar-integrante-info">
-                  <span class="sidebar-integrante-name">David Santiago Niño</span>
-                  <span class="sidebar-integrante-role">Pregrado · Ing. Mecánica</span>
-                </div>
-              </a>
-              <a href="../equipo.html#david-alejandro-botero-mejia" class="sidebar-integrante">
-                <div class="sidebar-avatar">DB</div>
-                <div class="sidebar-integrante-info">
-                  <span class="sidebar-integrante-name">David Alejandro Botero Mejía</span>
-                  <span class="sidebar-integrante-role">Pregrado · Ing. Mecánica</span>
-                </div>
-              </a>
-              <a href="../equipo.html#alejandro-vargas-caballero" class="sidebar-integrante">
-                <div class="sidebar-avatar">AV</div>
-                <div class="sidebar-integrante-info">
-                  <span class="sidebar-integrante-name">Alejandro Vargas Caballero</span>
-                  <span class="sidebar-integrante-role">Pregrado</span>
+                  <span class="sidebar-integrante-name">Jorge Nicolas Garzon</span>
+                  <span class="sidebar-integrante-role">Pregrado · Ing. Mecatrónica</span>
                 </div>
               </a>
             </div>
           </div>
           <div class="sidebar-block">
-            <div class="sidebar-block-header">Roles</div>
-            <div class="sidebar-block-body"><div class="sidebar-info-line"><i class="ti ti-star" aria-hidden="true"></i><div><strong>Responsable</strong>David Felipe Ruiz Reyes</div></div></div>
-          </div>
-          <div class="sidebar-block">
             <div class="sidebar-block-header">Proyectos relacionados</div>
-            <div class="sidebar-block-body"><div class="sidebar-related"><a href="revelado-radiografico.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>Revelado automático de películas radiográficas</a></div></div>
+            <div class="sidebar-block-body"><div class="sidebar-related"><a href="mantenimiento-saw-rsw.html" class="sidebar-related-link"><i class="ti ti-arrow-right" aria-hidden="true"></i>Mantenimiento SAW y RSW</a></div></div>
           </div>
           <div class="sidebar-block">
             <div class="sidebar-block-header">Información</div>
-            <div class="sidebar-block-body"><div class="sidebar-info-line"><i class="ti ti-tool" aria-hidden="true"></i><div><strong>Equipo principal</strong>Equipo de radiografía industrial</div></div><div class="sidebar-info-line"><i class="ti ti-building" aria-hidden="true"></i><div><strong>Institución</strong>UNAL Bogotá · Ing. Mecánica</div></div></div>
+            <div class="sidebar-block-body"><div class="sidebar-info-line"><i class="ti ti-tool" aria-hidden="true"></i><div><strong>Equipo principal</strong>Robot Motoman MH6</div></div><div class="sidebar-info-line"><i class="ti ti-building" aria-hidden="true"></i><div><strong>Institución</strong>UNAL Bogotá · Ing. Mecánica</div></div></div>
           </div>
         </aside>
 

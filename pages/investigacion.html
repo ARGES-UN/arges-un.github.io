@@ -42,15 +42,15 @@
     <div class="container">
       <div class="page-header-eyebrow">ARGES · UNAL</div>
       <h1>Investigación</h1>
-      <p>Cada línea agrupa sus proyectos y su propio horizonte de trabajo. Elige una para explorarla.</p>
+      <p>El grupo se maneja por líneas de trabajo, donde cada línea agrupa varios proyectos junto a una vision propia. Elige una para explorarlas.</p>
     </div>
   </div>
 
   <div class="tabs-bar">
     <div class="container">
       <div class="lineas-tabs">
-        <button class="linea-tab active" data-linea="waam">
-          <span class="linea-tab-icon"><i class="ti ti-layers-intersect" aria-hidden="true"></i></span>
+        <button class="linea-tab" data-linea="waam">
+          <span class="linea-tab-icon"><i class="ti ti-cube" aria-hidden="true"></i></span>
           <span class="linea-tab-label">WAAM</span>
           <span class="linea-tab-count">3</span>
         </button>
@@ -60,16 +60,21 @@
           <span class="linea-tab-count">4</span>
         </button>
         <button class="linea-tab" data-linea="end">
-          <span class="linea-tab-icon"><i class="ti ti-cpu" aria-hidden="true"></i></span>
+          <span class="linea-tab-icon"><i class="ti ti-eye" aria-hidden="true"></i></span>
           <span class="linea-tab-label">Ensayos No Destructivos</span>
           <span class="linea-tab-count">1</span>
         </button>
-        <button class="linea-tab is-soon" data-linea="materiales">
+        <button class="linea-tab" data-linea="materiales">
           <span class="linea-tab-icon"><i class="ti ti-microscope" aria-hidden="true"></i></span>
           <span class="linea-tab-label">Materiales</span>
           <span class="linea-tab-count">1</span>
         </button>
-        <button class="linea-tab is-soon" data-linea="didactica">
+        <button class="linea-tab" data-linea="soldadura">
+          <span class="linea-tab-icon"><i class="ti ti-flame" aria-hidden="true"></i></span>
+          <span class="linea-tab-label">Soldadura</span>
+          <span class="linea-tab-count">0</span>
+        </button>
+        <button class="linea-tab" data-linea="didactica">
           <span class="linea-tab-icon"><i class="ti ti-school" aria-hidden="true"></i></span>
           <span class="linea-tab-label">Didáctica y Divulgación</span>
           <span class="linea-tab-count">—</span>
@@ -107,6 +112,12 @@
             <span>Materiales</span>
             <span class="sel-count">1</span>
           </button>
+          <button data-linea="soldadura" data-nombre="Soldadura" data-icono="ti-flame"
+                  data-count="0">
+            <i class="ti ti-flame" aria-hidden="true"></i>
+            <span>Soldadura</span>
+            <span class="sel-count">0</span>
+          </button>
           <button data-linea="didactica" data-nombre="Didáctica y Divulgación" data-icono="ti-school"
                   data-count="—">
             <i class="ti ti-school" aria-hidden="true"></i>
@@ -125,7 +136,14 @@
           <i class="ti ti-layers-intersect linea-intro-icon" aria-hidden="true"></i>
           <div>
             <h2>WAAM - (Wire Arc Additive Manufacturing)</h2>
-            <p>Fabricación aditiva por arco eléctrico. Caracterizamos el equipo y las piezas que produce, desarrollamos las modificaciones que amplían sus capacidades y estudiamos cómo se comporta el material depositado capa a capa. Se espera conseguir un servicio de prototipo con metales y ser pioneros en el país sobre esta tecnología</p>
+            <p>En el grupo contamos con la capacidad de realizar
+              manufactura aditiva de metales por deposición de energía directa (AM-DED),
+              donde la tecnología se basa en el deposito continúo de alambre usando un
+              arco electrico (WAAM-GMAW). Previamente, caracterizamos el equipo y 
+              las piezas que produce, pero ahora estamos desarrollando las modificaciones que 
+              amplían sus capacidades y estudiamos cómo se comporta el material
+              depositado capa a capa. Se espera conseguir un servicio de prototipado
+              con metales y ser pioneros en el país sobre esta tecnología</p>
           </div>
         </div>
         <div class="proyectos-grid">
@@ -137,10 +155,19 @@
             </a>
             <div class="proyecto-body">
               <a href="proyectos/waam-caracterizacion.html" class="proyecto-nombre">WAAM - Caracterización de materiales y aplicaciones</a>
-              <p class="proyecto-desc">Caracterización del equipo WAAM del laboratorio y de las piezas que produce, como base para futuras aplicaciones y modificaciones del sistema.</p>
+              <p class="proyecto-desc">En este proyecto buscamos definir las propiedades que obtienen los materiales al ser producidos por este proceso de manufactura
+                relativamente moderno. A su vez, exploramos aplicaciones que pueden fabricarse con el sistema del laboratorio, como: Prototipado de piezas, moldes rápidos,
+                elementos artísticos, reparaciones, juntas soldadas, entre muschas otras.  
+              </p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">F. Ruiz</a><a href="equipo.html#david-santiago-perez" class="integrante-chip">S. Pérez</a><a href="equipo.html#santiago-marino" class="integrante-chip">S. Mariño</a><a href="equipo.html#ian-rivera" class="integrante-chip">I. Rivera</a>
+                <a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">F. Ruiz</a>
+                <a href="equipo.html#david-santiago-perez" class="integrante-chip">S. Pérez</a>
+                <a href="equipo.html#david-pirateque" class="integrante-chip">D.Pirateque</a>
+                <a href="equipo.html#jorge-nicolas-garzon" class="integrante-chip">J.Garzon</a>
+                <a href="equipo.html#maria-teresa-parra" class="integrante-chip">M.Parra</a>
+                <a href="equipo.html#santiago-marino" class="integrante-chip">S. Mariño</a>
+                <a href="equipo.html#ian-rivera" class="integrante-chip">I. Rivera</a>
               </div>
             </div>
           </div>
@@ -152,10 +179,18 @@
             </a>
             <div class="proyecto-body">
               <a href="proyectos/waam-hibrido.html" class="proyecto-nombre">WAAM · Modificaciones (VM-Híbrido)</a>
-              <p class="proyecto-desc">Ampliación y modificación del equipo WAAM con enfoque inicial en la independencia de la alimentación de material. Se busca implementar visión de máquina junto a sistemas que permitan la automatización del proceso.</p>
+              <p class="proyecto-desc">Ampliación y modificación del equipo WAAM con enfoque inicial en la independencia de la alimentación de material. Se busca en el futuro implementar un sistema de visión de máquina junto a elementos que permitan la automatización del proceso. 
+              Con esto, se abren puertas investigativas y academicas sobre control, soldadura orbital y automatizada, IoT, manufactura Tandem, anexos de control de calidad y los efectos productivos del mecanizado In Situ paralelos a la manudactura de productos. 
+              </p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#david-santiago-perez" class="integrante-chip">S. Pérez</a><a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">D. Ruiz</a>
+                <a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">F. Ruiz</a>
+                <a href="equipo.html#david-santiago-perez" class="integrante-chip">S. Pérez</a>
+                <a href="equipo.html#david-pirateque" class="integrante-chip">D.Pirateque</a>
+                <a href="equipo.html#jorge-nicolas-garzon" class="integrante-chip">J.Garzon</a>
+                <a href="equipo.html#maria-teresa-parra" class="integrante-chip">M.Parra</a>
+                <a href="equipo.html#santiago-marino" class="integrante-chip">S. Mariño</a>
+                <a href="equipo.html#ian-rivera" class="integrante-chip">I. Rivera</a>
               </div>
             </div>
           </div>
@@ -167,10 +202,10 @@
             </a>
             <div class="proyecto-body">
               <a href="proyectos/waam-tandem.html" class="proyecto-nombre">WAAM - Tándem</a>
-              <p class="proyecto-desc">Depósito con más de un alambre o material de forma simultánea, dentro del concepto de ampliación por estaciones del equipo.</p>
+              <p class="proyecto-desc">Depósito con más de un alambre o material de forma simultánea, dentro del concepto de ampliación por estaciones del equipo. Estudio de materiales compuestos (escala de milimetros)</p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                <a href="equipo.html#santiago-marino" class="integrante-chip">S. Mariño</a><a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">D. Ruiz</a><a href="equipo.html#david-alejandro-botero-mejia" class="integrante-chip">D. Botero</a>
+                <a href="equipo.html#david-felipe-ruiz-reyes" class="integrante-chip">D. Ruiz</a>
               </div>
             </div>
           </div>
@@ -249,7 +284,26 @@
               <p class="proyecto-desc">Adaptación del robot industrial Motoman MH6 para procesos de soldadura, incluyendo la protección del robot y del riel sobre el que se desplaza.</p>
               <div class="proyecto-integrantes">
                 <span class="integrantes-label">Equipo</span>
-                
+               
+              </div>
+            </div>
+          </div>
+          <div class="proyecto-card" data-reveal data-reveal-delay="5">
+            <a href="proyectos/Modificaciones-iniciales-WAAM.html" class="proyecto-img-wrap">
+              <img src="../assets/img/proyectos/Modificaciones-iniciales-WAAM.png" alt="Portada de las actualizaciones a implementar" loading="lazy" />
+              <div class="proyecto-img-overlay"></div>
+              <div class="proyecto-img-badge"><span class="badge badge-activo">Activo</span><span class="badge badge-pai">PAI</span></div>
+            </a>
+            <div class="proyecto-body">
+              <a href="proyectos/Modificaciones-iniciales-WAAM.html" class="proyecto-nombre">Modicicaciones iniciales del equipo WAAM</a>
+              <p class="proyecto-desc">Diseño y construcción de modificaciones mecanicas y electicas sobre el equipo WAAM que permitan superar el umbral actual en el volumen de 
+                trabajo, faciliten los mantenimientos y permitan sistemas independientes de automatizacion mientras mantienen la portabilidad del equipo y futuras ampliaciones.
+              </p>
+              <div class="proyecto-integrantes">
+                <span class="integrantes-label">Equipo</span>
+                <a href="equipo.html#jorge-nicolas-garzon" class="integrante-chip">J. Garzon</a>
+                <a href="equipo.html#david-pirateque" class="integrante-chip">D. Pirateque</a>
+                <a href="equipo.html#david-santiago-perez" class="integrante-chip">D. Perez</a>
               </div>
             </div>
           </div>

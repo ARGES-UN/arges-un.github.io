@@ -133,7 +133,7 @@
   -webkit-overflow-scrolling: touch;
 }
 .linea-tab {
-  flex: 1 0 168px;
+  flex: 1 0 162px;
   scroll-snap-align: start;
 }
 .linea-tab-label {

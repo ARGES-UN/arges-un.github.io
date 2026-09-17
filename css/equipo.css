@@ -112,7 +112,7 @@
 .member-desc {
   font-size: 13px; line-height: 1.55; margin-bottom: 0.75rem;
   display: -webkit-box; -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;
+  -webkit-line-clamp: 15; line-clamp: 15; overflow: hidden;
 }
 .member-focus-list { display: flex; flex-wrap: wrap; gap: 2px 14px; margin-bottom: 0.4rem; }
 .member-focus { font-family: var(--mono); font-size: 10px; color: var(--text-faint); letter-spacing: 0.05em; display: flex; align-items: center; gap: 5px; min-width: calc(50% - 7px); max-width: 100%; }

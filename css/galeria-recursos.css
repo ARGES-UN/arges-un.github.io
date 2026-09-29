@@ -1,0 +1,42 @@
+/* ================================================================
+   ARGES · galeria-recursos.css
+   Estilos EXCLUSIVOS de pages/recursos/galeria.html.
+
+   No duplica nada: el visor (.lightbox) y el comportamiento clicable
+   de .galeria-item ya existen en css/proyectos.css y js/galeria.js
+   (los mismos que usan las páginas de proyecto). Esta hoja solo agrega
+   la variante "collage" — celdas de tamaños desiguales en vez de la
+   cuadrícula pareja que usan las galerías de proyecto.
+   ================================================================ */
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 160px;
+  grid-auto-flow: dense;   /* rellena los huecos que dejan las celdas grandes */
+  gap: 10px;
+}
+
+/* Aquí la celda NO tiene una proporción fija de 4:3 como en las
+   galerías de proyecto: su forma depende de cuántas filas/columnas
+   ocupe (ver las tres clases de tamaño más abajo). */
+.collage-grid .galeria-item,
+.collage-grid .galeria-item.is-empty { aspect-ratio: auto; }
+
+/* Tres tamaños opcionales para romper la monotonía del collage.
+   Van como clase EXTRA sobre .galeria-item — ninguno es obligatorio:
+   una celda sin ninguna ocupa 1 columna × 1 fila (130px). Verificado
+   que los spans calculan bien: grande=2x2, ancha=2x1, alta=1x2. */
+.collage-grid .is-ancha  { grid-column: span 2; }
+.collage-grid .is-alta   { grid-row: span 2; }
+.collage-grid .is-grande { grid-column: span 2; grid-row: span 2; }
+
+@media (max-width: 640px) {
+  .collage-grid { grid-auto-rows: 110px; gap: 8px; }
+}
+@media (max-width: 420px) {
+  /* en el celular más angosto todo vuelve a 2 columnas parejas, para
+     que ninguna celda quede demasiado angosta y recortada */
+  .collage-grid { grid-template-columns: 1fr 1fr; }
+  .collage-grid .is-grande, .collage-grid .is-ancha { grid-column: span 2; }
+}

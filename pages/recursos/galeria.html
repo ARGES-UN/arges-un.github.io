@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galería de fotos y videos del semillero ARGES · Universidad Nacional de Colombia, Bogotá" />
+  <title>Galería · ARGES</title>
+  <link rel="stylesheet" href="../../css/core.css" />
+  <link rel="stylesheet" href="../../css/icons.css" />
+  <link rel="stylesheet" href="../../css/recursos.css" />
+  <!-- proyectos.css no es exclusivo de los proyectos: aquí solo se
+       reutiliza la parte del visor (.lightbox) y de .galeria-item,
+       para no duplicar ese código en un archivo nuevo. -->
+  <link rel="stylesheet" href="../../css/proyectos.css" />
+  <link rel="stylesheet" href="../../css/galeria-recursos.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="nav-logo">ARGES</a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../../pages/investigacion.html">Investigación</a></li>
+        <li><a href="../../pages/equipo.html">Equipo</a></li>
+        <li class="nav-item-split" data-nav-dropdown>
+          <a href="../../pages/recursos/index.html" class="active">Recursos</a>
+          <button class="nav-caret" aria-label="Desplegar secciones de Recursos" aria-expanded="false">
+            <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown">
+            <a href="../../pages/recursos/noticias.html"><i class="ti ti-news" aria-hidden="true"></i>Noticias y convocatorias</a>
+            <a href="../../pages/recursos/galeria.html" class="active"><i class="ti ti-photo" aria-hidden="true"></i>Galería</a>
+            <a href="../../pages/recursos/servicios.html"><i class="ti ti-briefcase" aria-hidden="true"></i>Servicios<span class="dd-soon">Pronto</span></a>
+            <a href="../../pages/recursos/cursos.html"><i class="ti ti-school" aria-hidden="true"></i>Cursos y material<span class="dd-soon">Pronto</span></a>
+          </div>
+        </li>
+        <li><a href="../../pages/contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="bg-grid"></div>
+    <div class="glow"></div>
+    <div class="container">
+      <div class="page-header-eyebrow">ARGES · UNAL</div>
+      <h1>Galería</h1>
+      <p>Fotos y videos del laboratorio, el equipo y los proyectos en curso. Haz clic en cualquier ítem para verlo en grande.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Ejemplo de collage con las 3 variantes de tamaño. Reemplaza
+           cada uno siguiendo GALERIA_LIGHTBOX.md (mismo procedimiento
+           que en las páginas de proyecto): cambiar <div is-empty> por
+           <button> con la <img> o <video> real adentro. Las clases
+           is-ancha / is-alta / is-grande son opcionales y se pueden
+           quitar, cambiar o repetir en cualquier ítem. -->
+      <div class="galeria-grid collage-grid">
+
+        <button type="button" class="galeria-item is-grande" data-caption="Equipo de trabajo sin 3 Coordinadores y el profe">
+          <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Laboratorio</span>
+          <i class="ti ti-zoom-in galeria-item-expand" aria-hidden="true"></i>
+          <img src="../../assets/img/galeria/IMG_6552.jpg"
+              alt="Equipo de trabajo sin 3 Coordinadores y el profe"
+              loading="lazy" draggable="false" />
+        </button>
+
+        <div class="galeria-item is-empty">
+          <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Equipo</span>
+          <div class="galeria-empty-inner">
+            <i class="ti ti-photo" aria-hidden="true"></i>
+            <span>Foto próximamente</span>
+          </div>
+        </div>
+
+        <div class="galeria-item is-empty is-alta">
+          <span class="galeria-item-tag"><i class="ti ti-video" aria-hidden="true"></i>WAAM</span>
+          <div class="galeria-empty-inner">
+            <i class="ti ti-video" aria-hidden="true"></i>
+            <span>Video próximamente</span>
+          </div>
+        </div>
+
+        <div class="galeria-item is-empty">
+          <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Evento</span>
+          <div class="galeria-empty-inner">
+            <i class="ti ti-photo" aria-hidden="true"></i>
+            <span>Foto próximamente</span>
+          </div>
+        </div>
+
+        <div class="galeria-item is-empty is-ancha">
+          <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Laboratorio</span>
+          <div class="galeria-empty-inner">
+            <i class="ti ti-photo" aria-hidden="true"></i>
+            <span>Foto próximamente</span>
+          </div>
+        </div>
+
+        <div class="galeria-item is-empty">
+          <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>Equipo</span>
+          <div class="galeria-empty-inner">
+            <i class="ti ti-photo" aria-hidden="true"></i>
+            <span>Foto próximamente</span>
+          </div>
+        </div>
+
+        <div class="galeria-item is-empty">
+          <span class="galeria-item-tag"><i class="ti ti-photo" aria-hidden="true"></i>WAAM</span>
+          <div class="galeria-empty-inner">
+            <i class="ti ti-photo" aria-hidden="true"></i>
+            <span>Foto próximamente</span>
+          </div>
+        </div>
+
+        <div class="galeria-item is-empty">
+          <span class="galeria-item-tag"><i class="ti ti-cube" aria-hidden="true"></i>Modelo 3D</span>
+          <div class="galeria-empty-inner">
+            <i class="ti ti-cube" aria-hidden="true"></i>
+            <span>Modelo próximamente</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="media-note">Esta galería reúne material de todo el semillero, no solo de un proyecto.
+         Para fotos y videos específicos de un proyecto, revisa la Galería dentro de su propia página.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 ARGES · Semillero de Soldadura &amp; END · UNAL Bogotá</span>
+      <div class="social-links">
+        <a href="https://www.instagram.com/drafrix?igsi=NnA0a2xheDI0a3Nq" class="social-link" target="_blank" rel="noopener" aria-label="Instagram de ARGES" title="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-link" target="_blank" rel="noopener" aria-label="YouTube de ARGES" title="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+        <a href="https://github.com/arges-unal" class="social-link" target="_blank" rel="noopener" aria-label="GitHub de ARGES" title="GitHub"><i class="ti ti-brand-github" aria-hidden="true"></i></a>
+      </div>
+      <a href="https://unal.edu.co" class="footer-link" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" aria-label="Volver al inicio de la página" title="Volver arriba">
+    <i class="ti ti-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- VISOR DE GALERÍA (lightbox): el mismo componente y el mismo
+       js/galeria.js que usan las páginas de proyecto. Cero código nuevo. -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Cerrar">
+      <i class="ti ti-x" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="lightbox-prev" aria-label="Anterior" hidden>
+      <i class="ti ti-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="lightbox-next" aria-label="Siguiente" hidden>
+      <i class="ti ti-chevron-right" aria-hidden="true"></i>
+    </button>
+    <div class="lightbox-body" data-lightbox-close>
+      <div class="lightbox-stage"></div>
+      <p class="lightbox-caption" hidden></p>
+    </div>
+  </div>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/galeria.js"></script>
+</body>
+</html>
